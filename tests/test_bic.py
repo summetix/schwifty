@@ -204,3 +204,17 @@ def test_magic_methods() -> None:
     assert str(bic) == "GENODEM1GLS"
     assert hash(bic) == hash("GENODEM1GLS")
     assert repr(bic) == "<BIC=GENODEM1GLS>"
+
+
+def test_pydantic_protocol() -> None:
+    from pydantic import BaseModel
+    from pydantic import ValidationError
+
+    class Model(BaseModel):
+        bic: BIC
+
+    model = Model(bic="GENODEM1GLS")
+    assert isinstance(model.bic, BIC)
+
+    with pytest.raises(ValidationError):
+        Model(bic="GENODXM1GLS")

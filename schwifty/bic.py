@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import re
 import warnings
+from typing import Any
+from typing import TYPE_CHECKING
 
 import iso3166
 from pycountry import countries  # type: ignore
@@ -11,6 +13,10 @@ from schwifty import common
 from schwifty import exceptions
 from schwifty import registry
 
+
+if TYPE_CHECKING:
+    from pydantic import GetCoreSchemaHandler
+    from pydantic_core import CoreSchema
 
 _bic_re = re.compile(r"[A-Z]{4}[A-Z]{2}[A-Z0-9]{2}(?:[A-Z0-9]{3})?")
 
@@ -377,6 +383,17 @@ class BIC(common.Base):
     def branch_code(self) -> str:
         """str: The branch-code part of the BIC (if available)"""
         return self._get_component(start=8, end=11)
+
+    @classmethod
+    def __get_pydantic_core_schema__(cls, source: Any, handler: GetCoreSchemaHandler) -> CoreSchema:
+        from pydantic_core import core_schema
+
+        return core_schema.union_schema(
+            [
+                core_schema.is_instance_schema(BIC),
+                core_schema.no_info_plain_validator_function(BIC),
+            ]
+        )
 
 
 registry.build_index("bank", "bic", key="bic", accumulate=True)

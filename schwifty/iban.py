@@ -3,6 +3,7 @@ from __future__ import annotations
 import re
 import string
 from typing import Any
+from typing import TYPE_CHECKING
 
 from pycountry import countries  # type: ignore
 from pycountry.db import Data  # type: ignore
@@ -13,6 +14,11 @@ from schwifty import registry
 from schwifty.bic import BIC
 from schwifty.checksum import algorithms
 from schwifty.checksum import InputType
+
+
+if TYPE_CHECKING:
+    from pydantic import GetCoreSchemaHandler
+    from pydantic_core import CoreSchema
 
 
 _spec_to_re: dict[str, str] = {"n": r"\d", "a": r"[A-Z]", "c": r"[A-Za-z0-9]", "e": r" "}
@@ -361,6 +367,17 @@ class IBAN(common.Base):
         """
 
         return None if self.bank is None else self.bank["short_name"]
+
+    @classmethod
+    def __get_pydantic_core_schema__(cls, source: Any, handler: GetCoreSchemaHandler) -> CoreSchema:
+        from pydantic_core import core_schema
+
+        return core_schema.union_schema(
+            [
+                core_schema.is_instance_schema(IBAN),
+                core_schema.no_info_plain_validator_function(IBAN),
+            ]
+        )
 
 
 def add_bban_regex(country: str, spec: dict) -> dict:

@@ -234,3 +234,17 @@ def test_unknown_bank_name_from_iban():
 
 def test_unknown_bank_name_short_from_iban():
     assert IBAN("SI72000001234567892").bank_short_name is None
+
+
+def test_pydantic_protocol() -> None:
+    from pydantic import BaseModel
+    from pydantic import ValidationError
+
+    class Model(BaseModel):
+        iban: IBAN
+
+    model = Model(iban="GL89 6471 0001 0002 06")
+    assert isinstance(model.iban, IBAN)
+
+    with pytest.raises(ValidationError):
+        Model(iban="GB00 HLFX 1101 6111 4553 65")

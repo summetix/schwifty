@@ -4,6 +4,9 @@ dependencies = [
   "pytest-cov==4.1.*",
   "pytest==7.3.*",
 ]
+features = [
+  "pydantic",
+]
 
 [envs.default.scripts]
 cov-test = "pytest --cov=schwifty tests {args:schwifty}"

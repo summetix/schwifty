@@ -190,3 +190,22 @@ bank-codes, e.g.:
   >>> bic = BIC.from_bank_code('DE', '43060967')
   >>> bic.formatted
   'GENO DE M1 GLS'
+
+
+Pydantic integration
+---------------------
+
+The :class:`.IBAN` and :class:`.BIC` types can be directly used for the popular data validation
+library `Pydantic <https://docs.pydantic.dev/latest/>`_ like so
+
+.. code-block:: python
+
+  from pydantic import BaseModel
+  from schwifty import IBAN
+
+
+  class Model(BaseModel):
+    iban: IBAN
+
+  model = Model(iban="DE89370400440532013000")  # OK
+  model = Model(iban="DX89370400440532013000")  # Raises ValidationError due to invalid country code

@@ -5,6 +5,13 @@ Changelog
 
 Versions follow `CalVer <http://www.calver.org/>`_ with the scheme ``YY.0M.Micro``.
 
+`2023.10.0`_ - 2023/10/31
+-------------------------
+Added
+~~~~~~~
+* The Pydantic v2 protocol is now supported, so that the :class:`.IBAN` and :class:`.BIC` classes
+  can be directly used as type annotations in `Pydantic models <https://docs.pydantic.dev/latest/concepts/models/#basic-model-usage>`_
+
 `2023.09.0`_ - 2023/09/25
 -------------------------
 Removed
@@ -411,6 +418,7 @@ Added
 * Added :attr:`.BIC.country` and :attr:`.IBAN.country`.
 
 
+.. _2023.10.0: https://github.com/mdomke/schwifty/compare/2023.09.0...2023.10.0
 .. _2023.09.0: https://github.com/mdomke/schwifty/compare/2023.06.0...2023.09.0
 .. _2023.06.0: https://github.com/mdomke/schwifty/compare/2023.03.0...2023.06.0
 .. _2023.03.0: https://github.com/mdomke/schwifty/compare/2023.02.1...2023.03.0
