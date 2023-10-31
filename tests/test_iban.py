@@ -243,8 +243,8 @@ def test_pydantic_protocol() -> None:
     class Model(BaseModel):
         iban: IBAN
 
-    model = Model(iban="GL89 6471 0001 0002 06")
+    model = Model(iban="GL89 6471 0001 0002 06")  # type: ignore[arg-type]
     assert isinstance(model.iban, IBAN)
 
     with pytest.raises(ValidationError):
-        Model(iban="GB00 HLFX 1101 6111 4553 65")
+        Model(iban="GB00 HLFX 1101 6111 4553 65")  # type: ignore[arg-type]

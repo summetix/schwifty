@@ -50,10 +50,13 @@ class BIC(common.Base):
         InvalidLength: If the BIC's length is not 8 or 11 characters long.
         InvalidStructure: If the BIC contains unexpected characters.
         InvalidCountryCode: If the BIC's country code is unknown.
+
+    .. versionchanged:: 2023.10.0
+        The :class:`.BIC` is now a subclass of :class:`str` and supports all its methods.
     """
 
     def __init__(self, bic: str, allow_invalid: bool = False) -> None:
-        super().__init__(bic)
+        super().__init__()
         if not allow_invalid:
             self.validate()
 
@@ -209,12 +212,12 @@ class BIC(common.Base):
         return True
 
     def _validate_length(self) -> None:
-        if self.length not in (8, 11):
-            raise exceptions.InvalidLength(f"Invalid length '{self.length}'")
+        if len(self) not in (8, 11):
+            raise exceptions.InvalidLength(f"Invalid length '{len(self)}'")
 
     def _validate_structure(self) -> None:
-        if not _bic_re.match(self.compact):
-            raise exceptions.InvalidStructure(f"Invalid structure '{self.compact}'")
+        if not _bic_re.match(str(self)):
+            raise exceptions.InvalidStructure(f"Invalid structure '{self!s}'")
 
     def _validate_country_code(self) -> None:
         country_code = self.country_code
@@ -258,7 +261,7 @@ class BIC(common.Base):
     def _lookup_values(self, key: str) -> list:
         spec = registry.get("bic")
         assert isinstance(spec, dict)
-        entries = spec.get(self.compact, [])
+        entries = spec.get(str(self), [])
         return sorted({entry[key] for entry in entries})
 
     @property
@@ -335,7 +338,7 @@ class BIC(common.Base):
         """bool: Indicates if the BIC is available in Schwifty's registry."""
         spec = registry.get("bic")
         assert isinstance(spec, dict)
-        return bool(spec.get(self.compact))
+        return bool(spec.get(str(self)))
 
     @property
     def type(self) -> str:

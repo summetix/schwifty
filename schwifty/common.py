@@ -9,12 +9,9 @@ _clean_regex = re.compile(r"\s+")
 
 
 @total_ordering
-class Base:
-    def __init__(self, code: str) -> None:
-        self._code = clean(code)
-
-    def __str__(self) -> str:
-        return self.compact
+class Base(str):
+    def __new__(cls, code: str, **kwargs: Any) -> Base:
+        return super().__new__(cls, clean(code))
 
     def __repr__(self) -> str:
         return f"<{self.__class__.__name__}={self!s}>"
@@ -28,21 +25,18 @@ class Base:
     def __lt__(self, other: Any) -> bool:
         return str(self) < str(other)
 
-    def __len__(self) -> int:
-        return self.length
-
     @property
     def compact(self) -> str:
-        """str: Compact representation of the code."""
-        return self._code
+        """str: Compact representation of the code. It's preferable to call ``str(obj)``"""
+        return str(self)
 
     @property
     def length(self) -> int:
-        """int: Length of the compact code."""
-        return len(self.compact)
+        """int: Length of the compact code. It's preferable to call ``len(obj)``"""
+        return len(self)
 
     def _get_component(self, start: int, end: int | None = None) -> str:
-        if start < self.length and (end is None or end <= self.length):
+        if start < len(self) and (end is None or end <= len(self)):
             return self.compact[start:end] if end else self.compact[start:]
         return ""
 

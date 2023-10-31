@@ -17,7 +17,7 @@ Afterwards you can access all relevant components and meta-information of the IB
 
 .. code-block:: pycon
 
-  >>> iban.compact
+  >>> str(iban)
   'DE89370400440532013000'
   >>> iban.formatted
   'DE89 3704 0044 0532 0130 00'
@@ -27,7 +27,7 @@ Afterwards you can access all relevant components and meta-information of the IB
   '37040044'
   >>> iban.account_code
   '0532013000'
-  >>> iban.length
+  >>> len(iban)
   22
 
 For some countries it is also possible to get ahold of the :class:`.BIC` associated to the bank-code
@@ -85,6 +85,21 @@ and currently includes entries for the following countries:
 * Spain
 * Sweden
 * Switzerland
+
+.. note::
+
+  The :class:`.IBAN` and :class:`.BIC` classes are subclasses of :class:`str` so that all methods
+  and functionallities (e.g. slicing) can be directly used. E.g.
+
+  .. code-block:: pycon
+
+    >>> iban = IBAN('DE89 3704 0044 0532 0130 00')
+    >>> iban[2:4]
+    "89"
+    >>> iban.count("0")
+    8
+    >>> iban.startswith("DE")
+    True
 
 
 Validation
@@ -179,6 +194,15 @@ bank-codes, e.g.:
 
 .. code-block:: pycon
 
+  >>> bic = BIC.from_bank_code('DE', '43060967')
+  >>> bic.formatted
+  'GENO DE M1 GLS'
+
+In case there are multiple BICs that can be related to a domestic bank code you can also use the
+:meth:`.BIC.candidates_from_bank_code`-method to get a list of all knwon BIC candidates.
+
+.. code-block:: pycon
+
   >>> BIC.candidates_from_bank_code('FR', '30004') # doctest: +NORMALIZE_WHITESPACE
   [<BIC=BNPAFRPPIFN>, <BIC=BNPAFRPPPAA>, <BIC=BNPAFRPPMED>, <BIC=BNPAFRPPCRN>,
    <BIC=BNPAFRPP>, <BIC=BNPAFRPPPAE>, <BIC=BNPAFRPPPBQ>, <BIC=BNPAFRPPNFE>,
@@ -186,10 +210,6 @@ bank-codes, e.g.:
    <BIC=BNPAFRPPPVD>, <BIC=BNPAFRPPPTX>, <BIC=BNPAFRPPPAC>, <BIC=BNPAFRPPPLZ>,
    <BIC=BNPAFRPP039>, <BIC=BNPAFRPPENG>, <BIC=BNPAFRPPNEU>, <BIC=BNPAFRPPORE>,
    <BIC=BNPAFRPPPEE>, <BIC=BNPAFRPPPXV>, <BIC=BNPAFRPPIFO>]
-
-  >>> bic = BIC.from_bank_code('DE', '43060967')
-  >>> bic.formatted
-  'GENO DE M1 GLS'
 
 
 Pydantic integration

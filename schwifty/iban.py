@@ -35,8 +35,12 @@ def _get_iban_spec(country_code: str) -> dict:
         raise exceptions.InvalidCountryCode(f"Unknown country-code '{country_code}'") from e
 
 
-def numerify(string: str) -> int:
-    return int("".join(str(_alphabet.index(c)) for c in string))
+def numerify(value: str) -> int:
+    return int("".join(str(_alphabet.index(c)) for c in value))
+
+
+def calc_checksum(value: str) -> str:
+    return f"{98 - (numerify(value) * 100) % 97:02d}"
 
 
 def code_length(spec: dict[str, Any], code_type: str) -> int:
@@ -87,8 +91,7 @@ class IBAN(common.Base):
     Args:
         iban (str): The IBAN code.
         allow_invalid (bool): If set to `True` IBAN validation is skipped on instantiation.
-        validate_bban (bool): If set to `True` also check the country specific checksum with then
-                              BBAN.
+        validate_bban (bool): If set to `True` also check the country specific checksum of the BBAN.
 
     Raises:
         InvalidStructure: If the IBAN contains invalid characters or the BBAN does not match the
@@ -99,18 +102,15 @@ class IBAN(common.Base):
     .. versionchanged:: 2021.05.1
         Added the `validate_bban` parameter that controls if the country specific checksum within
         the BBAN is also validated.
+    .. versionchanged:: 2023.10.0
+        The :class:`.IBAN` is now a subclass of :class:`str` and supports all its methods.
+
     """
 
     def __init__(self, iban: str, allow_invalid: bool = False, validate_bban: bool = False) -> None:
-        super().__init__(iban)
-        if self.checksum_digits == "??":
-            self._code = self.country_code + self._calc_checksum_digits() + self.bban
-
+        super().__init__()
         if not allow_invalid:
             self.validate(validate_bban)
-
-    def _calc_checksum_digits(self) -> str:
-        return f"{98 - (numerify(self.bban + self.country_code) * 100) % 97:02d}"
 
     @classmethod
     def generate(
@@ -149,6 +149,11 @@ class IBAN(common.Base):
         branch_code_length: int = code_length(spec, "branch_code")
         account_code_length: int = code_length(spec, "account_code")
 
+        country_code = common.clean(country_code)
+        bank_code = common.clean(bank_code)
+        account_code = common.clean(account_code)
+        branch_code = common.clean(branch_code)
+
         if len(bank_code) == bank_code_length + branch_code_length:
             bank_code, branch_code = bank_code[:bank_code_length], bank_code[bank_code_length:]
 
@@ -178,7 +183,7 @@ class IBAN(common.Base):
             bban = bban[:start] + value + bban[end:]
 
         bban = add_bban_checksum(country_code, bban)
-        return cls(country_code + "??" + bban)
+        return cls(country_code + calc_checksum(bban + country_code) + bban)
 
     def validate(self, validate_bban: bool = False) -> bool:
         """Validate the structural integrity of this IBAN.
@@ -212,23 +217,24 @@ class IBAN(common.Base):
         return True
 
     def _validate_characters(self) -> None:
-        if not re.match(r"[A-Z]{2}\d{2}[A-Z]*", self.compact):
-            raise exceptions.InvalidStructure(f"Invalid characters in IBAN {self.compact}")
+        if not re.match(r"[A-Z]{2}\d{2}[A-Z]*", self):
+            raise exceptions.InvalidStructure(f"Invalid characters in IBAN {self!s}")
 
     def _validate_length(self) -> None:
-        if self.spec["iban_length"] != self.length:
+        if self.spec["iban_length"] != len(self):
             raise exceptions.InvalidLength("Invalid IBAN length")
 
     def _validate_format(self) -> None:
         if not self.spec["regex"].match(self.bban):
             raise exceptions.InvalidStructure(
-                "Invalid BBAN structure: '{}' doesn't match '{}''".format(
-                    self.bban, self.spec["bban_spec"]
-                )
+                f"Invalid BBAN structure: '{self.bban}' doesn't match '{self.spec['bban_spec']}'"
             )
 
     def _validate_iban_checksum(self) -> None:
-        if self.numeric % 97 != 1 or self._calc_checksum_digits() != self.checksum_digits:
+        if (
+            self.numeric % 97 != 1
+            or calc_checksum(self.bban + self.country_code) != self.checksum_digits
+        ):
             raise exceptions.InvalidChecksumDigits("Invalid checksum digits")
 
     def _validate_bban_checksum(self) -> None:
@@ -268,12 +274,12 @@ class IBAN(common.Base):
     @property
     def numeric(self) -> int:
         """int: A numeric represenation of the IBAN."""
-        return numerify(self.bban + self.compact[:4])
+        return numerify(self.bban + self[:4])
 
     @property
     def formatted(self) -> str:
         """str: The IBAN formatted in blocks of 4 digits."""
-        return " ".join(self.compact[i : i + 4] for i in range(0, len(self.compact), 4))
+        return " ".join(self[i : i + 4] for i in range(0, len(self), 4))
 
     @property
     def spec(self) -> dict[str, Any]:

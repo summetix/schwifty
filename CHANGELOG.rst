@@ -12,6 +12,11 @@ Added
 * The Pydantic v2 protocol is now supported, so that the :class:`.IBAN` and :class:`.BIC` classes
   can be directly used as type annotations in `Pydantic models <https://docs.pydantic.dev/latest/concepts/models/#basic-model-usage>`_
 
+Changed
+~~~~~~~
+* The :class:`.IBAN` and :class:`.BIC` classes are now subclasses of :class:`str` so that all string
+  related methods and functionallities (e.g. slicing) are directly available.
+
 `2023.09.0`_ - 2023/09/25
 -------------------------
 Removed

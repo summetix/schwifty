@@ -213,8 +213,8 @@ def test_pydantic_protocol() -> None:
     class Model(BaseModel):
         bic: BIC
 
-    model = Model(bic="GENODEM1GLS")
+    model = Model(bic="GENODEM1GLS")  # type: ignore[arg-type]
     assert isinstance(model.bic, BIC)
 
     with pytest.raises(ValidationError):
-        Model(bic="GENODXM1GLS")
+        Model(bic="GENODXM1GLS")  # type: ignore[arg-type]
