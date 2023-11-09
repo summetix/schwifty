@@ -24,12 +24,17 @@ Features
 
 ``schwifty`` lets you
 
-* validate check-digits and the country specific format of IBANs
-* validate format and country codes from BICs
-* generate BICs from country and bank-code
-* generate IBANs from country-code, bank-code and account-number.
+* `validate`_ check-digits and the country specific format of IBANs
+* `validate`_ format and country codes from BICs
+* `generate`_ BICs from country and bank-code
+* `generate`_ IBANs from country-code, bank-code and account-number.
 * get the BIC associated to an IBAN's bank-code
 * access all relevant components as attributes
+
+See the `docs <https://schwifty.readthedocs.io>`_ for more inforamtion.
+
+.. _validate: https://schwifty.readthedocs.io/en/latest/examples.html#validation
+.. _generate: https://schwifty.readthedocs.io/en/latest/examples.html#generation
 
 .. teaser-end
 
