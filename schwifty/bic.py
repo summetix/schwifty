@@ -184,8 +184,18 @@ class BIC(common.Base):
             * Switzerland
         """
         try:
-            entries = cls.candidates_from_bank_code(country_code, bank_code)
-            return entries[0]
+            candidates = cls.candidates_from_bank_code(country_code, bank_code)
+            if len(candidates) > 1:
+                # If we have multiple candidates, we try to pick the
+                # one with XXX as branch code which is the most generic one.
+                generic_codes = sorted(
+                    [c for c in candidates if c.branch_code == "XXX" or not c.branch_code],
+                    key=len,
+                    reverse=True,
+                )
+                if generic_codes:
+                    return generic_codes[0]
+            return candidates[0]
         except KeyError as e:
             raise exceptions.InvalidBankCode(
                 f"Unknown bank code {bank_code!r} for country {country_code!r}"
