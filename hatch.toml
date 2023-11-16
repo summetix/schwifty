@@ -14,9 +14,9 @@ test = "cov-test --no-cov"
 
 [envs.lint]
 extra-dependencies = [
-  "ruff==0.0.290",
-  "black==23.9.*",
-  "mypy==1.5.*",
+  "ruff==0.1.*",
+  "black==23.11.*",
+  "mypy==1.7.*",
   "doc8==1.1.*",
   "pygments==2.16.*",
 ]
