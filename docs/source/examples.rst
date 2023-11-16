@@ -159,9 +159,22 @@ ISO 9362 specification.
   ...
   InvalidLength: Invalid length 12
 
-  >>> BIC('PBN1DXFFXXXX')
+  >>> BIC('PBNKD1FFXXXX')
   ...
   InvalidStructure: Invalid structure PBN1DXFFXXXX
+
+.. note::
+
+  Starting from schwifty 2023.11.0 BIC values are being validated in the context of ISO 9362:2022
+  which allows numbers to be part of the business prefix (the first 4 characters of the BIC). The
+  SWIFT however still enforces alphabetic characters only. If strict SWIFT compliance is required
+  you can use the ``enforce_swift_compliance``-parameter, e.g.
+
+  .. code-block:: pycon
+
+    >>> BIC("1234DEWWXXX", enforce_swift_compliance=True)
+    ...
+    InvalidStructure: Invalid structure 1234DEWWXXX
 
 If catching an exception would complicate your code flow you can also use the :attr:`.IBAN.is_valid`
 property. E.g.:

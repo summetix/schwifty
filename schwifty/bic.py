@@ -18,11 +18,20 @@ if TYPE_CHECKING:
     from pydantic import GetCoreSchemaHandler
     from pydantic_core import CoreSchema
 
-_bic_re = re.compile(r"[A-Z0-9]{4}[A-Z]{2}[A-Z0-9]{2}(?:[A-Z0-9]{3})?")
+_bic_iso9362_re = re.compile(r"[A-Z0-9]{4}[A-Z]{2}[A-Z0-9]{2}(?:[A-Z0-9]{3})?")
+_bic_swift_re = re.compile(r"[A-Z]{4}[A-Z]{2}[A-Z0-9]{2}(?:[A-Z0-9]{3})?")
 
 
 class BIC(common.Base):
     """The BIC object.
+
+    When creating an instance of a BIC the provided value is checked for correctnes, unless the
+    ``allow_invalid`` parameter is set to ``True``.
+
+    The validation is done in the context of ISO 9362:2022, which allows numbers in the business
+    party prefix (the first 4 chracters). If strict SWIFT compliance is required the
+    ``enforce_swift_compliance`` parameter can be set to ``True``, in which case numbers are
+    disallowed as described in `revision 2023`_ of the SWIFT BIC policy.
 
     Examples:
 
@@ -43,8 +52,10 @@ class BIC(common.Base):
             'GENO DE M1 GLS'
 
     Args:
-        bic (str): The BIC number.
+        bic (str): The BIC value.
         allow_invalid (bool): If set to ``True`` validation is skipped on instantiation.
+        enforce_swift_commpliance (bool): If set to ``True`` the stricter SWIFT BIC policy is
+                                          applied.
 
     Raises:
         InvalidLength: If the BIC's length is not 8 or 11 characters long.
@@ -53,12 +64,25 @@ class BIC(common.Base):
 
     .. versionchanged:: 2023.10.0
         The :class:`.BIC` is now a subclass of :class:`str` and supports all its methods.
+
+    .. versionchanged:: 2023.11.0
+        The validation of the :class:`.BIC` structure is now allowing numbers in the business party
+        prefix, conforming to ISO 9362:2022. If strict SWIFT compliance should be ensured, the
+        ``enforce_swift_compliance`` parameter can be set to ``True``, which will then fall back to
+        the previous validation method.
+
+    .. _revision 2023: https://www2.swift.com/knowledgecentre/rest/v1/publications/bic_policy/3.0/bic_policy.pdf
     """
 
-    def __init__(self, bic: str, allow_invalid: bool = False) -> None:
+    def __init__(
+        self,
+        bic: str,
+        allow_invalid: bool = False,
+        enforce_swift_compliance: bool = False,
+    ) -> None:
         super().__init__()
         if not allow_invalid:
-            self.validate()
+            self.validate(enforce_swift_compliance)
 
     @classmethod
     def candidates_from_bank_code(cls, country_code: str, bank_code: str) -> list[BIC]:
@@ -203,11 +227,16 @@ class BIC(common.Base):
                 f"Unknown bank code {bank_code!r} for country {country_code!r}"
             ) from e
 
-    def validate(self) -> bool:
+    def validate(self, enforce_swift_compliance: bool = False) -> bool:
         """Validate the structural integrity of this BIC.
 
         This function will verify the correct length, structure and the existence of the country
         code.
+
+        Args:
+            enforce_swift_commpliance (bool): If set to ``True`` the stricter SWIFT BIC policy is
+                                              applied, which disallows numbers in the business
+                                              prefix.
 
         Note:
             You have to use the `allow_invalid` paramter when constructing the :class:`BIC`-object
@@ -219,7 +248,7 @@ class BIC(common.Base):
             InvalidCountryCode: If the BIC's country code is unknown.
         """
         self._validate_length()
-        self._validate_structure()
+        self._validate_structure(enforce_swift_compliance)
         self._validate_country_code()
         return True
 
@@ -227,8 +256,9 @@ class BIC(common.Base):
         if len(self) not in (8, 11):
             raise exceptions.InvalidLength(f"Invalid length '{len(self)}'")
 
-    def _validate_structure(self) -> None:
-        if not _bic_re.match(str(self)):
+    def _validate_structure(self, enforce_swift_compliance: bool = False) -> None:
+        regex = _bic_swift_re if enforce_swift_compliance else _bic_iso9362_re
+        if not regex.match(str(self)):
             raise exceptions.InvalidStructure(f"Invalid structure '{self!s}'")
 
     def _validate_country_code(self) -> None:

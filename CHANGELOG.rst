@@ -5,6 +5,18 @@ Changelog
 
 Versions follow `CalVer <http://www.calver.org/>`_ with the scheme ``YY.0M.Micro``.
 
+`2023.11.0`_ - 2023/11/17
+-------------------------
+Changed
+~~~~~~~
+* The validation of a :class:`.BIC` is now performed in the context of ISO 9362:2022 which allows
+  numbers in the business party prefix. If strict SWIFT compliance is reqruied the
+  ``enforce_swift_compliance`` parameter can be set to ``True``.
+* The :meth:`.BIC.from_bank_code`-method will now select the most generic BIC (e.g. with no branch
+  specifier or the "XXX" value) if multiple BICs are associated to the given domestic bank code.
+  `@Natim <https://github.com/Natim>`_.
+* Many manually curated bank registry entries have been re-added by `@dennisxtria <https://github.com/dennisxtria>`_
+
 `2023.10.0`_ - 2023/10/31
 -------------------------
 Added
@@ -423,6 +435,7 @@ Added
 * Added :attr:`.BIC.country` and :attr:`.IBAN.country`.
 
 
+.. _2023.11.0: https://github.com/mdomke/schwifty/compare/2023.10.0...2023.11.0
 .. _2023.10.0: https://github.com/mdomke/schwifty/compare/2023.09.0...2023.10.0
 .. _2023.09.0: https://github.com/mdomke/schwifty/compare/2023.06.0...2023.09.0
 .. _2023.06.0: https://github.com/mdomke/schwifty/compare/2023.03.0...2023.06.0

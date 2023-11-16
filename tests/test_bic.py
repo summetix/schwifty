@@ -86,6 +86,11 @@ def test_bic_type(code: str, type: str) -> None:  # noqa: A002
     assert bic.type == type
 
 
+def test_enforce_swift_compliance() -> None:
+    with pytest.raises(exceptions.InvalidStructure):
+        BIC("1234DEWWXXX", enforce_swift_compliance=True)
+
+
 @pytest.mark.parametrize(
     ("code", "exc"),
     [
