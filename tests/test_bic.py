@@ -106,6 +106,7 @@ def test_invalid_bic(code: str, exc: type[Exception]) -> None:
         ("AT", "36274", "RZTIAT22274"),
         ("BE", "002", "GEBABEBB"),
         ("CZ", "0600", "AGBACZPP"),
+        ("DE", "43060967", "GENODEM1GLS"),
         ("ES", "0209", "BSABESBB"),
         ("FI", "101", "NDEAFIHH"),
         ("FR", "30004", "BNPAFRPP"),
@@ -114,9 +115,10 @@ def test_invalid_bic(code: str, exc: type[Exception]) -> None:
         ("FR", "18719", "BFCOYTYTXXX"),
         ("FR", "30077", "SMCTFR2A"),
         ("FR", "13489", "NORDFRPP"),
-        ("DE", "43060967", "GENODEM1GLS"),
         ("HU", "107", "CIBHHUHB"),
         ("HR", "2485003", "CROAHR2X"),
+        ("IT", "01015", "SARDIT31"),  # generated
+        ("IT", "01030", "PASCITMM"),  # curated
         ("LV", "RIKO", "RIKOLV2XXXX"),
         ("NL", "ADYB", "ADYBNL2A"),
         ("PL", "10100055", "NBPLPLPWXXX"),
