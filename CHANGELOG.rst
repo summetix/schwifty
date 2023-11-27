@@ -10,7 +10,7 @@ Versions follow `CalVer <http://www.calver.org/>`_ with the scheme ``YY.0M.Micro
 Changed
 ~~~~~~~
 * The Swiss bank registry is now generated from the SIX Group.
-
+* Manually add missing bank entry for Spain.
 
 `2023.11.0`_ - 2023/11/17
 -------------------------
