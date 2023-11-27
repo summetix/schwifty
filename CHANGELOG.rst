@@ -11,6 +11,7 @@ Changed
 ~~~~~~~
 * The Swiss bank registry is now generated from the SIX Group.
 * Manually add missing bank entry for Spain.
+* Updated bank registr for Austria and Poland.
 
 `2023.11.0`_ - 2023/11/17
 -------------------------

@@ -1410,6 +1410,14 @@
   {
     "country_code": "AT",
     "primary": true,
+    "bic": "RZKTAT2K561",
+    "bank_code": "39322",
+    "name": "Raiffeisenbank Gro\u00dfglockner-Weissensee eG",
+    "short_name": "Raiffeisenbank Gro\u00dfglockner-Weissensee eG"
+  },
+  {
+    "country_code": "AT",
+    "primary": true,
     "bic": "RLNWATW1477",
     "bank_code": "32679",
     "name": "Raiffeisenbank Region Schallaburg eGen",
@@ -1462,6 +1470,46 @@
     "bank_code": "36387",
     "name": "Raiffeisenbank Sillian - Lienzer Talboden eGen",
     "short_name": "Raiffeisenbank Sillian - Lienzer Talboden eGen"
+  },
+  {
+    "country_code": "AT",
+    "primary": true,
+    "bic": "RZKTAT2K475",
+    "bank_code": "39511",
+    "name": "Raiffeisenbank Mittelk\u00e4rnten eG",
+    "short_name": "Raiffeisenbank Mittelk\u00e4rnten eG"
+  },
+  {
+    "country_code": "AT",
+    "primary": true,
+    "bic": "RZKTAT2K475",
+    "bank_code": "39255",
+    "name": "Raiffeisenbank Mittelk\u00e4rnten eG",
+    "short_name": "Raiffeisenbank Mittelk\u00e4rnten eG"
+  },
+  {
+    "country_code": "AT",
+    "primary": true,
+    "bic": "RZKTAT2K475",
+    "bank_code": "39340",
+    "name": "Raiffeisenbank Mittelk\u00e4rnten eG",
+    "short_name": "Raiffeisenbank Mittelk\u00e4rnten eG"
+  },
+  {
+    "country_code": "AT",
+    "primary": true,
+    "bic": "RZKTAT2K475",
+    "bank_code": "39384",
+    "name": "Raiffeisenbank Mittelk\u00e4rnten eG",
+    "short_name": "Raiffeisenbank Mittelk\u00e4rnten eG"
+  },
+  {
+    "country_code": "AT",
+    "primary": true,
+    "bic": "RZKTAT2K546",
+    "bank_code": "39272",
+    "name": "Raiffeisenbank V\u00f6lkermarkt-Bleiburg eGen",
+    "short_name": "Raiffeisenbank V\u00f6lkermarkt-Bleiburg eGen"
   },
   {
     "country_code": "AT",
@@ -3556,8 +3604,8 @@
     "primary": true,
     "bic": "RZKTAT2K475",
     "bank_code": "39505",
-    "name": "Raiffeisen-Bezirksbank St. Veit a.d. Glan-Feldkirchen, registrierte Genossenschaft mit beschr\u00e4nkter Haftung",
-    "short_name": "Raiffeisen-Bezirksbank St. Veit a.d. Glan-Feldkirchen, registrierte Genossenschaft mit beschr\u00e4nkter Haftung"
+    "name": "Raiffeisenbank Mittelk\u00e4rnten eG",
+    "short_name": "Raiffeisenbank Mittelk\u00e4rnten eG"
   },
   {
     "country_code": "AT",
@@ -3908,8 +3956,8 @@
     "primary": true,
     "bic": "RVSAAT2S071",
     "bank_code": "35371",
-    "name": "Raiffeisenbank Wals-Himmelreich registrierte Genossenschaft mit beschr\u00e4nkter Haftung",
-    "short_name": "Raiffeisenbank Wals-Himmelreich registrierte Genossenschaft mit beschr\u00e4nkter Haftung"
+    "name": "Raiffeisenbank Wals-Himmelreich eGen",
+    "short_name": "Raiffeisenbank Wals-Himmelreich eGen"
   },
   {
     "country_code": "AT",
@@ -4220,16 +4268,8 @@
     "primary": true,
     "bic": "RZKTAT2K475",
     "bank_code": "39475",
-    "name": "Raiffeisen-Bezirksbank St. Veit a.d. Glan-Feldkirchen, registrierte Genossenschaft mit beschr\u00e4nkter Haftung",
-    "short_name": "Raiffeisen-Bezirksbank St. Veit a.d. Glan-Feldkirchen, registrierte Genossenschaft mit beschr\u00e4nkter Haftung"
-  },
-  {
-    "country_code": "AT",
-    "primary": true,
-    "bic": "RZKTAT2K272",
-    "bank_code": "39272",
-    "name": "Raiffeisenbank Bleiburg registrierte Genossenschaft mit beschr\u00e4nkter Haftung",
-    "short_name": "Raiffeisenbank Bleiburg registrierte Genossenschaft mit beschr\u00e4nkter Haftung"
+    "name": "Raiffeisenbank Mittelk\u00e4rnten eG",
+    "short_name": "Raiffeisenbank Mittelk\u00e4rnten eG"
   },
   {
     "country_code": "AT",
@@ -4434,14 +4474,6 @@
   {
     "country_code": "AT",
     "primary": true,
-    "bic": "RZKTAT2K511",
-    "bank_code": "39511",
-    "name": "Raiffeisenbank Mittelk\u00e4rnten eG",
-    "short_name": "Raiffeisenbank Mittelk\u00e4rnten eG"
-  },
-  {
-    "country_code": "AT",
-    "primary": true,
     "bic": "RZKTAT2K543",
     "bank_code": "39543",
     "name": "Raiffeisenbank Hermagor eG",
@@ -4452,8 +4484,8 @@
     "primary": true,
     "bic": "RZKTAT2K546",
     "bank_code": "39546",
-    "name": "Raiffeisenbank V\u00f6lkermarkt, registrierte Genossenschaft mit beschr\u00e4nkter Haftung",
-    "short_name": "Raiffeisenbank V\u00f6lkermarkt, registrierte Genossenschaft mit beschr\u00e4nkter Haftung"
+    "name": "Raiffeisenbank V\u00f6lkermarkt-Bleiburg eGen",
+    "short_name": "Raiffeisenbank V\u00f6lkermarkt-Bleiburg eGen"
   },
   {
     "country_code": "AT",
@@ -4524,8 +4556,8 @@
     "primary": true,
     "bic": "RZKTAT2K561",
     "bank_code": "39561",
-    "name": "Raiffeisenbank Oberes M\u00f6lltal-Oberdrauburg eGen",
-    "short_name": "Raiffeisenbank Oberes M\u00f6lltal-Oberdrauburg eGen"
+    "name": "Raiffeisenbank Gro\u00dfglockner-Weissensee eG",
+    "short_name": "Raiffeisenbank Gro\u00dfglockner-Weissensee eG"
   },
   {
     "country_code": "AT",
@@ -4534,14 +4566,6 @@
     "bank_code": "39320",
     "name": "Raiffeisenbank Grafenstein-Magdalensberg und Umgebung, registrierte Genossenschaft mit beschr\u00e4nkter Haftung",
     "short_name": "Raiffeisenbank Grafenstein-Magdalensberg und Umgebung, registrierte Genossenschaft mit beschr\u00e4nkter Haftung"
-  },
-  {
-    "country_code": "AT",
-    "primary": true,
-    "bic": "RZKTAT2K322",
-    "bank_code": "39322",
-    "name": "Raiffeisenbank Oberdrautal-Weissensee, registrierte Genossenschaft mit beschr\u00e4nkter Haftung",
-    "short_name": "Raiffeisenbank Oberdrautal-Weissensee, registrierte Genossenschaft mit beschr\u00e4nkter Haftung"
   },
   {
     "country_code": "AT",
@@ -4964,8 +4988,8 @@
     "primary": true,
     "bic": "RVSAAT2S071",
     "bank_code": "35071",
-    "name": "Raiffeisenbank Wals-Himmelreich registrierte Genossenschaft mit beschr\u00e4nkter Haftung",
-    "short_name": "Raiffeisenbank Wals-Himmelreich registrierte Genossenschaft mit beschr\u00e4nkter Haftung"
+    "name": "Raiffeisenbank Wals-Himmelreich eGen",
+    "short_name": "Raiffeisenbank Wals-Himmelreich eGen"
   },
   {
     "country_code": "AT",
@@ -5820,8 +5844,8 @@
     "primary": true,
     "bic": "RZKTAT2K475",
     "bank_code": "39254",
-    "name": "Raiffeisen-Bezirksbank St. Veit a.d. Glan-Feldkirchen, registrierte Genossenschaft mit beschr\u00e4nkter Haftung",
-    "short_name": "Raiffeisen-Bezirksbank St. Veit a.d. Glan-Feldkirchen, registrierte Genossenschaft mit beschr\u00e4nkter Haftung"
+    "name": "Raiffeisenbank Mittelk\u00e4rnten eG",
+    "short_name": "Raiffeisenbank Mittelk\u00e4rnten eG"
   },
   {
     "country_code": "AT",
@@ -6148,8 +6172,8 @@
     "primary": true,
     "bic": "RZKTAT2K475",
     "bank_code": "39407",
-    "name": "Raiffeisen-Bezirksbank St. Veit a.d. Glan-Feldkirchen, registrierte Genossenschaft mit beschr\u00e4nkter Haftung",
-    "short_name": "Raiffeisen-Bezirksbank St. Veit a.d. Glan-Feldkirchen, registrierte Genossenschaft mit beschr\u00e4nkter Haftung"
+    "name": "Raiffeisenbank Mittelk\u00e4rnten eG",
+    "short_name": "Raiffeisenbank Mittelk\u00e4rnten eG"
   },
   {
     "country_code": "AT",
@@ -6396,8 +6420,8 @@
     "primary": true,
     "bic": "RZKTAT2K561",
     "bank_code": "39431",
-    "name": "Raiffeisenbank Oberes M\u00f6lltal-Oberdrauburg eGen",
-    "short_name": "Raiffeisenbank Oberes M\u00f6lltal-Oberdrauburg eGen"
+    "name": "Raiffeisenbank Gro\u00dfglockner-Weissensee eG",
+    "short_name": "Raiffeisenbank Gro\u00dfglockner-Weissensee eG"
   },
   {
     "country_code": "AT",
@@ -6706,34 +6730,10 @@
   {
     "country_code": "AT",
     "primary": true,
-    "bic": "RZKTAT2K511",
-    "bank_code": "39384",
-    "name": "Raiffeisenbank Mittelk\u00e4rnten eG",
-    "short_name": "Raiffeisenbank Mittelk\u00e4rnten eG"
-  },
-  {
-    "country_code": "AT",
-    "primary": true,
-    "bic": "RZKTAT2K511",
-    "bank_code": "39340",
-    "name": "Raiffeisenbank Mittelk\u00e4rnten eG",
-    "short_name": "Raiffeisenbank Mittelk\u00e4rnten eG"
-  },
-  {
-    "country_code": "AT",
-    "primary": true,
     "bic": "RVSAAT2S001",
     "bank_code": "35006",
     "name": "Raiffeisenbank Lammertal eGen",
     "short_name": "Raiffeisenbank Lammertal eGen"
-  },
-  {
-    "country_code": "AT",
-    "primary": true,
-    "bic": "RZKTAT2K511",
-    "bank_code": "39255",
-    "name": "Raiffeisenbank Mittelk\u00e4rnten eG",
-    "short_name": "Raiffeisenbank Mittelk\u00e4rnten eG"
   },
   {
     "country_code": "AT",

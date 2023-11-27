@@ -3730,6 +3730,14 @@
   {
     "country_code": "PL",
     "primary": true,
+    "bic": "WBKPPLPP",
+    "bank_code": "10900105",
+    "name": "Santander Bank Polska Sp\u00f3\u0142ka Akcyjna",
+    "short_name": "Santander Bank Polska Sp\u00f3\u0142ka Akcyjna"
+  },
+  {
+    "country_code": "PL",
+    "primary": true,
     "bic": "WBKPPLPPXXX",
     "bank_code": "10901014",
     "name": "Santander Bank Polska Sp\u00f3\u0142ka Akcyjna",
@@ -11722,6 +11730,14 @@
   {
     "country_code": "PL",
     "primary": true,
+    "bic": "",
+    "bank_code": "13200051",
+    "name": "Bank Pocztowy Sp\u00f3\u0142ka Akcyjna",
+    "short_name": "Bank Pocztowy Sp\u00f3\u0142ka Akcyjna"
+  },
+  {
+    "country_code": "PL",
+    "primary": true,
     "bic": "POCZPLP4XXX",
     "bank_code": "13201016",
     "name": "Bank Pocztowy Sp\u00f3\u0142ka Akcyjna",
@@ -13028,6 +13044,14 @@
     "primary": true,
     "bic": "POLUPLPRXXX",
     "bank_code": "19301839",
+    "name": "BANK POLSKIEJ SP\u00d3\u0141DZIELCZO\u015aCI SP\u00d3\u0141KA AKCYJNA",
+    "short_name": "BANK POLSKIEJ SP\u00d3\u0141DZIELCZO\u015aCI SP\u00d3\u0141KA AKCYJNA"
+  },
+  {
+    "country_code": "PL",
+    "primary": true,
+    "bic": "",
+    "bank_code": "19301842",
     "name": "BANK POLSKIEJ SP\u00d3\u0141DZIELCZO\u015aCI SP\u00d3\u0141KA AKCYJNA",
     "short_name": "BANK POLSKIEJ SP\u00d3\u0141DZIELCZO\u015aCI SP\u00d3\u0141KA AKCYJNA"
   },
@@ -14676,8 +14700,8 @@
     "primary": true,
     "bic": "POLUPLPRXXX",
     "bank_code": "24811112",
-    "name": "Getin Noble Bank Sp\u00f3\u0142ka Akcyjna",
-    "short_name": "Getin Noble Bank Sp\u00f3\u0142ka Akcyjna"
+    "name": "Getin Noble Bank Sp\u00f3\u0142ka Akcyjna w upad\u0142o\u015bci",
+    "short_name": "Getin Noble Bank Sp\u00f3\u0142ka Akcyjna w upad\u0142o\u015bci"
   },
   {
     "country_code": "PL",
@@ -15362,7 +15386,7 @@
   {
     "country_code": "PL",
     "primary": true,
-    "bic": "",
+    "bic": "POLUPLPRXXX",
     "bank_code": "28700003",
     "name": "Bank Nowy Sp\u00f3\u0142ka Akcyjna",
     "short_name": "Bank Nowy Sp\u00f3\u0142ka Akcyjna"
@@ -15796,8 +15820,8 @@
     "primary": true,
     "bic": "",
     "bank_code": "62000004",
-    "name": "Blue Media Sp\u00f3\u0142ka Akcyjna",
-    "short_name": "Blue Media Sp\u00f3\u0142ka Akcyjna"
+    "name": "Autopay Sp\u00f3\u0142ka Akcyjna",
+    "short_name": "Autopay Sp\u00f3\u0142ka Akcyjna"
   },
   {
     "country_code": "PL",

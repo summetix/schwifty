@@ -7,8 +7,8 @@ import pandas
 
 # https://www.bankinfrastruktur.se/framtidens-betalningsinfrastruktur/iban-och-svenskt-nationellt-kontonummer
 URL = (
-    "https://www.bankinfrastruktur.se/media/d1tlidv0/"
-    "iban-id-och-bic-adress-for-banker-2022-06-23.pdf"
+    "https://www.bankinfrastruktur.se/media/s0of3yyj/"
+    "iban-id-och-bic-adress-for-banker-2023-09-07.pdf"
 )
 
 
