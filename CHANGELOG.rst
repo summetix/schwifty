@@ -5,7 +5,13 @@ Changelog
 
 Versions follow `CalVer <http://www.calver.org/>`_ with the scheme ``YY.0M.Micro``.
 
-`2023.11.1`_ - tbd
+`2023.11.2`_ - 2023/11/27
+-------------------------
+Added
+~~~~~
+* Add OKALI to the list of French banks `@Natim <https://github.com/Natim>`_.
+
+`2023.11.1`_ - 2023/11/27
 -------------------------
 Changed
 ~~~~~~~
@@ -443,6 +449,7 @@ Added
 * Added :attr:`.BIC.country` and :attr:`.IBAN.country`.
 
 
+.. _2023.11.2: https://github.com/mdomke/schwifty/compare/2023.11.1...2023.11.2
 .. _2023.11.1: https://github.com/mdomke/schwifty/compare/2023.11.0...2023.11.1
 .. _2023.11.0: https://github.com/mdomke/schwifty/compare/2023.10.0...2023.11.0
 .. _2023.10.0: https://github.com/mdomke/schwifty/compare/2023.09.0...2023.10.0
