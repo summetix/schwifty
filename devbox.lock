@@ -2,44 +2,44 @@
   "lockfile_version": "1",
   "packages": {
     "python311Packages.pip@latest": {
-      "last_modified": "2023-10-25T20:49:13Z",
+      "last_modified": "2023-11-17T14:14:56Z",
       "plugin_version": "0.0.1",
-      "resolved": "github:NixOS/nixpkgs/75a52265bda7fd25e06e3a67dee3f0354e73243c#python311Packages.pip",
+      "resolved": "github:NixOS/nixpkgs/a71323f68d4377d12c04a5410e214495ec598d4c#python311Packages.pip",
       "source": "devbox-search",
       "version": "23.2.1",
       "systems": {
         "aarch64-darwin": {
-          "store_path": "/nix/store/gwd2i8fcxvvws3pnj9sdzwvzy49kkc9q-python3.11-pip-23.2.1"
+          "store_path": "/nix/store/3ys1a2kjdjffhdhqx8qzj98lwmq542qj-python3.11-pip-23.2.1"
         },
         "aarch64-linux": {
-          "store_path": "/nix/store/gr88sa1xim1wz558yyxbwxm7771v1y0w-python3.11-pip-23.2.1"
+          "store_path": "/nix/store/m8hcq4h6bds7fazx47pvg7hsmya9hg0s-python3.11-pip-23.2.1"
         },
         "x86_64-darwin": {
-          "store_path": "/nix/store/26awhk5dpfzzziiaqckmj5qx3aqzqmzp-python3.11-pip-23.2.1"
+          "store_path": "/nix/store/5bja78bcq8qzs97jr8zkbq42xxpr7dhx-python3.11-pip-23.2.1"
         },
         "x86_64-linux": {
-          "store_path": "/nix/store/z41lyyssxy1gza6ngn44q036k213c9gm-python3.11-pip-23.2.1"
+          "store_path": "/nix/store/slhj69him45n2pck7wkknnffi4ay0jy0-python3.11-pip-23.2.1"
         }
       }
     },
     "python@3.11": {
-      "last_modified": "2023-10-25T20:49:13Z",
+      "last_modified": "2023-11-17T14:14:56Z",
       "plugin_version": "0.0.1",
-      "resolved": "github:NixOS/nixpkgs/75a52265bda7fd25e06e3a67dee3f0354e73243c#python3",
+      "resolved": "github:NixOS/nixpkgs/a71323f68d4377d12c04a5410e214495ec598d4c#python3",
       "source": "devbox-search",
-      "version": "3.11.5",
+      "version": "3.11.6",
       "systems": {
         "aarch64-darwin": {
-          "store_path": "/nix/store/9mp1h1bi1l6bd15bqwpd0mf57gyz1brd-python3-3.11.5"
+          "store_path": "/nix/store/ai4hd8f1xhr0rfjdr17bxx1rwi42sx97-python3-3.11.6"
         },
         "aarch64-linux": {
-          "store_path": "/nix/store/nxxghhhia9x1skpqfak4z407yy0mbnnd-python3-3.11.5"
+          "store_path": "/nix/store/7ahkv87jj59z90yal5dcrgagz58cqmz6-python3-3.11.6"
         },
         "x86_64-darwin": {
-          "store_path": "/nix/store/6hy9npmilhl8aydbsrs849p7b819sv4v-python3-3.11.5"
+          "store_path": "/nix/store/dc4xnyqi2kh25f1c74dfczxw95anbhhr-python3-3.11.6"
         },
         "x86_64-linux": {
-          "store_path": "/nix/store/ffll6glz3gwx342z0ch8wx30p5cnqz1z-python3-3.11.5"
+          "store_path": "/nix/store/qp5zys77biz7imbk6yy85q5pdv7qk84j-python3-3.11.6"
         }
       }
     }
