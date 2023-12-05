@@ -26,7 +26,7 @@ _spec_to_re: dict[str, str] = {"n": r"\d", "a": r"[A-Z]", "c": r"[A-Za-z0-9]", "
 _alphabet: str = string.digits + string.ascii_uppercase
 
 
-def _get_iban_spec(country_code: str) -> dict:
+def _get_iban_spec(country_code: str) -> dict[str, Any]:
     try:
         spec = registry.get("iban")
         assert isinstance(spec, dict)
@@ -315,6 +315,11 @@ class IBAN(common.Base):
         return self._get_component(start=4)
 
     @property
+    def in_sepa_zone(self) -> bool:
+        """bool: Is the country in the Single Euro Payments Area (SEPA) zone."""
+        return self.spec["in_sepa_zone"]
+
+    @property
     def country_code(self) -> str:
         """str: ISO 3166 alpha-2 country code."""
         return self._get_component(start=0, end=2)
@@ -388,10 +393,10 @@ class IBAN(common.Base):
 
 def add_bban_regex(country: str, spec: dict) -> dict:
     bban_spec = spec["bban_spec"]
-    spec_re = r"(\d+)(!)?([{}])".format("".join(_spec_to_re.keys()))
+    spec_re = rf"(\d+)(!)?([{''.join(_spec_to_re.keys())}])"
 
     def convert(match: re.Match) -> str:
-        quantifier = ("{%s}" if match.group(2) else "{1,%s}") % match.group(1)
+        quantifier = ("{{{}}}" if match.group(2) else "{{1,{}}}").format(match.group(1))
         return _spec_to_re[match.group(3)] + quantifier
 
     spec["regex"] = re.compile(rf"^{re.sub(spec_re, convert, bban_spec)}$")

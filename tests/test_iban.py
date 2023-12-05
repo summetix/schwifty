@@ -104,11 +104,53 @@ invalid = [
     "GB94 BARC 2020 1530 0934 59",  # Wrong checksum digits
 ]
 
+sepa_countries = {
+    "AD",
+    "AT",
+    "BE",
+    "BG",
+    "CH",
+    "CY",
+    "CZ",
+    "DE",
+    "DK",
+    "EE",
+    "ES",
+    "FI",
+    "FR",
+    "GB",
+    "GI",
+    "GR",
+    "HR",
+    "HU",
+    "IE",
+    "IS",
+    "IT",
+    "LI",
+    "LT",
+    "LU",
+    "LV",
+    "MC",
+    "MT",
+    "NL",
+    "NO",
+    "PL",
+    "PT",
+    "RO",
+    "SE",
+    "SK",
+    "SI",
+    "SM",
+    "VA",
+}
+
 
 @pytest.mark.parametrize("number", valid)
 def test_parse_iban(number):
     iban = IBAN(number, validate_bban=True)
     assert iban.formatted == number
+    assert iban.country == countries.get(alpha_2=iban.country_code)
+    assert iban.in_sepa_zone is (iban.country_code in sepa_countries)
 
 
 @pytest.mark.parametrize("number", invalid)
@@ -126,6 +168,7 @@ def test_invalid_iban(number):
 
 def test_iban_properties():
     iban = IBAN("DE42430609677000534100")
+    assert iban.is_valid is True
     assert iban.bank_code == "43060967"
     assert iban.branch_code == ""
     assert iban.account_code == "7000534100"
@@ -136,6 +179,7 @@ def test_iban_properties():
     assert iban.country == countries.get(alpha_2="DE")
     assert iban.bank_name == "GLS Gemeinschaftsbank"
     assert iban.bank_short_name == "GLS Gemeinschaftsbk Bochum"
+    assert iban.in_sepa_zone is True
 
 
 @pytest.mark.parametrize(

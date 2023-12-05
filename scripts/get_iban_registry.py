@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import json
 import re
+from typing import Any
 from urllib.parse import urljoin
 
 import requests
@@ -11,18 +12,20 @@ COUNTRY_CODE_PATTERN = r"[A-Z]{2}"
 EMPTY_RANGE = (0, 0)
 URL = "https://www.swift.com/standards/data-standards/iban"
 
+Record = dict[str, Any]
 
-def get_raw():
+
+def get_raw() -> str:
     soup = BeautifulSoup(requests.get(URL).content, "html.parser")
     link = soup.find("a", attrs={"data-tracking-title": "IBAN Registry (TXT)"})
     return requests.get(urljoin(URL, link["href"])).content.decode(encoding="latin1")
 
 
-def parse_int(raw):
+def parse_int(raw: str) -> int:
     return int(re.search(r"\d+", raw).group())
 
 
-def parse_range(raw):
+def parse_range(raw: str) -> tuple[int, int]:
     pattern = r".*?(?P<from>\d+)\s*-\s*(?P<to>\d+)"
     match = re.search(pattern, raw)
     if not match:
@@ -30,8 +33,8 @@ def parse_range(raw):
     return (int(match["from"]) - 1, int(match["to"]))
 
 
-def parse(raw):
-    columns = {}
+def parse(raw: str) -> list[Record]:
+    columns: dict[str, list] = {}
     for line in raw.split("\r\n"):
         header, *rows = line.split("\t")
         if header == "IBAN prefix country code (ISO 3166)":
@@ -50,35 +53,34 @@ def parse(raw):
             columns["iban_spec"] = rows
         elif header == "IBAN length":
             columns["iban_length"] = [parse_int(item) for item in rows]
+        elif header == "SEPA country":
+            columns["in_sepa_zone"] = [item.lower() == "yes" for item in rows]
     return [dict(zip(columns.keys(), row)) for row in zip(*columns.values())]
 
 
-def process(records):
+def process(records: list[Record]) -> dict[str, Record]:
     registry = {}
     for record in records:
         country_codes = [record["country"]]
-        country_codes.extend(record["other_countries"])
+        country_codes.extend(record.pop("other_countries"))
         for code in country_codes:
-            registry[code] = {
-                "bban_spec": record["bban_spec"],
-                "iban_spec": record["iban_spec"],
-                "bban_length": record["bban_length"],
-                "iban_length": record["iban_length"],
-                "positions": process_positions(record),
-            }
+            registry[code] = add_positions(record)
+
     return registry
 
 
-def process_positions(record):
-    bank_code = record["bank_code_position"]
-    branch_code = record["branch_code_position"]
+def add_positions(record: Record) -> Record:
+    record = dict(record)
+    bank_code = record.pop("bank_code_position")
+    branch_code = record.pop("branch_code_position")
     if branch_code == EMPTY_RANGE:
         branch_code = (bank_code[1], bank_code[1])
-    return {
+    record["positions"] = {
         "account_code": (max(bank_code[1], branch_code[1]), record["bban_length"]),
         "bank_code": bank_code,
         "branch_code": branch_code,
     }
+    return record
 
 
 if __name__ == "__main__":
