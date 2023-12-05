@@ -104,6 +104,33 @@ invalid = [
     "GB94 BARC 2020 1530 0934 59",  # Wrong checksum digits
 ]
 
+experimental = [
+    "DZ58 0002 1000 0111 3000 0005 70",  # Algeria
+    "AO06 0044 0000 6729 5030 1010 2",  # Angola
+    "BJ66 BJ06 1010 0100 1443 9000 0769",  # Benin
+    "BF42 BF08 4010 1300 4635 7400 0390",  # Burkina Faso
+    "CM21 1000 2000 3002 7797 6315 008",  # Cameroon
+    "CV64 0005 0000 0020 1082 1514 4",  # Cape Verde
+    "CF42 2000 1000 0101 2006 9700 160",  # Central African Republic
+    "TD89 6000 2000 0102 7109 1600 153",  # Chad
+    "KM46 0000 5000 0100 1090 4400 137",  # Comoros
+    "CG39 3001 1000 1010 1345 1300 019",  # Congo
+    "GQ70 5000 2001 0037 1522 8190 196",  # Equatorial Guinea
+    "GA21 4002 1010 0320 0189 0020 126",  # Gabon
+    "GW04 GW14 3001 0181 8006 3760 1",  # Guinea-Bissau
+    "HN54 PISA 0000 0000 0000 0012 3124",  # Honduras
+    "IR71 0570 0299 7160 1460 6410 01",  # Iran
+    "CI93 CI00 8011 1301 1342 9120 0589",  # Ivory Coast
+    "MG46 0000 5030 0712 8942 1016 045",  # Madagascar
+    "ML13 ML01 6012 0102 6001 0066 8497",  # Mali
+    "MA64 0115 1900 0001 2050 0053 4921",  # Morocco
+    "MZ59 0003 0108 0016 3671 0237 1",  # Mozambique
+    "NE58 NE03 8010 0100 1303 0500 0268",  # Niger
+    "SN08 SN01 0015 2000 0485 0000 3035",  # Senegal
+    "TG53 TG00 9060 4310 3465 0040 0070",  # Togo
+]
+
+
 sepa_countries = {
     "AD",
     "AT",
@@ -151,6 +178,12 @@ def test_parse_iban(number):
     assert iban.formatted == number
     assert iban.country == countries.get(alpha_2=iban.country_code)
     assert iban.in_sepa_zone is (iban.country_code in sepa_countries)
+
+
+@pytest.mark.parametrize("number", experimental)
+def test_experimental_iban(number):
+    iban = IBAN(number, validate_bban=True)
+    assert iban.formatted == number
 
 
 @pytest.mark.parametrize("number", invalid)
