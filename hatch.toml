@@ -9,7 +9,7 @@ features = [
 ]
 
 [envs.default.scripts]
-cov-test = "pytest --cov=schwifty tests {args:schwifty}"
+cov-test = "pytest --cov=schwifty {args:tests schwifty}"
 test = "cov-test --no-cov"
 
 [envs.lint]
