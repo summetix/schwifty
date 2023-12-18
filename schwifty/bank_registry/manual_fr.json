@@ -2425,6 +2425,14 @@
     },
     {
         "country_code": "FR",
+        "bic": "FEFIFR21XXX",
+        "bank_code": "15900",
+        "name": "FEDERAL FINANCE",
+        "short_name": "ARKEA BP BREST",
+        "primary": true
+    },
+    {
+        "country_code": "FR",
         "bic": "LYDIFRP2",
         "bank_code": "17598",
         "name": "LYDIA SOLUTIONS",
