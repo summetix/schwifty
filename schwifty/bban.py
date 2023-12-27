@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from typing import Any
+from typing import cast
 
 from schwifty import common
 from schwifty import exceptions
@@ -42,8 +43,8 @@ def compute_national_checksum(country_code: str, components: dict[Component, str
 class BBAN(common.Base):
     """The BBAN object."""
 
-    def __new__(cls, country_code: str, value: str, **kwargs: Any) -> BBAN:
-        return super().__new__(cls, value, **kwargs)
+    def __new__(cls: type[BBAN], country_code: str, value: str, **kwargs: Any) -> BBAN:
+        return cast(BBAN, super().__new__(cls, value, **kwargs))
 
     def __init__(self, country_code: str, value: str) -> None:
         self.country_code = country_code
