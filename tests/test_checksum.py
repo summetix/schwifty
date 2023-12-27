@@ -69,7 +69,7 @@ from schwifty.checksum import algorithms
     ],
 )
 def test_german_checksum_success(account_code, algorithm_name):
-    assert algorithms[algorithm_name].validate(account_code) is True
+    assert algorithms[algorithm_name].validate([account_code], "") is True
 
 
 @pytest.mark.parametrize(
@@ -88,20 +88,20 @@ def test_german_checksum_success(account_code, algorithm_name):
     ],
 )
 def test_german_checksum_failure(account_code, algorithm_name):
-    assert algorithms[algorithm_name].validate(account_code) is False
+    assert algorithms[algorithm_name].validate([account_code], "") is False
 
 
 def test_belgium_checksum():
-    assert algorithms["BE:default"].validate("539007547034") is True
+    assert algorithms["BE:default"].validate(["539", "0075470"], "34") is True
 
 
 def test_belgium_checksum_failure():
-    assert algorithms["BE:default"].validate("050000123456") is False
+    assert algorithms["BE:default"].validate(["050", "0001234"], "56") is False
 
 
 def test_belgium_checksum_checksum_edge_case():
-    assert algorithms["BE:default"].validate("050000017797") is True
+    assert algorithms["BE:default"].validate(["050", "0000177"], "97") is True
 
 
 def test_netherlands_checksum():
-    assert algorithms["NL:default"].validate("0417164300") is True
+    assert algorithms["NL:default"].validate(["0417164300"], "") is True

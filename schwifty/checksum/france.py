@@ -1,10 +1,5 @@
-import functools
-
 from schwifty import checksum
-from schwifty import registry
 
-
-register = functools.partial(checksum.register, prefix="FR")
 
 numerics = {
     "0": "0",
@@ -46,32 +41,19 @@ numerics = {
 }
 
 
-def convert(code: str) -> int:
-    res = ""
-    for c in code:
-        res += numerics[c]
-    return int(res)
+def numerify(value: str) -> int:
+    return int("".join(numerics[c] for c in value))
 
 
-@register
-class DefaultAlgorithm(checksum.Algorithm):
+# France (FR)
+# Monaco (MC)
+@checksum.register("FR", "MC")
+class DefaultAlgorithm(checksum.ISO7064_mod97_10):
     name = "default"
-    accepts = checksum.InputType.BBAN
-    checksum_length = 2
 
-    def compute(self, bban: str) -> str:
-        spec = registry.get("iban")
-        assert isinstance(spec, dict)
+    def pre_process(self, components: list[str]) -> int:
+        bank_code, branch_code, account_code = components
+        return 89 * numerify(bank_code) + 15 * numerify(branch_code) + 3 * numerify(account_code)
 
-        positions = spec["FR"]["positions"]
-        bank_code = bban[slice(*positions["bank_code"])]
-        branch_code = bban[slice(*positions["branch_code"])]
-        account_code = bban[slice(*positions["account_code"])]
-
-        checksum = 97 - (
-            (89 * convert(bank_code) + 15 * convert(branch_code) + 3 * convert(account_code)) % 97
-        )
-        return str(checksum).zfill(self.checksum_length)
-
-    def validate(self, bban: str) -> bool:
-        return bban[-self.checksum_length :] == self.compute(bban[: -self.checksum_length])
+    def post_process(self, r: int) -> int:
+        return 97 - r

@@ -412,22 +412,22 @@ class BIC(common.Base):
     @property
     def bank_code(self) -> str:
         """str: The bank-code part of the BIC."""
-        return self._get_component(start=0, end=4)
+        return self._get_slice(start=0, end=4)
 
     @property
     def country_code(self) -> str:
         """str: The ISO 3166 alpha2 country-code."""
-        return self._get_component(start=4, end=6)
+        return self._get_slice(start=4, end=6)
 
     @property
     def location_code(self) -> str:
         """str: The location code of the BIC."""
-        return self._get_component(start=6, end=8)
+        return self._get_slice(start=6, end=8)
 
     @property
     def branch_code(self) -> str:
         """str: The branch-code part of the BIC (if available)"""
-        return self._get_component(start=8, end=11)
+        return self._get_slice(start=8, end=11)
 
     @classmethod
     def __get_pydantic_core_schema__(cls, source: Any, handler: GetCoreSchemaHandler) -> CoreSchema:

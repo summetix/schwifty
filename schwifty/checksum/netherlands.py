@@ -1,23 +1,18 @@
-import functools
+from typing import ClassVar
 
 from schwifty import checksum
+from schwifty.domain import Component
 
 
-register = functools.partial(checksum.register, prefix="NL")
-
-
-@register
+@checksum.register("NL")
 class DefaultAlgorithm(checksum.Algorithm):
     name = "default"
-    accepts = checksum.InputType.BBAN
+    accepts: ClassVar[list[Component]] = [Component.ACCOUNT_CODE]
 
-    def compute(self, bban: str) -> str:
-        raise NotImplementedError("Cannot compute checksum for Netherlands")
+    def compute(self, components: list[str]) -> str:
+        # There is no actual check digit as part of the BBAN.
+        return ""
 
-    def validate(self, bban: str) -> bool:
-        acc_number = bban[-10:]
-        total = 0
-        for i, digit in enumerate(map(int, acc_number)):
-            total += digit * (10 - i)
-
-        return total % 11 == 0
+    def validate(self, components: list[str], expected: str) -> bool:
+        [account_code] = components
+        return sum(int(digit) * (10 - i) for i, digit in enumerate(account_code)) % 11 == 0

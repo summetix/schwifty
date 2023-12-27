@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import re
-import string
 from typing import Any
 from typing import TYPE_CHECKING
 
@@ -11,9 +10,11 @@ from pycountry.db import Data  # type: ignore
 from schwifty import common
 from schwifty import exceptions
 from schwifty import registry
+from schwifty.bban import BBAN
+from schwifty.bban import Component
 from schwifty.bic import BIC
-from schwifty.checksum import algorithms
-from schwifty.checksum import InputType
+from schwifty.checksum import ISO7064_mod97_10
+from schwifty.checksum import numerify
 
 
 if TYPE_CHECKING:
@@ -22,50 +23,6 @@ if TYPE_CHECKING:
 
 
 _spec_to_re: dict[str, str] = {"n": r"\d", "a": r"[A-Z]", "c": r"[A-Za-z0-9]", "e": r" "}
-
-_alphabet: str = string.digits + string.ascii_uppercase
-
-
-def _get_iban_spec(country_code: str) -> dict[str, Any]:
-    try:
-        spec = registry.get("iban")
-        assert isinstance(spec, dict)
-        return spec[country_code]
-    except KeyError as e:
-        raise exceptions.InvalidCountryCode(f"Unknown country-code '{country_code}'") from e
-
-
-def numerify(value: str) -> int:
-    return int("".join(str(_alphabet.index(c)) for c in value))
-
-
-def calc_checksum(value: str) -> str:
-    return f"{98 - (numerify(value) * 100) % 97:02d}"
-
-
-def code_length(spec: dict[str, Any], code_type: str) -> int:
-    start, end = spec["positions"][code_type]
-    return end - start
-
-
-def add_bban_checksum(country_code: str, bban: str) -> str:
-    if country_code in ["IT", "SM"]:
-        # The IBAN of San Marino is covered by the Italian IBAN and uses the same checksum
-        checksum = algorithms["IT:default"].compute(bban[1:])
-        bban = checksum + bban[1:]
-    elif country_code == "BE":
-        # The Belgian BBAN format is XXXYYYYYYYZZ where:
-        # - XXX: bank code
-        # - YYYYYYY: account number
-        # - ZZ: mod 97 remainder of XXYYYYYYY
-        # The bban passed to this function has this format XXX00YYYYY
-        bban = bban[:3] + bban[5:]
-        checksum = algorithms["BE:default"].compute(bban)
-        bban = bban + checksum
-    elif country_code == "FR":
-        checksum = algorithms["FR:default"].compute(bban)
-        bban = bban[0:21] + checksum
-    return bban
 
 
 class IBAN(common.Base):
@@ -109,6 +66,7 @@ class IBAN(common.Base):
 
     def __init__(self, iban: str, allow_invalid: bool = False, validate_bban: bool = False) -> None:
         super().__init__()
+        self.bban = BBAN(self.country_code, self._get_slice(start=4))
         if not allow_invalid:
             self.validate(validate_bban)
 
@@ -144,46 +102,9 @@ class IBAN(common.Base):
             Added support for generating the country specific checksum of the BBAN for Belgian
             banks.
         """
-        spec: dict[str, Any] = _get_iban_spec(country_code)
-        bank_code_length: int = code_length(spec, "bank_code")
-        branch_code_length: int = code_length(spec, "branch_code")
-        account_code_length: int = code_length(spec, "account_code")
-
-        country_code = common.clean(country_code)
-        bank_code = common.clean(bank_code)
-        account_code = common.clean(account_code)
-        branch_code = common.clean(branch_code)
-
-        if len(bank_code) == bank_code_length + branch_code_length:
-            bank_code, branch_code = bank_code[:bank_code_length], bank_code[bank_code_length:]
-
-        if len(bank_code) > bank_code_length:
-            raise exceptions.InvalidBankCode(f"Bank code exceeds maximum size {bank_code_length}")
-
-        if len(branch_code) > branch_code_length:
-            raise exceptions.InvalidBranchCode(
-                f"Branch code exceeds maximum size {branch_code_length}"
-            )
-
-        if len(account_code) > account_code_length:
-            raise exceptions.InvalidAccountCode(
-                f"Account code exceeds maximum size {account_code_length}"
-            )
-
-        bban = "0" * spec["bban_length"]
-        positions = spec["positions"]
-        components = {
-            "bank_code": bank_code,
-            "branch_code": branch_code,
-            "account_code": account_code,
-        }
-        for key, value in components.items():
-            end = positions[key][1]
-            start = end - len(value)
-            bban = bban[:start] + value + bban[end:]
-
-        bban = add_bban_checksum(country_code, bban)
-        return cls(country_code + calc_checksum(bban + country_code) + bban)
+        bban = BBAN.from_components(country_code, bank_code, account_code, branch_code)
+        checksum_algo = ISO7064_mod97_10()
+        return cls(country_code + checksum_algo.compute([bban, country_code]) + bban)
 
     def validate(self, validate_bban: bool = False) -> bool:
         """Validate the structural integrity of this IBAN.
@@ -213,7 +134,7 @@ class IBAN(common.Base):
         self._validate_format()
         self._validate_iban_checksum()
         if validate_bban:
-            self._validate_bban_checksum()
+            self.bban.validate_national_checksum()
         return True
 
     def _validate_characters(self) -> None:
@@ -231,26 +152,11 @@ class IBAN(common.Base):
             )
 
     def _validate_iban_checksum(self) -> None:
-        if (
-            self.numeric % 97 != 1
-            or calc_checksum(self.bban + self.country_code) != self.checksum_digits
+        checksum_algo = ISO7064_mod97_10()
+        if self.numeric % 97 != 1 or not checksum_algo.validate(
+            [self.bban, self.country_code], self.checksum_digits
         ):
             raise exceptions.InvalidChecksumDigits("Invalid checksum digits")
-
-    def _validate_bban_checksum(self) -> None:
-        bank = self.bank or {}
-        algo_name = bank.get("checksum_algo", "default")
-        algo = algorithms.get(f"{self.country_code}:{algo_name}")
-        if algo is None:
-            return
-        if algo.accepts == InputType.ACCOUNT_CODE:
-            value = self.account_code
-        elif algo.accepts == InputType.BBAN:
-            value = self.bban
-        else:
-            raise exceptions.SchwiftyException("Unsupported checksum algorithm input type")
-        if not algo.validate(value):
-            raise exceptions.InvalidBBANChecksum("Invalid BBAN checksum")
 
     @property
     def is_valid(self) -> bool:
@@ -284,19 +190,29 @@ class IBAN(common.Base):
     @property
     def spec(self) -> dict[str, Any]:
         """dict: The country specific IBAN specification."""
-        return _get_iban_spec(self.country_code)
+        try:
+            spec = registry.get("iban")
+            assert isinstance(spec, dict)
+            return spec[self.country_code]
+        except KeyError as e:
+            raise exceptions.InvalidCountryCode(
+                f"Unknown country-code '{self.country_code}'"
+            ) from e
 
     @property
     def bic(self) -> BIC | None:
         """BIC or None: The BIC associated to the IBAN's bank-code.
 
-        If the bank code is not available in Schwifty's registry ``None`` is returned.
+        If the bank code is not available in schwifty's registry ``None`` is returned.
 
         .. versionchanged:: 2020.08.1
             Returns ``None`` if no appropriate :class:`BIC` can be constructed.
         """
+        key = ""
+        for attr in self.spec.get("bic_lookup_components", [Component.BANK_CODE]):
+            key += getattr(self, attr, "")
         try:
-            return BIC.from_bank_code(self.country_code, self.bank_code or self.branch_code)
+            return BIC.from_bank_code(self.country_code, key)
         except exceptions.SchwiftyException:
             return None
 
@@ -304,15 +220,6 @@ class IBAN(common.Base):
     def country(self) -> Data | None:
         """Country: The country this IBAN is registered in."""
         return countries.get(alpha_2=self.country_code)
-
-    def _get_code(self, code_type: str) -> str:
-        start, end = self.spec["positions"][code_type]
-        return self.bban[start:end]
-
-    @property
-    def bban(self) -> str:
-        """str: The BBAN part of the IBAN."""
-        return self._get_component(start=4)
 
     @property
     def in_sepa_zone(self) -> bool:
@@ -322,36 +229,63 @@ class IBAN(common.Base):
     @property
     def country_code(self) -> str:
         """str: ISO 3166 alpha-2 country code."""
-        return self._get_component(start=0, end=2)
+        return self._get_slice(start=0, end=2)
 
     @property
     def checksum_digits(self) -> str:
-        """str: Two digit checksum of the IBAN."""
-        return self._get_component(start=2, end=4)
+        """str: Two digit checksum of the BBAN."""
+        return self._get_slice(start=2, end=4)
+
+    @property
+    def national_checksum_digits(self) -> str:
+        """str: National checksum digits.
+
+        This value is only available in some countries.
+        """
+        return self.bban.national_checksum_digits
 
     @property
     def bank_code(self) -> str:
         """str: The country specific bank-code."""
-        return self._get_code(code_type="bank_code")
+        return self.bban.bank_code
 
     @property
     def branch_code(self) -> str:
-        """str or None: The branch-code of the bank if available."""
-        return self._get_code(code_type="branch_code")
+        """str: The branch-code of the bank if available."""
+        return self.bban.branch_code
 
     @property
     def account_code(self) -> str:
-        """str: The customer specific account-code"""
-        return self._get_code(code_type="account_code")
+        """str: The domestic account-code"""
+        return self.bban.account_code
+
+    @property
+    def account_id(self) -> str:
+        """str: Holder specific account identification.
+
+        This is currently only available for Brazil.
+        """
+        return self.bban.account_id
+
+    @property
+    def account_type(self) -> str:
+        """str: Account type specifier.
+
+        This value is only available for Seychelles, Brazil and Bulgaria.
+        """
+        return self.bban.account_type
+
+    @property
+    def account_holder_id(self) -> str:
+        """str: Account holder's national identification.
+
+        This value is only available for Iceland.
+        """
+        return self.bban.account_holder_id
 
     @property
     def bank(self) -> dict | None:
-        bank_registry = registry.get("bank_code")
-        assert isinstance(bank_registry, dict)
-        bank_entry = bank_registry.get((self.country_code, self.bank_code or self.branch_code))
-        if not bank_entry:
-            return None
-        return bank_entry and bank_entry[0]
+        return self.bban.bank
 
     @property
     def bank_name(self) -> str | None:
@@ -363,8 +297,7 @@ class IBAN(common.Base):
 
         .. versionadded:: 2022.04.2
         """
-
-        return None if self.bank is None else self.bank["name"]
+        return self.bban.bank_name
 
     @property
     def bank_short_name(self) -> str | None:
@@ -376,8 +309,7 @@ class IBAN(common.Base):
 
         .. versionadded:: 2022.04.2
         """
-
-        return None if self.bank is None else self.bank["short_name"]
+        return self.bban.bank_short_name
 
     @classmethod
     def __get_pydantic_core_schema__(cls, source: Any, handler: GetCoreSchemaHandler) -> CoreSchema:

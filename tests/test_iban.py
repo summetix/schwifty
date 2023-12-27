@@ -62,13 +62,13 @@ valid = [
     "PT50 0002 0123 1234 5678 9015 4",  # Portugal
     "QA58 DOHB 0000 1234 5678 90AB CDEF G",  # Qatar
     "RO49 AAAA 1B31 0075 9384 0000",  # Romania
-    # 'LC62 HEMM 0001 0001 0012 0012 0002 3015',  # Saint Lucia
+    "LC55 HEMM 0001 0001 0012 0012 0002 3015",  # Saint Lucia
     "SM86 U032 2509 8000 0000 0270 100",  # San Marino
     "ST68 0001 0001 0051 8453 1011 2",  # Sao Tome And Principe
     "SA03 8000 0000 6080 1016 7519",  # Saudi Arabia
     "RS35 2600 0560 1001 6113 79",  # Serbia
     "SN08 SN01 0015 2000 0485 0000 3035",  # Senegal
-    # 'SC25 SSCB1101 0000 0000 0000 1497 USD',    # Seychelles
+    "SC18 SSCB 1101 0000 0000 0000 1497 USD",  # Seychelles
     "SK31 1200 0000 1987 4263 7541",  # Slovak Republic
     "SI56 1910 0000 0123 438",  # Slovenia
     "ES91 2100 0418 4502 0005 1332",  # Spain
@@ -184,6 +184,11 @@ def test_parse_iban(number):
 def test_experimental_iban(number):
     iban = IBAN(number, validate_bban=True)
     assert iban.formatted == number
+    # There is currently no information available on the structure of the BBAN so that all of these
+    # values are left blank.
+    assert iban.account_code == ""
+    assert iban.bank_code == ""
+    assert iban.branch_code == ""
 
 
 @pytest.mark.parametrize("number", invalid)
@@ -199,13 +204,14 @@ def test_invalid_iban(number):
         IBAN(number)
 
 
-def test_iban_properties():
+def test_iban_properties_de():
     iban = IBAN("DE42430609677000534100")
     assert iban.is_valid is True
     assert iban.bank_code == "43060967"
     assert iban.branch_code == ""
     assert iban.account_code == "7000534100"
     assert iban.country_code == "DE"
+    assert iban.national_checksum_digits == ""
     assert iban.bic == "GENODEM1GLS"
     assert iban.formatted == "DE42 4306 0967 7000 5341 00"
     assert iban.length == len(iban) == 22
@@ -215,12 +221,32 @@ def test_iban_properties():
     assert iban.in_sepa_zone is True
 
 
+def test_iban_properties_it():
+    iban = IBAN("IT60 X054 2811 1010 0000 0123 456")
+    assert iban.bank_code == "05428"
+    assert iban.branch_code == "11101"
+    assert iban.account_code == "000000123456"
+    assert iban.national_checksum_digits == "X"
+    assert iban.country == countries.get(alpha_2="IT")
+    assert iban.bic == "BLOPIT22"
+    assert iban.bank_name == "BANCA POPOLARE DI BERGAMO S.P.A."
+    assert iban.in_sepa_zone is True
+
+
 @pytest.mark.parametrize(
     ("components", "compact"),
     [
+        (("BE", "050", "123"), "BE66050000012343"),
+        (("BE", "050", "123456"), "BE45050012345689"),
+        (("BE", "539", "0075470"), "BE68539007547034"),
+        (("BE", "050", "177"), "BE54050000017797"),
         (("DE", "43060967", "7000534100"), "DE42430609677000534100"),
         (("DE", "51230800", "2622196545"), "DE61512308002622196545"),
         (("DE", "20690500", "9027378"), "DE37206905000009027378"),
+        (("FR", "2004101005", "0500013M026"), "FR1420041010050500013M02606"),
+        (("GB", "NWBK", "31926819", "601613"), "GB29NWBK60161331926819"),
+        (("GB", "NWBK", "31926819"), "GB66NWBK00000031926819"),
+        (("GB", "NWBK601613", "31926819"), "GB29NWBK60161331926819"),
         (("IT", "0538703601", "000000198036"), "IT18T0538703601000000198036"),
         (("IT", "0538703601", "000000198060"), "IT57V0538703601000000198060"),
         (("IT", "0538703601", "000000198072"), "IT40Z0538703601000000198072"),
@@ -239,14 +265,6 @@ def test_iban_properties():
         (("IT", "43482", "DNNDKPHAGTIB", "07900"), "IT22K4348207900DNNDKPHAGTIB"),
         (("IT", "70000", "Mq8gyacBzEqP", "30810"), "IT39M7000030810MQ8GYACBZEQP"),
         (("IT", "76494", "2Sbpqelox4wG", "16460"), "IT87A76494164602SBPQELOX4WG"),
-        (("GB", "NWBK", "31926819", "601613"), "GB29NWBK60161331926819"),
-        (("GB", "NWBK", "31926819"), "GB66NWBK00000031926819"),
-        (("GB", "NWBK601613", "31926819"), "GB29NWBK60161331926819"),
-        (("BE", "050", "123"), "BE66050000012343"),
-        (("BE", "050", "123456"), "BE45050012345689"),
-        (("BE", "539", "0075470"), "BE68539007547034"),
-        (("FR", "2004101005", "0500013M026"), "FR1420041010050500013M02606"),
-        (("BE", "050", "177"), "BE54050000017797"),
     ],
 )
 def test_generate_iban(components, compact):
@@ -283,18 +301,46 @@ def test_magic_methods():
 @pytest.mark.parametrize(
     ("iban", "bic"),
     [
+        ("AD1200012030200359100100", "BACAADADXXX"),
+        ("AE070331234567890123456", "BOMLAEADXXX"),
         ("AT483200000012345864", "RLNWATWWXXX"),
         ("AT930100000000123145", "BUNDATWWXXX"),
+        ("BA393385804800211234", "UNCRBA22XXX"),
         ("BE71096123456769", "GKCCBEBB"),
+        ("BG18RZBB91550123456789", "RZBBBGSF"),
+        ("CH5604835012345678009", "CRESCHZZ80A"),
+        ("CR23015108410026012345", "BNCRCRSJXXX"),
+        ("CY21002001950000357001234567", "BCYPCY2N"),
         ("CZ5508000000001234567899", "GIBACZPX"),
         ("DE37206905000009027378", "GENODEF1S11"),
+        # ("DK9520000123456789", "NDEADKKK"),
+        ("EE471000001020145685", "EEUHEE2X"),
         ("ES7921000813610123456789", "CAIXESBB"),
         ("FI1410093000123458", "NDEAFIHH"),
+        ("FR7630006000011234567890189", "AGRIFRPPXXX"),
+        ("GB33BUKB20201555555555", "BUKBGB22"),
+        ("GR9608100010000001234567890", "BOFAGR2XXXX"),
         ("HR1723600001101234565", "ZABAHR2X"),
+        ("HU42117730161111101800000000", "OTPVHUHB"),
+        ("IE64IRCE92050112345678", "IRCEIE2DXXX"),
+        ("IT60X0542811101000000123456", "BLOPIT22"),
+        # ("IL170108000000012612345", "LUMIILIT"),
+        ("IS480114007083000000000000", "NBIIISRE"),
+        ("KZ244350000012344567", "SHBKKZKA"),
+        ("LT601010012345678901", "LIABLT2XXXX"),
+        ("LU120010001234567891", "BCEELULL"),
         ("LV97HABA0012345678910", "HABALV22XXX"),
-        ("PL50860000020000000000093122", "POLUPLPRXXX"),
-        ("SI56192001234567892", "SZKBSI2XXXX"),
+        # ("MD21EX000000000001234567", "EXMMMD22"),
         ("NL02ABNA0123456789", "ABNANL2A"),
+        ("NO8330001234567", "SPSONO22"),
+        ("PL50860000020000000000093122", "POLUPLPRXXX"),
+        ("PT50002700000001234567833", "BPIPPTPLXXX"),
+        ("RO66BACX0000001234567890", "BACXROBU"),
+        ("RS35105008123123123173", "AIKBRS22XXX"),
+        ("SE7280000810340009783242", "SWEDSESS"),
+        ("SI56192001234567892", "SZKBSI2XXXX"),
+        ("SK8975000000000012345671", "CEKOSKBX"),
+        # ("UA903052992990004149123456789", "PBANUA2X"),
     ],
 )
 def test_bic_from_iban(iban, bic):

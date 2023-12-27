@@ -7,17 +7,17 @@ https://www.bundesbank.de/resource/blob/603320/16a80c739bbbae592ca575905975c2d0/
 from __future__ import annotations
 
 from dataclasses import dataclass
-from functools import partial
 from itertools import cycle
 from typing import ClassVar
 
 from schwifty import checksum
+from schwifty.domain import Component
 from schwifty.exceptions import InvalidBBANChecksum
 
 
 ACCOUNT_CODE_LENGTH = 10
 
-register = partial(checksum.register, prefix="DE")
+register = checksum.register("DE")
 
 
 @dataclass
@@ -32,6 +32,7 @@ def digit_sum(number: int) -> int:
 
 
 class WeightedModulus(checksum.Algorithm):
+    accepts: ClassVar[list[Component]] = [Component.ACCOUNT_CODE]
     minuend: ClassVar[int | None] = None
     modulus: ClassVar[int]
     positions: ClassVar[Positions]
@@ -42,7 +43,8 @@ class WeightedModulus(checksum.Algorithm):
         self.weighted_sum: int = 0
         self.remainder: int = 0
 
-    def compute(self, account_code: str) -> str:
+    def compute(self, components: list[str]) -> str:
+        [account_code] = components
         digits = self.get_digits(self.adjust_input(account_code))
         self.remainder = self.compute_remainder(self.compute_weighted_sum(digits))
         if self.minuend is None:  # noqa: SIM108
@@ -83,9 +85,9 @@ class WeightedModulus(checksum.Algorithm):
     def reconcile(self, checksum: int) -> int:
         return 0 if checksum >= 10 else checksum
 
-    def validate(self, account_code: str) -> bool:
-        account_code = self.adjust_input(account_code)
-        check_digit = self.compute(account_code)
+    def validate(self, components: list[str], expected: str) -> bool:
+        account_code = self.adjust_input(components[0])
+        check_digit = self.compute(components)
         positions = self.get_positions(account_code)
         return check_digit == account_code[positions.check_digit - 1]
 
@@ -167,25 +169,28 @@ class Algorithm08(Algorithm00):
     name = "08"
     min_account_code = 6000
 
-    def compute(self, account_code: str) -> str:
+    def compute(self, components: list[str]) -> str:
+        [account_code] = components
         if int(account_code) < self.min_account_code:
             return ""
-        return super().compute(account_code)
+        return super().compute(components)
 
-    def validate(self, account_code: str) -> bool:
+    def validate(self, components: list[str], expected: str) -> bool:
+        [account_code] = components
         if int(account_code) < self.min_account_code:
             return True
-        return super().validate(account_code)
+        return super().validate(components, expected)
 
 
 @register
 class Algorithm09(checksum.Algorithm):
     name = "09"
+    accepts: ClassVar[list[Component]] = [Component.ACCOUNT_CODE]
 
-    def compute(self, account_code: str) -> str:
+    def compute(self, components: list[str]) -> str:
         return ""
 
-    def validate(self, account_code: str) -> bool:
+    def validate(self, components: list[str], expected: str) -> bool:
         return True
 
 
@@ -232,8 +237,9 @@ class Algorithm16(Algorithm06):
     positions = Positions(start=6, end=9, check_digit=10)
     weights: ClassVar[list[int]] = [2, 3, 4, 5, 6, 7]
 
-    def validate(self, account_code: str) -> bool:
-        check_digit = self.compute(account_code)
+    def validate(self, components: list[str], expected: str) -> bool:
+        [account_code] = components
+        check_digit = self.compute(components)
         if self.remainder == 1 and account_code[8] == account_code[9]:
             return True
         return check_digit == account_code[self.positions.check_digit - 1]
@@ -325,8 +331,9 @@ class Algorithm25(WeightedMod11):
     positions = Positions(start=2, end=9, check_digit=10)
     weights: ClassVar[list[int]] = [2, 3, 4, 5, 6, 7, 8, 9]
 
-    def validate(self, account_code: str) -> bool:
-        result = super().validate(account_code)
+    def validate(self, components: list[str], expected) -> bool:
+        result = super().validate(components, expected)
+        [account_code] = components
         if self.remainder == 1 and account_code[1] not in {"8", "9"}:
             return False
         return result
@@ -407,10 +414,11 @@ class Algorithm63(WeightedMod10):
     def compute_summand(self, digit: int, weight: int) -> int:
         return digit_sum(super().compute_summand(digit, weight))
 
-    def validate(self, account_code: str) -> bool:
+    def validate(self, components: list[str], expected: str) -> bool:
+        [account_code] = components
         if account_code[0] != "0":
             return False
-        return super().validate(account_code)
+        return super().validate(components, expected)
 
 
 @register
@@ -433,14 +441,15 @@ class Algorithm68(Algorithm00):
             digits = digits[:6]
         return digits
 
-    def validate(self, account_code: str) -> bool:
+    def validate(self, components: list[str], expected: str) -> bool:
+        [account_code] = components
         if 400_000_000 <= int(account_code) <= 499_999_999:
             return True
-        if super().validate(account_code) is False:
+        if super().validate(components, expected) is False:
             # If the checksum calculation fails, the algorithm should be executed again, with the
             # 7th and 8th position of the account code removed. Since the positions are counted from
             # right to left, they translate into indices 2 and 3 counting from left.
-            check_digit = self.compute(account_code[:2] + "00" + account_code[4:])
+            check_digit = self.compute([account_code[:2] + "00" + account_code[4:]])
             return check_digit == account_code[self.positions.check_digit - 1]
         return True
 
@@ -456,10 +465,11 @@ class Algorithm76(WeightedMod11):
         digits = super().get_digits(account_code)
         return digits.rstrip("0")
 
-    def validate(self, account_code: str) -> bool:
+    def validate(self, components: list[str], expected: str) -> bool:
+        [account_code] = components
         if int(account_code[0]) not in {0, 4, 6, 7, 8, 9}:
             return False
-        return super().validate(account_code)
+        return super().validate(components, expected)
 
 
 @register
@@ -477,6 +487,7 @@ class Algorithm88(Algorithm06):
 @register
 class Algorithm91(checksum.Algorithm):
     name = "91"
+    accepts: ClassVar[list[Component]] = [Component.ACCOUNT_CODE]
 
     class Variant1(Algorithm06):
         positions = Positions(start=1, end=6, check_digit=7)
@@ -492,12 +503,12 @@ class Algorithm91(checksum.Algorithm):
     class Variant4(Variant1):
         weights: ClassVar[list[int]] = [2, 4, 8, 5, 10, 9]
 
-    def compute(self, account_code: str) -> str:
-        return self.Variant1().compute(account_code)
+    def compute(self, components: list[str]) -> str:
+        return self.Variant1().compute(components)
 
-    def validate(self, account_code: str) -> bool:
+    def validate(self, components: list[str], expected: str) -> bool:
         for algo_cls in [self.Variant1, self.Variant2, self.Variant3, self.Variant4]:
-            if algo_cls().validate(account_code):
+            if algo_cls().validate(components, expected):
                 return True
         return False
 
@@ -506,7 +517,8 @@ class Algorithm91(checksum.Algorithm):
 class Algorithm99(Algorithm06):
     name = "99"
 
-    def validate(self, account_code: str) -> bool:
+    def validate(self, components: list[str], expected: str) -> bool:
+        [account_code] = components
         if account_code in {"0499999999", "0396000000"}:
             return True
-        return super().validate(account_code)
+        return super().validate(components, expected)
