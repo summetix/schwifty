@@ -36,10 +36,6 @@
       "bank_code": [
         0,
         3
-      ],
-      "branch_code": [
-        3,
-        3
       ]
     }
   },
@@ -80,10 +76,6 @@
       "bank_code": [
         0,
         5
-      ],
-      "branch_code": [
-        5,
-        5
       ]
     }
   },
@@ -101,10 +93,6 @@
       ],
       "bank_code": [
         0,
-        4
-      ],
-      "branch_code": [
-        4,
         4
       ]
     }
@@ -146,10 +134,6 @@
       "bank_code": [
         0,
         3
-      ],
-      "branch_code": [
-        3,
-        3
       ]
     }
   },
@@ -189,10 +173,6 @@
       ],
       "bank_code": [
         0,
-        4
-      ],
-      "branch_code": [
-        4,
         4
       ]
     }
@@ -256,10 +236,6 @@
       "bank_code": [
         0,
         4
-      ],
-      "branch_code": [
-        4,
-        4
       ]
     }
   },
@@ -278,10 +254,6 @@
       "bank_code": [
         0,
         5
-      ],
-      "branch_code": [
-        5,
-        5
       ]
     }
   },
@@ -299,10 +271,6 @@
       ],
       "bank_code": [
         0,
-        4
-      ],
-      "branch_code": [
-        4,
         4
       ]
     }
@@ -344,10 +312,6 @@
       "bank_code": [
         0,
         4
-      ],
-      "branch_code": [
-        4,
-        4
       ]
     }
   },
@@ -365,10 +329,6 @@
       ],
       "bank_code": [
         0,
-        8
-      ],
-      "branch_code": [
-        8,
         8
       ]
     }
@@ -410,10 +370,6 @@
       "bank_code": [
         0,
         4
-      ],
-      "branch_code": [
-        4,
-        4
       ]
     }
   },
@@ -432,10 +388,6 @@
       "bank_code": [
         0,
         4
-      ],
-      "branch_code": [
-        4,
-        4
       ]
     }
   },
@@ -453,10 +405,6 @@
       ],
       "bank_code": [
         0,
-        2
-      ],
-      "branch_code": [
-        2,
         2
       ]
     }
@@ -520,15 +468,11 @@
       "bank_code": [
         0,
         3
-      ],
-      "branch_code": [
-        3,
-        3
       ]
     }
   },
   "AX": {
-    "country": "FI",
+    "country": "AX",
     "in_sepa_zone": true,
     "bban_spec": "3!n11!n",
     "bban_length": 14,
@@ -541,10 +485,6 @@
       ],
       "bank_code": [
         0,
-        3
-      ],
-      "branch_code": [
-        3,
         3
       ]
     }
@@ -564,10 +504,6 @@
       "bank_code": [
         0,
         2
-      ],
-      "branch_code": [
-        2,
-        2
       ]
     }
   },
@@ -585,10 +521,6 @@
       ],
       "bank_code": [
         0,
-        4
-      ],
-      "branch_code": [
-        4,
         4
       ]
     }
@@ -608,15 +540,11 @@
       "bank_code": [
         0,
         5
-      ],
-      "branch_code": [
-        5,
-        5
       ]
     }
   },
   "GF": {
-    "country": "FR",
+    "country": "GF",
     "in_sepa_zone": true,
     "bban_spec": "5!n5!n11!c2!n",
     "bban_length": 23,
@@ -629,16 +557,12 @@
       ],
       "bank_code": [
         0,
-        5
-      ],
-      "branch_code": [
-        5,
         5
       ]
     }
   },
   "GP": {
-    "country": "FR",
+    "country": "GP",
     "in_sepa_zone": true,
     "bban_spec": "5!n5!n11!c2!n",
     "bban_length": 23,
@@ -651,16 +575,12 @@
       ],
       "bank_code": [
         0,
-        5
-      ],
-      "branch_code": [
-        5,
         5
       ]
     }
   },
   "MQ": {
-    "country": "FR",
+    "country": "MQ",
     "in_sepa_zone": true,
     "bban_spec": "5!n5!n11!c2!n",
     "bban_length": 23,
@@ -673,16 +593,12 @@
       ],
       "bank_code": [
         0,
-        5
-      ],
-      "branch_code": [
-        5,
         5
       ]
     }
   },
   "RE": {
-    "country": "FR",
+    "country": "RE",
     "in_sepa_zone": true,
     "bban_spec": "5!n5!n11!c2!n",
     "bban_length": 23,
@@ -695,16 +611,12 @@
       ],
       "bank_code": [
         0,
-        5
-      ],
-      "branch_code": [
-        5,
         5
       ]
     }
   },
   "PF": {
-    "country": "FR",
+    "country": "PF",
     "in_sepa_zone": true,
     "bban_spec": "5!n5!n11!c2!n",
     "bban_length": 23,
@@ -717,16 +629,12 @@
       ],
       "bank_code": [
         0,
-        5
-      ],
-      "branch_code": [
-        5,
         5
       ]
     }
   },
   "TF": {
-    "country": "FR",
+    "country": "TF",
     "in_sepa_zone": true,
     "bban_spec": "5!n5!n11!c2!n",
     "bban_length": 23,
@@ -739,16 +647,12 @@
       ],
       "bank_code": [
         0,
-        5
-      ],
-      "branch_code": [
-        5,
         5
       ]
     }
   },
   "YT": {
-    "country": "FR",
+    "country": "YT",
     "in_sepa_zone": true,
     "bban_spec": "5!n5!n11!c2!n",
     "bban_length": 23,
@@ -761,16 +665,12 @@
       ],
       "bank_code": [
         0,
-        5
-      ],
-      "branch_code": [
-        5,
         5
       ]
     }
   },
   "NC": {
-    "country": "FR",
+    "country": "NC",
     "in_sepa_zone": true,
     "bban_spec": "5!n5!n11!c2!n",
     "bban_length": 23,
@@ -783,16 +683,12 @@
       ],
       "bank_code": [
         0,
-        5
-      ],
-      "branch_code": [
-        5,
         5
       ]
     }
   },
   "BL": {
-    "country": "FR",
+    "country": "BL",
     "in_sepa_zone": true,
     "bban_spec": "5!n5!n11!c2!n",
     "bban_length": 23,
@@ -805,16 +701,12 @@
       ],
       "bank_code": [
         0,
-        5
-      ],
-      "branch_code": [
-        5,
         5
       ]
     }
   },
   "MF": {
-    "country": "FR",
+    "country": "MF",
     "in_sepa_zone": true,
     "bban_spec": "5!n5!n11!c2!n",
     "bban_length": 23,
@@ -827,16 +719,12 @@
       ],
       "bank_code": [
         0,
-        5
-      ],
-      "branch_code": [
-        5,
         5
       ]
     }
   },
   "PM": {
-    "country": "FR",
+    "country": "PM",
     "in_sepa_zone": true,
     "bban_spec": "5!n5!n11!c2!n",
     "bban_length": 23,
@@ -849,16 +737,12 @@
       ],
       "bank_code": [
         0,
-        5
-      ],
-      "branch_code": [
-        5,
         5
       ]
     }
   },
   "WF": {
-    "country": "FR",
+    "country": "WF",
     "in_sepa_zone": true,
     "bban_spec": "5!n5!n11!c2!n",
     "bban_length": 23,
@@ -871,10 +755,6 @@
       ],
       "bank_code": [
         0,
-        5
-      ],
-      "branch_code": [
-        5,
         5
       ]
     }
@@ -902,7 +782,7 @@
     }
   },
   "IM": {
-    "country": "GB",
+    "country": "IM",
     "in_sepa_zone": true,
     "bban_spec": "4!a6!n8!n",
     "bban_length": 18,
@@ -924,7 +804,7 @@
     }
   },
   "JE": {
-    "country": "GB",
+    "country": "JE",
     "in_sepa_zone": true,
     "bban_spec": "4!a6!n8!n",
     "bban_length": 18,
@@ -946,7 +826,7 @@
     }
   },
   "GG": {
-    "country": "GB",
+    "country": "GG",
     "in_sepa_zone": true,
     "bban_spec": "4!a6!n8!n",
     "bban_length": 18,
@@ -982,10 +862,6 @@
       "bank_code": [
         0,
         2
-      ],
-      "branch_code": [
-        2,
-        2
       ]
     }
   },
@@ -1004,10 +880,6 @@
       "bank_code": [
         0,
         4
-      ],
-      "branch_code": [
-        4,
-        4
       ]
     }
   },
@@ -1025,10 +897,6 @@
       ],
       "bank_code": [
         0,
-        4
-      ],
-      "branch_code": [
-        4,
         4
       ]
     }
@@ -1070,10 +938,6 @@
       "bank_code": [
         0,
         4
-      ],
-      "branch_code": [
-        4,
-        4
       ]
     }
   },
@@ -1091,10 +955,6 @@
       ],
       "bank_code": [
         0,
-        7
-      ],
-      "branch_code": [
-        7,
         7
       ]
     }
@@ -1268,10 +1128,6 @@
       "bank_code": [
         0,
         4
-      ],
-      "branch_code": [
-        4,
-        4
       ]
     }
   },
@@ -1289,10 +1145,6 @@
       ],
       "bank_code": [
         0,
-        3
-      ],
-      "branch_code": [
-        3,
         3
       ]
     }
@@ -1312,10 +1164,6 @@
       "bank_code": [
         0,
         4
-      ],
-      "branch_code": [
-        4,
-        4
       ]
     }
   },
@@ -1333,10 +1181,6 @@
       ],
       "bank_code": [
         0,
-        4
-      ],
-      "branch_code": [
-        4,
         4
       ]
     }
@@ -1356,10 +1200,6 @@
       "bank_code": [
         0,
         5
-      ],
-      "branch_code": [
-        5,
-        5
       ]
     }
   },
@@ -1377,10 +1217,6 @@
       ],
       "bank_code": [
         0,
-        5
-      ],
-      "branch_code": [
-        5,
         5
       ]
     }
@@ -1400,10 +1236,6 @@
       "bank_code": [
         0,
         3
-      ],
-      "branch_code": [
-        3,
-        3
       ]
     }
   },
@@ -1421,10 +1253,6 @@
       ],
       "bank_code": [
         0,
-        4
-      ],
-      "branch_code": [
-        4,
         4
       ]
     }
@@ -1488,10 +1316,6 @@
       "bank_code": [
         0,
         2
-      ],
-      "branch_code": [
-        2,
-        2
       ]
     }
   },
@@ -1509,10 +1333,6 @@
       ],
       "bank_code": [
         0,
-        3
-      ],
-      "branch_code": [
-        3,
         3
       ]
     }
@@ -1532,10 +1352,6 @@
       "bank_code": [
         0,
         3
-      ],
-      "branch_code": [
-        3,
-        3
       ]
     }
   },
@@ -1553,10 +1369,6 @@
       ],
       "bank_code": [
         0,
-        4
-      ],
-      "branch_code": [
-        4,
         4
       ]
     }
@@ -1642,10 +1454,6 @@
       "bank_code": [
         0,
         4
-      ],
-      "branch_code": [
-        4,
-        4
       ]
     }
   },
@@ -1663,10 +1471,6 @@
       ],
       "bank_code": [
         0,
-        4
-      ],
-      "branch_code": [
-        4,
         4
       ]
     }
@@ -1686,10 +1490,6 @@
       "bank_code": [
         0,
         4
-      ],
-      "branch_code": [
-        4,
-        4
       ]
     }
   },
@@ -1707,10 +1507,6 @@
       ],
       "bank_code": [
         0,
-        4
-      ],
-      "branch_code": [
-        4,
         4
       ]
     }
@@ -1752,10 +1548,6 @@
       "bank_code": [
         0,
         4
-      ],
-      "branch_code": [
-        4,
-        4
       ]
     }
   },
@@ -1773,10 +1565,6 @@
       ],
       "bank_code": [
         0,
-        4
-      ],
-      "branch_code": [
-        4,
         4
       ]
     }
@@ -1796,10 +1584,6 @@
       "bank_code": [
         0,
         4
-      ],
-      "branch_code": [
-        4,
-        4
       ]
     }
   },
@@ -1818,10 +1602,6 @@
       "bank_code": [
         0,
         4
-      ],
-      "branch_code": [
-        4,
-        4
       ]
     }
   },
@@ -1839,10 +1619,6 @@
       ],
       "bank_code": [
         0,
-        3
-      ],
-      "branch_code": [
-        3,
         3
       ]
     }
@@ -1884,10 +1660,6 @@
       "bank_code": [
         0,
         2
-      ],
-      "branch_code": [
-        2,
-        2
       ]
     }
   },
@@ -1928,10 +1700,6 @@
       "bank_code": [
         0,
         2
-      ],
-      "branch_code": [
-        2,
-        2
       ]
     }
   },
@@ -1949,10 +1717,6 @@
       ],
       "bank_code": [
         0,
-        3
-      ],
-      "branch_code": [
-        3,
         3
       ]
     }
@@ -1972,10 +1736,6 @@
       "bank_code": [
         0,
         5
-      ],
-      "branch_code": [
-        5,
-        5
       ]
     }
   },
@@ -1993,10 +1753,6 @@
       ],
       "bank_code": [
         0,
-        4
-      ],
-      "branch_code": [
-        4,
         4
       ]
     }
@@ -2082,10 +1838,6 @@
       "bank_code": [
         0,
         4
-      ],
-      "branch_code": [
-        4,
-        4
       ]
     }
   },
@@ -2103,10 +1855,6 @@
       ],
       "bank_code": [
         0,
-        3
-      ],
-      "branch_code": [
-        3,
         3
       ]
     }
@@ -2148,10 +1896,6 @@
       "bank_code": [
         0,
         5
-      ],
-      "branch_code": [
-        5,
-        5
       ]
     }
   },
@@ -2169,10 +1913,6 @@
       ],
       "bank_code": [
         0,
-        6
-      ],
-      "branch_code": [
-        6,
         6
       ]
     }
@@ -2192,10 +1932,6 @@
       "bank_code": [
         0,
         3
-      ],
-      "branch_code": [
-        3,
-        3
       ]
     }
   },
@@ -2213,10 +1949,6 @@
       ],
       "bank_code": [
         0,
-        4
-      ],
-      "branch_code": [
-        4,
         4
       ]
     }

@@ -65,6 +65,7 @@ def process(records: list[Record]) -> dict[str, Record]:
         country_codes.extend(record.pop("other_countries"))
         for code in country_codes:
             registry[code] = add_positions(record)
+            registry[code]["country"] = code
 
     return registry
 
@@ -73,13 +74,13 @@ def add_positions(record: Record) -> Record:
     record = dict(record)
     bank_code = record.pop("bank_code_position")
     branch_code = record.pop("branch_code_position")
-    if branch_code == EMPTY_RANGE:
-        branch_code = (bank_code[1], bank_code[1])
-    record["positions"] = {
+    positions = {
         "account_code": (max(bank_code[1], branch_code[1]), record["bban_length"]),
         "bank_code": bank_code,
-        "branch_code": branch_code,
     }
+    if branch_code != EMPTY_RANGE:
+        positions["branch_code"] = branch_code
+    record["positions"] = positions
     return record
 
 
