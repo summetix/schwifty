@@ -1,7 +1,6 @@
 {
   "packages": [
-    "python@3.11",
-    "python311Packages.pip@latest"
+    "python@3.11"
   ],
   "shell": {
     "init_hook": "test $FISH_VERSION && . $VENV_DIR/bin/activate.fish || . $VENV_DIR/bin/activate",
