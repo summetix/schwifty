@@ -210,6 +210,14 @@
   {
     "country_code": "AE",
     "primary": true,
+    "bic": "BOMLAEADXXX",
+    "bank_code": "033",
+    "name": "Mashreqbank",
+    "short_name": "Mashreqbank"
+  },
+  {
+    "country_code": "AE",
+    "primary": true,
     "bic": "MEBLAEADXXX",
     "bank_code": "034",
     "name": "Emirates Islamic Bank PJSC",
@@ -440,4 +448,3 @@
     "short_name": "Wall Street Exchange Centre LLC"
   }
 ]
-
