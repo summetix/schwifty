@@ -1,14 +1,12 @@
 *.pyc
+*.egg-info
 tags
-.ropeproject/
 .cache/
 .eggs/
-.tox/
+.coverage
 AUTHORS
-ChangeLog
 build/
 dist/
-*.egg-info
+private/
 htmlcov/
-.coverage
 test-results.xml
