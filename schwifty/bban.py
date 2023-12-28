@@ -53,6 +53,7 @@ class BBAN(common.Base):
     def from_components(
         cls, country_code: str, bank_code: str, account_code: str, branch_code: str = ""
     ) -> BBAN:
+        """Generate a BBAN from its national components."""
         spec: dict[str, Any] = _get_bban_spec(country_code)
         if "positions" not in spec:
             raise exceptions.SchwiftyException(f"BBAN generation for {country_code} not supported")
@@ -102,15 +103,21 @@ class BBAN(common.Base):
 
         return cls(country_code, bban)
 
-    def validate_national_checksum(self) -> None:
+    def validate_national_checksum(self) -> bool:
+        """bool: Validate the national checksum digits.
+
+        Raises:
+            InvalidBBANChecksum: If the country specific BBAN checksum is invalid.
+        """
         bank = self.bank or {}
         algo_name = bank.get("checksum_algo", "default")
         algo = algorithms.get(f"{self.country_code}:{algo_name}")
         if algo is None:
-            return
+            return True
         components = [self._get_component(component) for component in algo.accepts]
         if not algo.validate(components, self.national_checksum_digits):
             raise exceptions.InvalidBBANChecksum("Invalid national checksum")
+        return False
 
     def _get_component(self, component_type: Component) -> str:
         start, end = _get_position_range(self.spec, component_type)

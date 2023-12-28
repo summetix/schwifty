@@ -54,6 +54,8 @@ class IBAN(common.Base):
         InvalidStructure: If the IBAN contains invalid characters or the BBAN does not match the
                           country specific format.
         InvalidChecksumDigits: If the IBAN's checksum is invalid.
+        InvalidBBANChecksum: If the country specific BBAN checksum is invalid and `validate_bban`
+                             was set to `True`.
         InvalidLength: If the length does not match the country specific specification.
 
     .. versionchanged:: 2021.05.1
@@ -123,6 +125,7 @@ class IBAN(common.Base):
             InvalidStructure: If the IBAN contains invalid characters or the BBAN does not match the
                               country specific format.
             InvalidChecksumDigits: If the IBAN's checksum is invalid.
+            InvalidBBANChecksum: If the country specific BBAN checksum is invalid.
             InvalidLength: If the length does not match the country specific specification.
 
         .. versionchanged:: 2021.05.1

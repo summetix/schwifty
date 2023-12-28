@@ -12,6 +12,13 @@ IBAN
    :members:
 
 
+BBAN
+----
+
+.. autoclass:: BBAN
+   :members:
+
+
 BIC
 ---
 
