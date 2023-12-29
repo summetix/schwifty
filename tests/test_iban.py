@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import pytest
 from pycountry import countries  # type: ignore
 
@@ -172,18 +174,18 @@ sepa_countries = {
 }
 
 
-@pytest.mark.parametrize("number", valid)
-def test_parse_iban(number):
-    iban = IBAN(number, validate_bban=True)
-    assert iban.formatted == number
+@pytest.mark.parametrize("value", valid)
+def test_parse_iban(value: str) -> None:
+    iban = IBAN(value, validate_bban=True)
+    assert iban.formatted == value
     assert iban.country == countries.get(alpha_2=iban.country_code)
     assert iban.in_sepa_zone is (iban.country_code in sepa_countries)
 
 
-@pytest.mark.parametrize("number", experimental)
-def test_experimental_iban(number):
-    iban = IBAN(number, validate_bban=True)
-    assert iban.formatted == number
+@pytest.mark.parametrize("value", experimental)
+def test_experimental_iban(value: str) -> None:
+    iban = IBAN(value, validate_bban=True)
+    assert iban.formatted == value
     # There is currently no information available on the structure of the BBAN so that all of these
     # values are left blank.
     assert iban.account_code == ""
@@ -191,20 +193,20 @@ def test_experimental_iban(number):
     assert iban.branch_code == ""
 
 
-@pytest.mark.parametrize("number", invalid)
-def test_parse_iban_allow_invalid(number):
-    iban = IBAN(number, allow_invalid=True)
+@pytest.mark.parametrize("value", invalid)
+def test_parse_iban_allow_invalid(value: str) -> None:
+    iban = IBAN(value, allow_invalid=True)
     with pytest.raises(SchwiftyException):
         iban.validate()
 
 
-@pytest.mark.parametrize("number", invalid)
-def test_invalid_iban(number):
+@pytest.mark.parametrize("value", invalid)
+def test_invalid_iban(value: str) -> None:
     with pytest.raises(SchwiftyException):
-        IBAN(number)
+        IBAN(value)
 
 
-def test_iban_properties_de():
+def test_iban_properties_de() -> None:
     iban = IBAN("DE42430609677000534100")
     assert iban.is_valid is True
     assert iban.bank_code == "43060967"
@@ -221,7 +223,7 @@ def test_iban_properties_de():
     assert iban.in_sepa_zone is True
 
 
-def test_iban_properties_it():
+def test_iban_properties_it() -> None:
     iban = IBAN("IT60 X054 2811 1010 0000 0123 456")
     assert iban.bank_code == "05428"
     assert iban.branch_code == "11101"
@@ -267,7 +269,7 @@ def test_iban_properties_it():
         (("IT", "76494", "2Sbpqelox4wG", "16460"), "IT87A76494164602SBPQELOX4WG"),
     ],
 )
-def test_generate_iban(components, compact):
+def test_generate_iban(components: tuple[str, ...], compact: str) -> None:
     iban = IBAN.generate(*components)
     iban.validate(validate_bban=True)
     assert iban.compact == compact
@@ -281,12 +283,12 @@ def test_generate_iban(components, compact):
         ("GB", "NWBK", "31926819", "1234567"),
     ],
 )
-def test_generate_iban_invalid(components):
+def test_generate_iban_invalid(components: tuple[str, ...]) -> None:
     with pytest.raises(SchwiftyException):
         IBAN.generate(*components)
 
 
-def test_magic_methods():
+def test_magic_methods() -> None:
     iban = IBAN("DE42430609677000534100")
     assert iban == "DE42430609677000534100"
     assert iban == IBAN("DE42430609677000534100")
@@ -299,7 +301,7 @@ def test_magic_methods():
 
 
 @pytest.mark.parametrize(
-    ("iban", "bic"),
+    ("iban", "compact"),
     [
         ("AD1200012030200359100100", "BACAADADXXX"),
         ("AE070331234567890123456", "BOMLAEADXXX"),
@@ -343,19 +345,21 @@ def test_magic_methods():
         # ("UA903052992990004149123456789", "PBANUA2X"),
     ],
 )
-def test_bic_from_iban(iban, bic):
-    assert IBAN(iban).bic.compact == bic
+def test_bic_from_iban(iban: str, compact: str) -> None:
+    bic = IBAN(iban).bic
+    assert bic is not None
+    assert bic.compact == compact
 
 
-def test_unknown_bic_from_iban():
+def test_unknown_bic_from_iban() -> None:
     assert IBAN("SI72000001234567892").bic is None
 
 
-def test_unknown_bank_name_from_iban():
+def test_unknown_bank_name_from_iban() -> None:
     assert IBAN("SI72000001234567892").bank_name is None
 
 
-def test_unknown_bank_name_short_from_iban():
+def test_unknown_bank_name_short_from_iban() -> None:
     assert IBAN("SI72000001234567892").bank_short_name is None
 
 

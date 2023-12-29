@@ -142,7 +142,7 @@ def test_bic_from_bank_code(country: str, bank_code: str, bic: str) -> None:
     assert BIC.from_bank_code(country, bank_code).compact == bic
 
 
-def test_bic_from_unknown_bank_code():
+def test_bic_from_unknown_bank_code() -> None:
     with pytest.raises(exceptions.InvalidBankCode):
         BIC.from_bank_code("PO", "12345678")
 

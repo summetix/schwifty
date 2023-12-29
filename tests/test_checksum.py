@@ -68,7 +68,7 @@ from schwifty.checksum import algorithms
         ("0499999999", "DE:99"),
     ],
 )
-def test_german_checksum_success(account_code, algorithm_name):
+def test_german_checksum_success(account_code: str, algorithm_name: str) -> None:
     assert algorithms[algorithm_name].validate([account_code], "") is True
 
 
@@ -87,21 +87,21 @@ def test_german_checksum_success(account_code, algorithm_name):
         ("8840057000", "DE:91"),
     ],
 )
-def test_german_checksum_failure(account_code, algorithm_name):
+def test_german_checksum_failure(account_code: str, algorithm_name: str) -> None:
     assert algorithms[algorithm_name].validate([account_code], "") is False
 
 
-def test_belgium_checksum():
+def test_belgium_checksum() -> None:
     assert algorithms["BE:default"].validate(["539", "0075470"], "34") is True
 
 
-def test_belgium_checksum_failure():
+def test_belgium_checksum_failure() -> None:
     assert algorithms["BE:default"].validate(["050", "0001234"], "56") is False
 
 
-def test_belgium_checksum_checksum_edge_case():
+def test_belgium_checksum_checksum_edge_case() -> None:
     assert algorithms["BE:default"].validate(["050", "0000177"], "97") is True
 
 
-def test_netherlands_checksum():
+def test_netherlands_checksum() -> None:
     assert algorithms["NL:default"].validate(["0417164300"], "") is True
