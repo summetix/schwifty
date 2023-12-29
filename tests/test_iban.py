@@ -186,11 +186,6 @@ def test_parse_iban(value: str) -> None:
 def test_experimental_iban(value: str) -> None:
     iban = IBAN(value, validate_bban=True)
     assert iban.formatted == value
-    # There is currently no information available on the structure of the BBAN so that all of these
-    # values are left blank.
-    assert iban.account_code == ""
-    assert iban.bank_code == ""
-    assert iban.branch_code == ""
 
 
 @pytest.mark.parametrize("value", invalid)

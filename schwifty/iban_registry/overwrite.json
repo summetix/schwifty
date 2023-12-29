@@ -61,7 +61,25 @@
     "bban_length": 24,
     "iban_spec": "BF2!n2!c22!n",
     "iban_length": 28,
-    "in_sepa_zone": false
+    "in_sepa_zone": false,
+    "positions": {
+      "bank_code": [
+        0,
+        5
+      ],
+      "branch_code": [
+        5,
+        10
+      ],
+      "account_code": [
+        10,
+        22
+      ],
+      "national_checksum_digits": [
+        22,
+        24
+      ]
+    }
   },
   "BG": {
     "positions": {
@@ -75,13 +93,47 @@
       ]
     }
   },
+  "BI": {
+    "positions": {
+      "branch_code": [
+        5,
+        10
+      ],
+      "account_code": [
+        10,
+        21
+      ],
+      "national_checksum_digits": [
+        21,
+        23
+      ]
+    }
+  },
   "BJ": {
     "country": "BJ",
     "bban_spec": "2!c22!n",
     "bban_length": 24,
     "iban_spec": "BJ2!n2!c22!n",
     "iban_length": 28,
-    "in_sepa_zone": false
+    "in_sepa_zone": false,
+    "positions": {
+      "bank_code": [
+        0,
+        5
+      ],
+      "branch_code": [
+        5,
+        10
+      ],
+      "account_code": [
+        10,
+        22
+      ],
+      "national_checksum_digits": [
+        22,
+        24
+      ]
+    }
   },
   "BL": {
     "positions": {
@@ -121,7 +173,25 @@
     "bban_length": 23,
     "iban_spec": "CF2!n23!n",
     "iban_length": 27,
-    "in_sepa_zone": false
+    "in_sepa_zone": false,
+    "positions": {
+      "bank_code": [
+        0,
+        5
+      ],
+      "branch_code": [
+        5,
+        10
+      ],
+      "account_code": [
+        10,
+        21
+      ],
+      "national_checksum_digits": [
+        21,
+        23
+      ]
+    }
   },
   "CG": {
     "country": "CG",
@@ -129,7 +199,25 @@
     "bban_length": 23,
     "iban_spec": "CG2!n23!n",
     "iban_length": 27,
-    "in_sepa_zone": false
+    "in_sepa_zone": false,
+    "positions": {
+      "bank_code": [
+        0,
+        5
+      ],
+      "branch_code": [
+        5,
+        10
+      ],
+      "account_code": [
+        10,
+        21
+      ],
+      "national_checksum_digits": [
+        21,
+        23
+      ]
+    }
   },
   "CI": {
     "country": "CI",
@@ -137,7 +225,25 @@
     "bban_length": 24,
     "iban_spec": "CI2!n2!a22!n",
     "iban_length": 28,
-    "in_sepa_zone": false
+    "in_sepa_zone": false,
+    "positions": {
+      "bank_code": [
+        0,
+        5
+      ],
+      "branch_code": [
+        5,
+        10
+      ],
+      "account_code": [
+        10,
+        22
+      ],
+      "national_checksum_digits": [
+        22,
+        24
+      ]
+    }
   },
   "CM": {
     "country": "CM",
@@ -145,7 +251,25 @@
     "bban_length": 23,
     "iban_spec": "CM2!n23!n",
     "iban_length": 27,
-    "in_sepa_zone": false
+    "in_sepa_zone": false,
+    "positions": {
+      "bank_code": [
+        0,
+        5
+      ],
+      "branch_code": [
+        5,
+        10
+      ],
+      "account_code": [
+        10,
+        21
+      ],
+      "national_checksum_digits": [
+        21,
+        23
+      ]
+    }
   },
   "CV": {
     "country": "CV",
@@ -153,7 +277,25 @@
     "bban_length": 21,
     "iban_spec": "CV2!n21!n",
     "iban_length": 25,
-    "in_sepa_zone": false
+    "in_sepa_zone": false,
+    "positions": {
+      "bank_code": [
+        0,
+        4
+      ],
+      "branch_code": [
+        4,
+        8
+      ],
+      "account_code": [
+        8,
+        19
+      ],
+      "national_checksum_digits": [
+        19,
+        21
+      ]
+    }
   },
   "CZ": {
     "positions": {
@@ -177,7 +319,25 @@
     "bban_length": 23,
     "iban_spec": "DJ2!n23!n",
     "iban_length": 27,
-    "in_sepa_zone": false
+    "in_sepa_zone": false,
+    "positions": {
+      "bank_code": [
+        0,
+        5
+      ],
+      "branch_code": [
+        5,
+        10
+      ],
+      "account_code": [
+        10,
+        21
+      ],
+      "national_checksum_digits": [
+        21,
+        23
+      ]
+    }
   },
   "DK": {
     "positions": {
@@ -196,7 +356,25 @@
     "bban_length": 22,
     "iban_spec": "DZ2!n22!n",
     "iban_length": 26,
-    "in_sepa_zone": false
+    "in_sepa_zone": false,
+    "positions": {
+      "bank_code": [
+        0,
+        5
+      ],
+      "branch_code": [
+        5,
+        10
+      ],
+      "account_code": [
+        10,
+        20
+      ],
+      "national_checksum_digits": [
+        20,
+        22
+      ]
+    }
   },
   "EE": {
     "positions": {
@@ -272,7 +450,25 @@
     "bban_length": 23,
     "iban_spec": "GA2!n23!n",
     "iban_length": 27,
-    "in_sepa_zone": false
+    "in_sepa_zone": false,
+    "positions": {
+      "bank_code": [
+        0,
+        5
+      ],
+      "branch_code": [
+        5,
+        10
+      ],
+      "account_code": [
+        10,
+        21
+      ],
+      "national_checksum_digits": [
+        21,
+        23
+      ]
+    }
   },
   "GF": {
     "positions": {
@@ -332,7 +528,25 @@
     "bban_length": 23,
     "iban_spec": "GQ2!n23!n",
     "iban_length": 27,
-    "in_sepa_zone": false
+    "in_sepa_zone": false,
+    "positions": {
+      "bank_code": [
+        0,
+        5
+      ],
+      "branch_code": [
+        5,
+        10
+      ],
+      "account_code": [
+        10,
+        21
+      ],
+      "national_checksum_digits": [
+        21,
+        23
+      ]
+    }
   },
   "HN": {
     "country": "HN",
@@ -417,7 +631,25 @@
     "bban_length": 24,
     "iban_spec": "MA2!n24!n",
     "iban_length": 28,
-    "in_sepa_zone": false
+    "in_sepa_zone": false,
+    "positions": {
+      "bank_code": [
+        0,
+        5
+      ],
+      "branch_code": [
+        5,
+        10
+      ],
+      "account_code": [
+        10,
+        22
+      ],
+      "national_checksum_digits": [
+        22,
+        24
+      ]
+    }
   },
   "MC": {
     "positions": {
@@ -485,7 +717,25 @@
     "bban_length": 24,
     "iban_spec": "ML2!n2!c22!n",
     "iban_length": 28,
-    "in_sepa_zone": false
+    "in_sepa_zone": false,
+    "positions": {
+      "bank_code": [
+        0,
+        5
+      ],
+      "branch_code": [
+        5,
+        10
+      ],
+      "account_code": [
+        10,
+        22
+      ],
+      "national_checksum_digits": [
+        22,
+        24
+      ]
+    }
   },
   "MQ": {
     "positions": {
@@ -537,7 +787,25 @@
     "bban_length": 24,
     "iban_spec": "NE2!n22!n",
     "iban_length": 28,
-    "in_sepa_zone": false
+    "in_sepa_zone": false,
+    "positions": {
+      "bank_code": [
+        0,
+        5
+      ],
+      "branch_code": [
+        5,
+        10
+      ],
+      "account_code": [
+        10,
+        22
+      ],
+      "national_checksum_digits": [
+        22,
+        24
+      ]
+    }
   },
   "NO": {
     "positions": {
@@ -726,7 +994,25 @@
     "bban_length": 24,
     "iban_spec": "SN2!n2!a22!n",
     "iban_length": 28,
-    "in_sepa_zone": false
+    "in_sepa_zone": false,
+    "positions": {
+      "bank_code": [
+        0,
+        5
+      ],
+      "branch_code": [
+        5,
+        10
+      ],
+      "account_code": [
+        10,
+        22
+      ],
+      "national_checksum_digits": [
+        22,
+        24
+      ]
+    }
   },
   "TD": {
     "country": "TD",
@@ -734,7 +1020,25 @@
     "bban_length": 23,
     "iban_spec": "TD2!n23!n",
     "iban_length": 27,
-    "in_sepa_zone": false
+    "in_sepa_zone": false,
+    "positions": {
+      "bank_code": [
+        0,
+        5
+      ],
+      "branch_code": [
+        5,
+        10
+      ],
+      "account_code": [
+        10,
+        21
+      ],
+      "national_checksum_digits": [
+        21,
+        23
+      ]
+    }
   },
   "TF": {
     "positions": {
@@ -758,7 +1062,25 @@
     "bban_length": 24,
     "iban_spec": "TG2!n2!a3!n5!n12!n2!n",
     "iban_length": 28,
-    "in_sepa_zone": false
+    "in_sepa_zone": false,
+    "positions": {
+      "bank_code": [
+        0,
+        5
+      ],
+      "branch_code": [
+        5,
+        10
+      ],
+      "account_code": [
+        10,
+        22
+      ],
+      "national_checksum_digits": [
+        22,
+        24
+      ]
+    }
   },
   "TL": {
     "positions": {
