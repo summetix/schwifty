@@ -26,6 +26,14 @@ def iso7064(
     return f"{post_process(n % mod):0{n_digits}d}"
 
 
+def weighted(
+    value: str,
+    mod: int,
+    weights: list[int],
+) -> int:
+    return sum(n * int(c) for n, c in zip(weights, value)) % mod
+
+
 class Algorithm(metaclass=abc.ABCMeta):
     name: ClassVar[str]
     accepts: ClassVar[list[Component]] = [

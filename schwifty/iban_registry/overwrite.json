@@ -299,10 +299,6 @@
   },
   "CZ": {
     "positions": {
-      "bank_code": [
-        0,
-        4
-      ],
       "branch_code": [
         4,
         10
@@ -584,10 +580,10 @@
       ],
       "account_code": [
         6,
-        10
+        12
       ],
       "account_holder_id": [
-        10,
+        12,
         22
       ]
     },
@@ -979,6 +975,18 @@
       "bank_code",
       "branch_code"
     ]
+  },
+  "SK": {
+    "positions": {
+      "branch_code": [
+        4,
+        10
+      ],
+      "account_code": [
+        10,
+        20
+      ]
+    }
   },
   "SM": {
     "positions": {
