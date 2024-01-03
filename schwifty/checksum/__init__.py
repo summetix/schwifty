@@ -3,6 +3,7 @@ from __future__ import annotations
 import abc
 import string
 from collections.abc import Callable
+from collections.abc import Iterable
 from importlib import import_module
 from pathlib import Path
 from typing import ClassVar
@@ -27,9 +28,9 @@ def iso7064(
 
 
 def weighted(
-    value: str,
+    value: Iterable[str],
     mod: int,
-    weights: list[int],
+    weights: Iterable[int],
 ) -> int:
     return sum(n * int(c) for n, c in zip(weights, value)) % mod
 
