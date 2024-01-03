@@ -34,6 +34,12 @@ def weighted(
     return sum(n * int(c) for n, c in zip(weights, value)) % mod
 
 
+def luhn(value: str) -> str:
+    numerical = "".join(str(_alphabet.index(n)) for n in value)
+    processed = "".join(str((2 - i % 2) * int(n)) for i, n in enumerate(reversed(numerical)))
+    return str((10 - sum(int(n) for n in processed)) % 10)
+
+
 class Algorithm(metaclass=abc.ABCMeta):
     name: ClassVar[str]
     accepts: ClassVar[list[Component]] = [
