@@ -13,7 +13,7 @@ Basics
   <IBAN=DE89370400440532013000>
 
 
-Afterwards you can access all relevant components and meta-information of the IBAN as attributes.
+Afterwards, you can access all relevant components and meta-information of the IBAN as attributes.
 
 .. code-block:: pycon
 
@@ -29,8 +29,10 @@ Afterwards you can access all relevant components and meta-information of the IB
   '0532013000'
   >>> len(iban)
   22
+  >>> iban.bban
+  <BBAN=370400440532013000>
 
-For some countries it is also possible to get ahold of the :class:`.BIC` associated to the bank-code
+For many countries it is also possible to get ahold of the :class:`.BIC` associated to the bank-code
 of the IBAN.
 
 .. code-block:: pycon
@@ -131,7 +133,7 @@ and possibly the branch-code have the correct country-specific format. E.g.:
 
 Since version 2021.05.1 ``schwifty`` also provides the ability to validate the country specific
 checksum within the BBAN. This functionality is currently opt-in and can be used by providing the
-`validate_bban` paramter to the :class:`.IBAN` constructor or the :meth:`.IBAN.validate`-method.
+`validate_bban` parameter to the :class:`.IBAN` constructor or the :meth:`.IBAN.validate`-method.
 
 .. code-block:: pycon
 
@@ -183,6 +185,9 @@ property. E.g.:
     # do something with value
 
 
+This will however not validate the national checksum digits.
+
+
 Generation
 ----------
 
@@ -199,6 +204,16 @@ you.
 
 Notice that even that the account-code has less digits than required (in Germany accounts should be
 10 digits long), zeros have been added at the correct location.
+
+For many countries that have a national checksum as part of the BBAN, its value is automatically
+calculated upon IBAN generation. E.g.
+
+.. code-block:: pycon
+
+  >>> iban = IBAN.generate("ES", "2100", "0200051332", "0418")
+  <IBAN=ES9121000418450200051332>
+  >>> iban.bban.national_checksum_digits
+  '45'
 
 For some countries you can also generate :class:`.BIC`-objects from local
 bank-codes, e.g.:

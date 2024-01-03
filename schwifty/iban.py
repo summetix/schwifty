@@ -104,7 +104,12 @@ class IBAN(common.Base):
             Added support for generating the country specific checksum of the BBAN for Belgian
             banks.
         """
-        bban = BBAN.from_components(country_code, bank_code, account_code, branch_code)
+        bban = BBAN.from_components(
+            country_code,
+            bank_code=bank_code,
+            branch_code=branch_code,
+            account_code=account_code,
+        )
         checksum_algo = ISO7064_mod97_10()
         return cls(country_code + checksum_algo.compute([bban, country_code]) + bban)
 

@@ -50,9 +50,7 @@ class BBAN(common.Base):
         self.country_code = country_code
 
     @classmethod
-    def from_components(
-        cls, country_code: str, bank_code: str, account_code: str, branch_code: str = ""
-    ) -> BBAN:
+    def from_components(cls, country_code: str, **values: str) -> BBAN:
         """Generate a BBAN from its national components."""
         spec: dict[str, Any] = _get_bban_spec(country_code)
         if "positions" not in spec:
@@ -63,9 +61,9 @@ class BBAN(common.Base):
         account_code_length: int = calc_value_length(spec, Component.ACCOUNT_CODE)
 
         country_code = common.clean(country_code)
-        bank_code = common.clean(bank_code)
-        account_code = common.clean(account_code)
-        branch_code = common.clean(branch_code)
+        bank_code = common.clean(values.get("bank_code", ""))
+        account_code = common.clean(values.get("account_code", ""))
+        branch_code = common.clean(values.get("branch_code", ""))
 
         if len(bank_code) == bank_code_length + branch_code_length:
             bank_code, branch_code = bank_code[:bank_code_length], bank_code[bank_code_length:]
