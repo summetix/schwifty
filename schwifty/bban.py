@@ -41,7 +41,25 @@ def compute_national_checksum(country_code: str, components: dict[Component, str
 
 
 class BBAN(common.Base):
-    """The BBAN object."""
+    """The Basic Bank Account Number (BBAN).
+
+    The format is decided by the national central bank or designated payment authority of each
+    country.
+
+    Examples:
+
+        Most commonly :class:`.BBAN`-objects are created implicitly by the :class:`.IBAN`-class, but
+        they can also be instantiated like so::
+
+            >>> BBAN.from_components("DE", account_code="0532013000", bank_code="37040044")
+            <BBAN=370400440532013000>
+
+    Args:
+        country_code (str): A two-letter ISO 3166-1 compliant country code
+        value (str): The country specific BBAN value.
+
+    .. versionadded:: 2024.01.1
+    """
 
     def __new__(cls: type[BBAN], country_code: str, value: str, **kwargs: Any) -> BBAN:
         return cast(BBAN, super().__new__(cls, value, **kwargs))
@@ -51,7 +69,10 @@ class BBAN(common.Base):
 
     @classmethod
     def from_components(cls, country_code: str, **values: str) -> BBAN:
-        """Generate a BBAN from its national components."""
+        """Generate a BBAN from its national components.
+
+        The currently supported ``values`` are ``bank_code``, ``branch_code`` and ``account_code``.
+        """
         spec: dict[str, Any] = _get_bban_spec(country_code)
         if "positions" not in spec:
             raise exceptions.SchwiftyException(f"BBAN generation for {country_code} not supported")
@@ -141,10 +162,7 @@ class BBAN(common.Base):
 
     @property
     def national_checksum_digits(self) -> str:
-        """str: National checksum digits.
-
-        This value is only available in some countries.
-        """
+        """str: National checksum digits."""
         return self._get_component(Component.NATIONAL_CHECKSUM_DIGITS)
 
     @property
@@ -202,8 +220,6 @@ class BBAN(common.Base):
         Examples:
             >>> IBAN('DE89370400440532013000').bank_name
             'Commerzbank'
-
-        .. versionadded:: 2022.04.2
         """
         return None if self.bank is None else self.bank["name"]
 
@@ -214,7 +230,5 @@ class BBAN(common.Base):
         Examples:
             >>> IBAN('DE89370400440532013000').bank_short_name
             'Commerzbank Köln'
-
-        .. versionadded:: 2022.04.2
         """
         return None if self.bank is None else self.bank["short_name"]

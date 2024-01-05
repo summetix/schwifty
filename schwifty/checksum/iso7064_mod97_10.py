@@ -6,7 +6,7 @@ from schwifty import checksum
 # North Macedonia (MK)
 # Portugal (PT)
 # Serbia (RS)
-# Solvenia (SI)
+# Slovenia (SI)
 # East Timor (TL)
 @checksum.register("BT", "ME", "MK", "PT", "RS", "SI", "TL")
 class DefaultAlgorithm(checksum.ISO7064_mod97_10):

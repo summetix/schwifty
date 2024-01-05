@@ -5,6 +5,94 @@ Changelog
 
 Versions follow `CalVer <http://www.calver.org/>`_ with the scheme ``YY.0M.Micro``.
 
+`2024.01.1`_ - 2024/01/05
+-------------------------
+Added
+~~~~~
+
+* Support aspirational countries:
+
+  * Algeria
+  * Angola
+  * Benin
+  * Burkina Faso
+  * Burundi
+  * Cabo Verde
+  * Cameroon
+  * Central African Republic
+  * Chad
+  * Comoros
+  * Congo
+  * Cote d'Ivoire
+  * Djibouti
+  * Equatorial Gunea
+  * Gabon,
+  * Guinea-Bissau
+  * Honduras
+  * Iran
+  * Madagascar
+  * Mali
+  * Morocco
+  * Mozambique
+  * Nicaragua
+  * Niger
+  * Senegal
+  * Togo
+
+* National checksum algorithms for many countries have been added:
+
+  * Albania
+  * Bosnia and Herzegovina
+  * Czech Republic
+  * East timor
+  * Estonia
+  * Finland
+  * Iceland
+  * Mauretania
+  * Montenegro
+  * North Macedonia
+  * Norway
+  * Poland
+  * Portugal
+  * Serbia
+  * Slovakia
+  * Slovenia
+  * Spain
+  * Tunesia
+
+* Add new banks to the list of French banks `@Natim <https://github.com/Natim>`_:
+
+  * ARKEA BP Brest
+  * Anytime
+  * Lydia Bank
+  * MEMO BANK
+  * Revolut
+  * SHINE
+  * SumUp Limited
+
+* New :attr:`.IBAN.in_sepa_zone`-property to indicate if the IBAN's country is part of the SEPA
+  zone.
+* New manual bank registries for
+
+  * Andorra
+  * Arabic Emirates
+  * Costa Rica
+  * Portugal
+
+* New attributes :attr:`.IBAN.account_id`, :attr:`.IBAN.account_holder_id` and
+  :attr:`.IBAN.account_type` that are available depending on the country's BBAN specification.
+  E.g. :attr:`.IBAN.account_holder_id` is currently only available for Iceland (Kennitala) and only
+  Brazil defines an :attr:`.IBAN.account_id`.
+
+Changed
+~~~~~~~
+* Use enhanced IBAN/BBAN format from `Wikipedia <https://en.wikipedia.org/wiki/International_Bank_Account_Number#IBAN_formats_by_country>`_,
+  since the official information from SWIFT is often inacurate.
+* The support for national checksum digits has been reimplemented.
+* The :class:`.IBAN`-class now has an additional :attr:`.IBAN.bban`-attribute, where all country
+  specific functionallity has been moved to.
+
+
 `2023.11.2`_ - 2023/11/27
 -------------------------
 Added
@@ -449,6 +537,7 @@ Added
 * Added :attr:`.BIC.country` and :attr:`.IBAN.country`.
 
 
+.. _2024.01.1: https://github.com/mdomke/schwifty/compare/2023.11.2...2024.01.1
 .. _2023.11.2: https://github.com/mdomke/schwifty/compare/2023.11.1...2023.11.2
 .. _2023.11.1: https://github.com/mdomke/schwifty/compare/2023.11.0...2023.11.1
 .. _2023.11.0: https://github.com/mdomke/schwifty/compare/2023.10.0...2023.11.0

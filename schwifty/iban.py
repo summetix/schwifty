@@ -43,6 +43,8 @@ class IBAN(common.Base):
             'DE'
             >>> iban.checksum_digits
             '89'
+            >>> iban.bban
+            <BBAN=370400440532013000>
 
 
     Args:
@@ -63,7 +65,9 @@ class IBAN(common.Base):
         the BBAN is also validated.
     .. versionchanged:: 2023.10.0
         The :class:`.IBAN` is now a subclass of :class:`str` and supports all its methods.
-
+    .. versionchanged:: 2024.01.1
+        Added the :attr:`.bban`-attribute that provideds all country specific account and bank
+        information.
     """
 
     def __init__(self, iban: str, allow_invalid: bool = False, validate_bban: bool = False) -> None:
@@ -231,7 +235,10 @@ class IBAN(common.Base):
 
     @property
     def in_sepa_zone(self) -> bool:
-        """bool: Is the country in the Single Euro Payments Area (SEPA) zone."""
+        """bool: Is the country in the Single Euro Payments Area (SEPA) zone.
+
+        .. versionadded:: 2024.01.1
+        """
         return self.spec["in_sepa_zone"]
 
     @property
@@ -248,7 +255,7 @@ class IBAN(common.Base):
     def national_checksum_digits(self) -> str:
         """str: National checksum digits.
 
-        This value is only available in some countries.
+        .. versionadded:: 2024.01.1
         """
         return self.bban.national_checksum_digits
 
