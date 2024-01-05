@@ -162,7 +162,7 @@ class BBAN(common.Base):
 
     @property
     def national_checksum_digits(self) -> str:
-        """str: National checksum digits."""
+        """str: National checksum digits if available."""
         return self._get_component(Component.NATIONAL_CHECKSUM_DIGITS)
 
     @property
@@ -206,6 +206,7 @@ class BBAN(common.Base):
 
     @property
     def bank(self) -> dict | None:
+        """dict | None: The information of bank related to this BBANs bank code."""
         bank_registry = registry.get("bank_code")
         assert isinstance(bank_registry, dict)
         bank_entry = bank_registry.get((self.country_code, self.bank_code or self.branch_code))

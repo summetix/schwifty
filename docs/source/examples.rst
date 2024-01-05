@@ -65,28 +65,49 @@ The :attr:`.BIC.domestic_bank_codes` lists the country specific bank codes as yo
 part of the IBAN. This mapping is included in a manually curated registry that ships with ``schwifty``.
 and currently includes entries for the following countries:
 
+* Andorra
 * Austria
 * Belgium
+* Bosnia and Herzegovina
 * Bulgaria
+* Costa Rica
 * Croatia
 * Czech Republic
+* Cyprus
+* Denmark
+* Estonia
 * Finland
 * France
 * Germany
-* Great Britan
+* Greece
 * Hungary
 * Ireland
+* Iceland
+* Italy
+* Israel
+* Kazakhstan
 * Latvia
 * Lithuania
+* Luxembourg
+* Moldova
+* Monaco
 * Netherlands
+* Norway
 * Poland
+* Portugal
 * Romania
 * Saudi Arabia
+* Serbia
 * Slovakia
 * Slovenia
+* South Africa
 * Spain
 * Sweden
 * Switzerland
+* Turkiye
+* Ukraine
+* United Arab Emirates
+* United Kingdom
 
 .. note::
 

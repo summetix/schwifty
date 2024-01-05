@@ -300,6 +300,7 @@ class IBAN(common.Base):
 
     @property
     def bank(self) -> dict | None:
+        """dict or None: The information of the bank related to the bank code as part of the BBAN"""
         return self.bban.bank
 
     @property

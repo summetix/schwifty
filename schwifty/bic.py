@@ -120,28 +120,49 @@ class BIC(common.Base):
         Note:
             This currently only works for selected countries. Amongst them
 
+            * Andorra
             * Austria
             * Belgium
+            * Bosnia and Herzegovina
             * Bulgaria
+            * Costa Rica
             * Croatia
             * Czech Republic
+            * Cyprus
+            * Denmark
+            * Estonia
             * Finland
             * France
             * Germany
-            * Great Britan
+            * Greece
             * Hungary
             * Ireland
+            * Iceland
+            * Italy
+            * Israel
+            * Kazakhstan
             * Latvia
             * Lithuania
+            * Luxembourg
+            * Moldova
+            * Monaco
             * Netherlands
+            * Norway
             * Poland
+            * Portugal
             * Romania
             * Saudi Arabia
+            * Serbia
             * Slovakia
             * Slovenia
+            * South Africa
             * Spain
             * Sweden
             * Switzerland
+            * Turkiye
+            * Ukraine
+            * United Arab Emirates
+            * United Kingdom
         """
         try:
             spec = registry.get("bank_code")
