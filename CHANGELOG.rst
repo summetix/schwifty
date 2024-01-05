@@ -91,6 +91,7 @@ Changed
 * The support for national checksum digits has been reimplemented.
 * The :class:`.IBAN`-class now has an additional :attr:`.IBAN.bban`-attribute, where all country
   specific functionallity has been moved to.
+* Updated bank registries. Thanks to `@sh4dowb <https://github.com/sh4dowb>`_ for the Turkish banks.
 
 
 `2023.11.2`_ - 2023/11/27
