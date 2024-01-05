@@ -1602,6 +1602,14 @@
   {
     "country_code": "AT",
     "primary": true,
+    "bic": "OPBAATW2XXX",
+    "bank_code": "75910",
+    "name": "Stellantis Bank SA Niederlassung \u00d6sterreich",
+    "short_name": "Stellantis Bank SA Niederlassung \u00d6sterreich"
+  },
+  {
+    "country_code": "AT",
+    "primary": true,
     "bic": "VBOEATWWXXX",
     "bank_code": "40000",
     "name": "VOLKSBANK WIEN AG",
@@ -4890,14 +4898,6 @@
   {
     "country_code": "AT",
     "primary": true,
-    "bic": "CAIBATWWXXX",
-    "bank_code": "18250",
-    "name": "UniCredit Bank AG, Zweigniederlassung Wien",
-    "short_name": "UniCredit Bank AG, Zweigniederlassung Wien"
-  },
-  {
-    "country_code": "AT",
-    "primary": true,
     "bic": "RZBAATWWXXX",
     "bank_code": "31000",
     "name": "Raiffeisen Bank International AG",
@@ -5446,14 +5446,6 @@
     "bank_code": "18140",
     "name": "Citibank Europe plc, Austria Branch",
     "short_name": "Citibank Europe plc, Austria Branch"
-  },
-  {
-    "country_code": "AT",
-    "primary": true,
-    "bic": "",
-    "bank_code": "75910",
-    "name": "PSA Bank \u00d6sterreich, Niederlassung der PSA Bank Deutschland GmbH",
-    "short_name": "PSA Bank \u00d6sterreich, Niederlassung der PSA Bank Deutschland GmbH"
   },
   {
     "country_code": "AT",
@@ -6380,8 +6372,8 @@
     "primary": true,
     "bic": "OPBAATW2XXX",
     "bank_code": "19515",
-    "name": "Opel Bank S.A. Niederlassung \u00d6sterreich",
-    "short_name": "Opel Bank S.A. Niederlassung \u00d6sterreich"
+    "name": "Stellantis Bank SA Niederlassung \u00d6sterreich",
+    "short_name": "Stellantis Bank SA Niederlassung \u00d6sterreich"
   },
   {
     "country_code": "AT",

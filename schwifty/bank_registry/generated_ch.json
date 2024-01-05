@@ -1376,6 +1376,14 @@
     "primary": true
   },
   {
+    "name": "Schweizerische Nationalbank Transit wCBDC",
+    "short_name": "Schweizerische Nationalbank Transit wCBDC",
+    "bank_code": "01007",
+    "bic": "SNBZCHZZDX2",
+    "country_code": "CH",
+    "primary": true
+  },
+  {
     "name": "Credit Suisse (Schweiz) AG",
     "short_name": "Credit Suisse (Schweiz) AG",
     "bank_code": "04835",
@@ -4752,8 +4760,8 @@
     "primary": false
   },
   {
-    "name": "SEBA Bank AG",
-    "short_name": "SEBA Bank AG",
+    "name": "AMINA Bank AG",
+    "short_name": "AMINA Bank AG",
     "bank_code": "30322",
     "bic": "SCRYCH22XXX",
     "country_code": "CH",
@@ -8464,8 +8472,8 @@
     "primary": true
   },
   {
-    "name": "SEBA Bank AG",
-    "short_name": "SEBA Bank AG",
+    "name": "AMINA Bank AG",
+    "short_name": "AMINA Bank AG",
     "bank_code": "83018",
     "bic": "SCRYCH22XXX",
     "country_code": "CH",
@@ -8660,6 +8668,14 @@
     "short_name": "Bank of China Limited, GenevaBranch",
     "bank_code": "83045",
     "bic": "BKCHCHGEXXX",
+    "country_code": "CH",
+    "primary": true
+  },
+  {
+    "name": "BG (Suisse) Private Bank SA",
+    "short_name": "BG (Suisse) Private Bank SA",
+    "bank_code": "83046",
+    "bic": "BGPBCH22XXX",
     "country_code": "CH",
     "primary": true
   },

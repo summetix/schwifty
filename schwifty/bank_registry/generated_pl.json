@@ -7019,6 +7019,14 @@
     "country_code": "PL",
     "primary": true,
     "bic": "PKOPPLPWXXX",
+    "bank_code": "12400131",
+    "name": "Bank Polska Kasa Opieki Sp\u00f3\u0142ka Akcyjna",
+    "short_name": "Bank Polska Kasa Opieki Sp\u00f3\u0142ka Akcyjna"
+  },
+  {
+    "country_code": "PL",
+    "primary": true,
+    "bic": "PKOPPLPWXXX",
     "bank_code": "12401011",
     "name": "Bank Polska Kasa Opieki Sp\u00f3\u0142ka Akcyjna",
     "short_name": "Bank Polska Kasa Opieki Sp\u00f3\u0142ka Akcyjna"
@@ -17908,24 +17916,24 @@
     "primary": true,
     "bic": "GBWCPLPP",
     "bank_code": "83510003",
-    "name": "Zjednoczony Bank Sp\u00f3\u0142dzielczy",
-    "short_name": "Zjednoczony Bank Sp\u00f3\u0142dzielczy"
+    "name": "Bank Rumia Sp\u00f3\u0142dzielczy",
+    "short_name": "Bank Rumia Sp\u00f3\u0142dzielczy"
   },
   {
     "country_code": "PL",
     "primary": true,
     "bic": "GBWCPLPP",
     "bank_code": "93240008",
-    "name": "Zjednoczony Bank Sp\u00f3\u0142dzielczy",
-    "short_name": "Zjednoczony Bank Sp\u00f3\u0142dzielczy"
+    "name": "Bank Rumia Sp\u00f3\u0142dzielczy",
+    "short_name": "Bank Rumia Sp\u00f3\u0142dzielczy"
   },
   {
     "country_code": "PL",
     "primary": true,
     "bic": "GBWCPLPP",
     "bank_code": "93241018",
-    "name": "Zjednoczony Bank Sp\u00f3\u0142dzielczy",
-    "short_name": "Zjednoczony Bank Sp\u00f3\u0142dzielczy"
+    "name": "Bank Rumia Sp\u00f3\u0142dzielczy",
+    "short_name": "Bank Rumia Sp\u00f3\u0142dzielczy"
   },
   {
     "country_code": "PL",

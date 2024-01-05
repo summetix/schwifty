@@ -1138,14 +1138,6 @@
   {
     "country_code": "BE",
     "primary": true,
-    "bic": "BARBBEBB",
-    "bank_code": "183",
-    "name": "Bank of Baroda",
-    "short_name": "Bank of Baroda"
-  },
-  {
-    "country_code": "BE",
-    "primary": true,
     "bic": "BBRUBEBB",
     "bank_code": "185",
     "name": "ING Belgi\u00eb",
@@ -3730,14 +3722,6 @@
   {
     "country_code": "BE",
     "primary": true,
-    "bic": "SHIZBEBB",
-    "bank_code": "530",
-    "name": "Shizuoka Bank (Europe)",
-    "short_name": "Shizuoka Bank (Europe)"
-  },
-  {
-    "country_code": "BE",
-    "primary": true,
     "bic": "BKIDBE22",
     "bank_code": "541",
     "name": "BANK OF INDIA",
@@ -5806,6 +5790,14 @@
     "bank_code": "899",
     "name": "vdk bank",
     "short_name": "vdk bank"
+  },
+  {
+    "country_code": "BE",
+    "primary": true,
+    "bic": "TRWIBEB1",
+    "bank_code": "905",
+    "name": "Wise Europe SA",
+    "short_name": "Wise Europe SA"
   },
   {
     "country_code": "BE",

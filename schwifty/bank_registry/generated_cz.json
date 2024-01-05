@@ -226,6 +226,14 @@
   {
     "country_code": "CZ",
     "primary": true,
+    "bic": "",
+    "bank_code": "6363",
+    "name": "Partners Banka, a.s.",
+    "short_name": "Partners Banka, a.s."
+  },
+  {
+    "country_code": "CZ",
+    "primary": true,
     "bic": "SUBACZPP",
     "bank_code": "6700",
     "name": "V\u00c5\u00a1eobecn\u00c3\u00a1 \u00c3\u00baverov\u00c3\u00a1 banka a.s., pobo\u00c4\u008dka Praha",
@@ -366,14 +374,6 @@
     "bank_code": "8265",
     "name": "Industrial and Commercial Bank of China Limited, Prague Branch, od\u00c5\u00a1t\u00c4\u009bpn\u00c3\u00bd z\u00c3\u00a1vod",
     "short_name": "Industrial and Commercial Bank of China Limited, Prague Branch, od\u00c5\u00a1t\u00c4\u009bpn\u00c3\u00bd z\u00c3\u00a1vod"
-  },
-  {
-    "country_code": "CZ",
-    "primary": true,
-    "bic": "FAPOCZP1",
-    "bank_code": "8270",
-    "name": "Fairplay Pay s.r.o.",
-    "short_name": "Fairplay Pay s.r.o."
   },
   {
     "country_code": "CZ",

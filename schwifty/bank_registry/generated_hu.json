@@ -92,8 +92,8 @@
     "primary": true,
     "bic": "OTPVHUHB",
     "bank_code": "117",
-    "name": "OTP Budapesti r., I. Alag\u00fat u.",
-    "short_name": "OTP Budapesti r., I. Alag\u00fat u."
+    "name": "OTP Budapesti r., I. Iskola u.",
+    "short_name": "OTP Budapesti r., I. Iskola u."
   },
   {
     "country_code": "HU",
@@ -398,6 +398,14 @@
     "bank_code": "299",
     "name": "Trive Bank Hungary Zrt",
     "short_name": "Trive Bank Hungary Zrt"
+  },
+  {
+    "country_code": "HU",
+    "primary": true,
+    "bic": "BBIXHUHH",
+    "bank_code": "304",
+    "name": "BinX Zrt.",
+    "short_name": "BinX Zrt."
   },
   {
     "country_code": "HU",
@@ -748,8 +756,8 @@
     "primary": true,
     "bic": "DTBAHUHB",
     "bank_code": "586",
-    "name": "DUNA Takar\u00e9k Bank Zrt.",
-    "short_name": "DUNA Takar\u00e9k Bank Zrt."
+    "name": "MBH DUNA Bank Zrt.",
+    "short_name": "MBH DUNA Bank Zrt."
   },
   {
     "country_code": "HU",
