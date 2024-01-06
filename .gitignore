@@ -4,6 +4,7 @@ tags
 .cache/
 .eggs/
 .coverage
+.devbox
 AUTHORS
 build/
 dist/
