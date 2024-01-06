@@ -23,9 +23,9 @@ Added
   * Chad
   * Comoros
   * Congo
-  * Cote d'Ivoire
+  * Côte d'Ivoire
   * Djibouti
-  * Equatorial Gunea
+  * Equatorial Guinea
   * Gabon,
   * Guinea-Bissau
   * Honduras
@@ -44,11 +44,11 @@ Added
   * Albania
   * Bosnia and Herzegovina
   * Czech Republic
-  * East timor
+  * East Timor
   * Estonia
   * Finland
   * Iceland
-  * Mauretania
+  * Mauritania
   * Montenegro
   * North Macedonia
   * Norway
@@ -58,7 +58,7 @@ Added
   * Slovakia
   * Slovenia
   * Spain
-  * Tunesia
+  * Tunisia
 
 * Add new banks to the list of French banks `@Natim <https://github.com/Natim>`_:
 
@@ -90,7 +90,7 @@ Changed
   since the official information from SWIFT is often inacurate.
 * The support for national checksum digits has been reimplemented.
 * The :class:`.IBAN`-class now has an additional :attr:`.IBAN.bban`-attribute, where all country
-  specific functionallity has been moved to.
+  specific functionality has been moved to.
 * Updated bank registries. Thanks to `@sh4dowb <https://github.com/sh4dowb>`_ for the Turkish banks.
 
 
