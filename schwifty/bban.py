@@ -72,6 +72,13 @@ class BBAN(common.Base):
         """Generate a BBAN from its national components.
 
         The currently supported ``values`` are ``bank_code``, ``branch_code`` and ``account_code``.
+
+        Args:
+            country_code (str): The ISO 3166 alpha-2 country code.
+            values: The country specific BBAN components.
+
+        Raises:
+            InvalidAccountCode: If the account code does not meet the national requirements.
         """
         spec: dict[str, Any] = _get_bban_spec(country_code)
         if "positions" not in spec:

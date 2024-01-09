@@ -77,6 +77,33 @@ class IBAN(common.Base):
             self.validate(validate_bban)
 
     @classmethod
+    def from_bban(
+        cls,
+        country_code: str,
+        bban: str | BBAN,
+        allow_invalid: bool = False,
+        validate_bban: bool = False,
+    ) -> IBAN:
+        """Create an IBAN from a given BBAN.
+
+        This will automatically calculate the IBAN checksum digits.
+
+        Args:
+            country_code (str): The ISO 3166 alpha-2 country code.
+            bban (str or BBAN): The national Basic Bank Account Number.
+            allow_invalid (bool): If set to `True` IBAN validation is skipped on instantiation.
+            validate_bban (bool): If set to `True` also check the country specific checksum.
+
+        .. versionadded:: 2024.01.2
+        """
+        checksum_algo = ISO7064_mod97_10()
+        return cls(
+            country_code + checksum_algo.compute([bban, country_code]) + bban,
+            allow_invalid=allow_invalid,
+            validate_bban=validate_bban,
+        )
+
+    @classmethod
     def generate(
         cls, country_code: str, bank_code: str, account_code: str, branch_code: str = ""
     ) -> IBAN:
@@ -100,6 +127,9 @@ class IBAN(common.Base):
             bank_code (str): The country specific bank-code.
             account_code (str): The customer specific account-code.
 
+        Raises:
+            InvalidAccountCode: If the account code does not meet the national requirements.
+
         .. versionchanged:: 2020.08.3
             Added the `branch_code` parameter to allow the branch code (or sort code) to be
             specified independently.
@@ -108,14 +138,15 @@ class IBAN(common.Base):
             Added support for generating the country specific checksum of the BBAN for Belgian
             banks.
         """
-        bban = BBAN.from_components(
+        return cls.from_bban(
             country_code,
-            bank_code=bank_code,
-            branch_code=branch_code,
-            account_code=account_code,
+            BBAN.from_components(
+                country_code,
+                bank_code=bank_code,
+                branch_code=branch_code,
+                account_code=account_code,
+            ),
         )
-        checksum_algo = ISO7064_mod97_10()
-        return cls(country_code + checksum_algo.compute([bban, country_code]) + bban)
 
     def validate(self, validate_bban: bool = False) -> bool:
         """Validate the structural integrity of this IBAN.
