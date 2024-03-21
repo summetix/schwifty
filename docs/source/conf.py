@@ -1,6 +1,7 @@
 import os
 import sys
 from datetime import datetime
+from typing import Any
 
 
 # If extensions (or modules to document with autodoc) are in another directory,
@@ -8,7 +9,7 @@ from datetime import datetime
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 sys.path.insert(0, os.path.abspath("../.."))
 
-import schwifty  # noqa
+import schwifty
 
 
 extensions = [
@@ -54,7 +55,7 @@ language = "en"
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = []
+exclude_patterns: list[str] = []
 
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
@@ -93,7 +94,7 @@ html_theme = "furo"
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
-html_theme_options = {
+html_theme_options: dict[str, Any] = {
     # "sidebar_hide_name": True,
     # "github_user": "mdomke",
     # "github_repo": "schwifty",

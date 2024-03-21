@@ -4,6 +4,7 @@ A description of the algorithms can be found on the website of the Bundesbank
 
 https://www.bundesbank.de/resource/blob/603320/16a80c739bbbae592ca575905975c2d0/mL/pruefzifferberechnungsmethoden-data.pdf
 """
+
 from __future__ import annotations
 
 from dataclasses import dataclass
