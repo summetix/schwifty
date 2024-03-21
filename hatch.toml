@@ -1,8 +1,8 @@
 [envs.default]
 dependencies = [
-  "freezegun==1.2.*",
+  "freezegun==1.4.*",
   "pytest-cov==4.1.*",
-  "pytest==7.3.*",
+  "pytest==8.1.*",
 ]
 features = [
   "pydantic",
@@ -14,9 +14,8 @@ test = "cov-test --no-cov"
 
 [envs.lint]
 extra-dependencies = [
-  "ruff==0.1.*",
-  "black==23.12.*",
-  "mypy==1.8.*",
+  "ruff==0.3.*",
+  "mypy==1.9.*",
   "doc8==1.1.*",
   "pygments==2.16.*",
 ]
@@ -24,12 +23,12 @@ extra-dependencies = [
 [envs.lint.scripts]
 typing = "mypy --install-types --non-interactive {args:schwifty tests}"
 style = [
-  "black --check --diff {args:.}",
-  "ruff {args:.}",
+  "ruff format --check --diff {args:.}",
+  "ruff check {args:.}",
 ]
 fmt = [
-  "black {args:.}",
-  "ruff --fix {args:.}",
+  "ruff format {args:.}",
+  "ruff check --fix {args:.}",
 ]
 docs = "doc8 docs/source"
 
