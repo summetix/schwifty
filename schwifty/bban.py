@@ -240,3 +240,6 @@ class BBAN(common.Base):
             'Commerzbank Köln'
         """
         return None if self.bank is None else self.bank["short_name"]
+
+
+registry.build_index("bank", "country", key="country_code", accumulate=True)
