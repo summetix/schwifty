@@ -8,6 +8,7 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Any
 from typing import Callable
+from typing import Union
 
 
 try:
@@ -18,8 +19,8 @@ except ImportError:
     from importlib_resources.abc import Traversable  # type: ignore
 
 
-Key = str | tuple
-Value = dict[Key, Any] | list[dict[Key, Any]]
+Key = Union[str, tuple]
+Value = Union[dict[Key, Any], list[dict[Key, Any]]]
 
 _registry: dict[Key, Value] = {}
 
