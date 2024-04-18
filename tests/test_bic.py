@@ -188,6 +188,7 @@ def test_bic_from_unknown_bank_code() -> None:
         ("HU", "107", ["CIBHHUHB"]),
         ("HR", "2485003", ["CROAHR2X"]),
         ("LV", "RIKO", ["RIKOLV2XXXX"]),
+        ("ME", "907", ["CBCGMEPG"]),
         ("NL", "ADYB", ["ADYBNL2A"]),
         ("PL", "10100055", ["NBPLPLPWXXX"]),
         ("RO", "BPOS", ["BPOSROBU"]),

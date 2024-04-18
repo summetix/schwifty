@@ -11,6 +11,7 @@ Added
 ~~~~~
 * Added Revolut Bank for Spain `@brunovilla <https://github.com/brunovila>`_
 * Added support for Python 3.12
+* Added manually curated bank registry for Montenegro `@Djuka <https://github.com/Djuka>`_
 
 Changed
 ~~~~~~~
