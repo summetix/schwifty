@@ -5,6 +5,31 @@ Changelog
 
 Versions follow `CalVer <http://www.calver.org/>`_ with the scheme ``YY.0M.Micro``.
 
+`2024.04.0`_ - 2024/04/18
+-------------------------
+Added
+~~~~~
+* Added Revolut Bank for Spain `@brunovilla <https://github.com/brunovila>`_
+* Added support for Python 3.12
+
+Changed
+~~~~~~~
+* The bank registry is now internally validated, so that all domestic bank codes actaully match the
+  specification of the corresponding BBAN structure. As a result some entries had to be removed,
+  because they did contain invalid bank codes.
+* The Danish national checksum algorithm is considered opaque and the checksum digit is assumed to
+  be part of the account number (which is now always 10 digits long).
+
+Fixed
+~~~~~
+* The Czech bank registry was stored in latin-1 encoding while being read as UTF-8. This resulted
+  in invalid bank names `@Natim <https://github.com/Natim>`_ and
+  `@Cogax <https://github.com/Cogax>`_.
+* The Norwegian national checksum algorithm was rendering wrong results in some edge-cases
+  `@Natim <https://github.com/Natim>`_
+
+
+
 `2024.01.1`_ - 2024/01/05
 -------------------------
 Added
@@ -538,6 +563,7 @@ Added
 * Added :attr:`.BIC.country` and :attr:`.IBAN.country`.
 
 
+.. _2024.04.0: https://github.com/mdomke/schwifty/compare/2023.01.1...2024.04.0
 .. _2024.01.1: https://github.com/mdomke/schwifty/compare/2023.11.2...2024.01.1
 .. _2023.11.2: https://github.com/mdomke/schwifty/compare/2023.11.1...2023.11.2
 .. _2023.11.1: https://github.com/mdomke/schwifty/compare/2023.11.0...2023.11.1
