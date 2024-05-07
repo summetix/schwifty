@@ -5,7 +5,6 @@ import warnings
 from typing import Any
 from typing import TYPE_CHECKING
 
-import iso3166
 from pycountry import countries  # type: ignore
 from pycountry.db import Data  # type: ignore
 
@@ -283,11 +282,8 @@ class BIC(common.Base):
             raise exceptions.InvalidStructure(f"Invalid structure '{self!s}'")
 
     def _validate_country_code(self) -> None:
-        country_code = self.country_code
-        try:
-            iso3166.countries_by_alpha2[country_code]
-        except KeyError as e:
-            raise exceptions.InvalidCountryCode(f"Invalid country code '{country_code}'") from e
+        if self.country is None:
+            raise exceptions.InvalidCountryCode(f"Invalid country code '{self.country_code}'")
 
     @property
     def is_valid(self) -> bool:
