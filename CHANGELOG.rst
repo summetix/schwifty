@@ -5,6 +5,22 @@ Changelog
 
 Versions follow `CalVer <http://www.calver.org/>`_ with the scheme ``YY.0M.Micro``.
 
+`2024.05.0`_ - 2024/05/07
+-------------------------
+Fixed
+~~~~~
+* Loading JSON data into a Pydantic model with an ``IBAN``-field (``Model.model_validate_json()``)
+  was previously broken and has been fixed now.
+
+Added
+~~~~~
+* JSON schema generation for Pydantic models.
+
+Changed
+~~~~~~~
+* Updated bank registries.
+
+
 `2024.04.0`_ - 2024/04/18
 -------------------------
 Added
@@ -564,6 +580,7 @@ Added
 * Added :attr:`.BIC.country` and :attr:`.IBAN.country`.
 
 
+.. _2024.05.0: https://github.com/mdomke/schwifty/compare/2024.04.0...2024.05.0
 .. _2024.04.0: https://github.com/mdomke/schwifty/compare/2023.01.1...2024.04.0
 .. _2024.01.1: https://github.com/mdomke/schwifty/compare/2023.11.2...2024.01.1
 .. _2023.11.2: https://github.com/mdomke/schwifty/compare/2023.11.1...2023.11.2
