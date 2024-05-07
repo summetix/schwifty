@@ -9,8 +9,8 @@ Versions follow `CalVer <http://www.calver.org/>`_ with the scheme ``YY.0M.Micro
 -------------------------
 Fixed
 ~~~~~
-* Loading JSON data into a Pydantic model with an ``IBAN``-field (``Model.model_validate_json()``)
-  was previously broken and has been fixed now.
+* Loading JSON data into a Pydantic model with an ``IBAN`` or ``BIC``-field
+  (``Model.model_validate_json()``) was previously broken and has been fixed now.
 
 Added
 ~~~~~
@@ -19,6 +19,7 @@ Added
 Changed
 ~~~~~~~
 * Updated bank registries.
+* Remove the dependency to ``iso3166`` since its functionallity is already covered by ``pycountry``
 
 
 `2024.04.0`_ - 2024/04/18
