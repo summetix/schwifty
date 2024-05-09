@@ -60,5 +60,7 @@ jobs:
           allow-prereleases: true
       - name: Install dependencies
         run: pip install hatch
+      - name: Smoke test installation
+        run: pip install .
       - name: Test
         run: hatch run cov-test
