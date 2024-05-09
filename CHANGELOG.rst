@@ -5,6 +5,18 @@ Changelog
 
 Versions follow `CalVer <http://www.calver.org/>`_ with the scheme ``YY.0M.Micro``.
 
+`2024.05.1`_ - 2024/05/09
+-------------------------
+Changed
+~~~~~~~
+* Remove custom collection logic of the bank registry for ``pyinstaller``. The changes introduced in
+  `#92 <https://github.com/mdomke/schwifty/pull/92>`_ were wrong and have been reverted. Usage
+  example
+
+  .. code-block:: bash
+
+    $ pyinstaller <script> --collect-data schwifty --copy-metadata schwifty
+
 `2024.05.0`_ - 2024/05/07
 -------------------------
 Fixed
@@ -581,6 +593,7 @@ Added
 * Added :attr:`.BIC.country` and :attr:`.IBAN.country`.
 
 
+.. _2024.05.1: https://github.com/mdomke/schwifty/compare/2024.05.0...2024.05.1
 .. _2024.05.0: https://github.com/mdomke/schwifty/compare/2024.04.0...2024.05.0
 .. _2024.04.0: https://github.com/mdomke/schwifty/compare/2023.01.1...2024.04.0
 .. _2024.01.1: https://github.com/mdomke/schwifty/compare/2023.11.2...2024.01.1
