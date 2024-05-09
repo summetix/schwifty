@@ -5,6 +5,12 @@ Changelog
 
 Versions follow `CalVer <http://www.calver.org/>`_ with the scheme ``YY.0M.Micro``.
 
+`2024.05.2`_ - 2024/05/09
+-------------------------
+Fixed
+~~~~~
+* Add `typing-extensions` as explicit dependency for Python < 3.11 to support the `Self` type.
+
 `2024.05.1`_ - 2024/05/09
 -------------------------
 Changed
@@ -593,9 +599,10 @@ Added
 * Added :attr:`.BIC.country` and :attr:`.IBAN.country`.
 
 
+.. _2024.05.2: https://github.com/mdomke/schwifty/compare/2024.05.1...2024.05.2
 .. _2024.05.1: https://github.com/mdomke/schwifty/compare/2024.05.0...2024.05.1
 .. _2024.05.0: https://github.com/mdomke/schwifty/compare/2024.04.0...2024.05.0
-.. _2024.04.0: https://github.com/mdomke/schwifty/compare/2023.01.1...2024.04.0
+.. _2024.04.0: https://github.com/mdomke/schwifty/compare/2024.01.1...2024.04.0
 .. _2024.01.1: https://github.com/mdomke/schwifty/compare/2023.11.2...2024.01.1
 .. _2023.11.2: https://github.com/mdomke/schwifty/compare/2023.11.1...2023.11.2
 .. _2023.11.1: https://github.com/mdomke/schwifty/compare/2023.11.0...2023.11.1
