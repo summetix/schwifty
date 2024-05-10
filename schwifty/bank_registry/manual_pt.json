@@ -43,8 +43,8 @@
     "country_code": "PT",
     "bank_code": "0018",
     "bic": "TOTAPTPL",
-    "name": "BANCO S.A.NTANDER TOTTA, S.A.",
-    "short_name": "BANCO S.A.NTANDER TOTTA, S.A.",
+    "name": "BANCO SANTANDER TOTTA, S.A.",
+    "short_name": "BANCO SANTANDER TOTTA, S.A.",
     "primary": true
   },
   {
@@ -131,8 +131,8 @@
     "country_code": "PT",
     "bank_code": "0038",
     "bic": "BNIFPTPL",
-    "name": "BANCO S.A.NTANDER TOTTA, S.A. (ex-BANIF – BANCO INTERNACIONAL DO FUNCHAL, S.A.)",
-    "short_name": "BANCO S.A.NTANDER TOTTA, S.A.",
+    "name": "BANCO SANTANDER TOTTA, S.A. (ex-BANIF – BANCO INTERNACIONAL DO FUNCHAL, S.A.)",
+    "short_name": "BANCO SANTANDER TOTTA, S.A.",
     "primary": true
   },
   {
