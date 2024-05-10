@@ -158,8 +158,37 @@ class IBAN(common.Base):
         )
 
     @classmethod
-    def random(cls, country_code: str = "", random: Random | None = None, **values: str) -> IBAN:
-        bban = BBAN.random(country_code, random=random, **values)
+    def random(
+        cls,
+        country_code: str = "",
+        random: Random | None = None,
+        use_registry: bool = True,
+        **values: str,
+    ) -> IBAN:
+        """Generate a random IBAN.
+
+        With no further arguments a random bank from the registry will be selected as basis for the
+        bank code and the BBAN structure. All other components, e.g. the account code will be
+        generated with the alphabet allowed by the BBAN spec.
+
+        If a ``country_code`` is provided the possible values will be limited to banks of the
+        respective country. Additional components of the IBAN (e.g. the bank code) can be provided
+        as keyword arguments to further narrow down the genreated values.
+
+        If ``use_regsitry`` is set to ``False`` the bank information from schwifty's registry will
+        be ignored and a completely random bank code will be generated.
+
+        Args:
+            country_code (str): The ISO 3166 alpha-2 country code.
+            random (Random): An alternative random number generator.
+            use_registry (bool): Select a random bank from the existing bank registry if available.
+            values: The country specific BBAN components that should be taken as is and not be
+                    generated.
+        Raises:
+            GenerateRandomOverflowError: If no valid random value can be gerated after multiple
+                                         tries.
+        """
+        bban = BBAN.random(country_code, random=random, use_registry=use_registry, **values)
         return cls.from_bban(bban.country_code, bban)
 
     def validate(self, validate_bban: bool = False) -> bool:

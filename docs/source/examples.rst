@@ -287,8 +287,8 @@ will give you a British IBAN. Similarly,
 
 will only give you IBANs from the Lloyds Bank.
 
-Notice that for countries that have a bank registry, the bank code will always be taken from there,
-so that the IBAN corresponds to a valid bank. E.g.:
+Notice that for countries that have a bank registry, the bank code will be taken from there, so
+that the IBAN corresponds to a valid bank. E.g.:
 
 .. code-block:: pycon
 
@@ -301,6 +301,14 @@ so that the IBAN corresponds to a valid bank. E.g.:
    'country_code': 'DE',
    'checksum_algo': '63'}
 
+If you want to generate an IBAN with a truly random bank code use
+
+.. code-block:: pycon
+
+  >>> IBAN.random(country_code="DE", use_registry=False).bank
+  None
+
+Due to the nature of random numbers you might still hit a valid bank code once in a while.
 
 Pydantic integration
 ---------------------

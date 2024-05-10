@@ -12,3 +12,8 @@ def test_random(country_code: str) -> None:
     for bban in bbans:
         assert bban.bank is not None
         assert bban.country_code == country_code
+
+    assert any(
+        bban.bank is None
+        for bban in (BBAN.random(country_code, use_registry=False) for _ in range(n))
+    )
