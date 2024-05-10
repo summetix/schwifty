@@ -259,6 +259,49 @@ In case there are multiple BICs that can be related to a domestic bank code you 
    <BIC=BNPAFRPPPEE>, <BIC=BNPAFRPPPXV>, <BIC=BNPAFRPPIFO>]
 
 
+Random IBANs
+~~~~~~~~~~~~
+
+For testing and other usecases it might be useful to generate random IBANs. Therefore you can simply
+call
+
+.. code-block:: pycon
+
+  >>> IBAN.random()
+  <IBAN=IT53D0838265738IXCFNXEVWPNL>
+
+and you will get a random but valid IBAN. You can also predefine some parameters of the random
+result to narrow down the possible values, e.g.
+
+.. code-block:: pycon
+
+  >>> IBAN.random(country_code="GB")
+  <IBAN=GB67COBA74887171221908>
+
+will give you a British IBAN. Similarly,
+
+.. code-block:: pycon
+
+  >>> IBAN.random(country_code="GB", bank_code="LOYD")
+  <IBAN=GB53LOYD00952296262556>
+
+will only give you IBANs from the Lloyds Bank.
+
+Notice that for countries that have a bank registry, the bank code will always be taken from there,
+so that the IBAN corresponds to a valid bank. E.g.:
+
+.. code-block:: pycon
+
+  >>> IBAN.random(country_code="DE").bank
+  {'bank_code': '42870077',
+   'name': 'Deutsche Bank',
+   'short_name': 'Deutsche Bank',
+   'bic': 'DEUTDE3B428',
+   'primary': True,
+   'country_code': 'DE',
+   'checksum_algo': '63'}
+
+
 Pydantic integration
 ---------------------
 

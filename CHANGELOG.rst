@@ -5,6 +5,30 @@ Changelog
 
 Versions follow `CalVer <http://www.calver.org/>`_ with the scheme ``YY.0M.Micro``.
 
+`2024.05.3`_ - 2024/05/10
+-------------------------
+Added
+~~~~~
+* There is a new classmethod ``IBAN.random()`` that allows you to create random, but valid IBANs.
+
+  .. code-block:: pycon
+
+    >>> IBAN.random()
+    <IBAN=LT435012771675726758>
+
+  You can narrow down the generated values by providing the corresponding parameters to this
+  function. E.g. to get only Spanish IBANs you can do
+
+  .. code-block:: pycon
+
+    >>> IBAN.random(country_code="ES")
+    <IBAN=ES8801253179194914182449>
+
+Changed
+~~~~~~~
+* Some missing bank associations have been added to the Portoguese bank registry by
+  `@tiagoafseixas <https://github.com/tiagoafseixas>`_
+
 `2024.05.2`_ - 2024/05/09
 -------------------------
 Fixed
@@ -599,6 +623,7 @@ Added
 * Added :attr:`.BIC.country` and :attr:`.IBAN.country`.
 
 
+.. _2024.05.3: https://github.com/mdomke/schwifty/compare/2024.05.2...2024.05.3
 .. _2024.05.2: https://github.com/mdomke/schwifty/compare/2024.05.1...2024.05.2
 .. _2024.05.1: https://github.com/mdomke/schwifty/compare/2024.05.0...2024.05.1
 .. _2024.05.0: https://github.com/mdomke/schwifty/compare/2024.04.0...2024.05.0

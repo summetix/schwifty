@@ -28,6 +28,7 @@ Features
 * `validate`_ format and country codes from BICs
 * `generate`_ BICs from country and bank-code
 * `generate`_ IBANs from country-code, bank-code and account-number.
+* `generate`_ random valid IBANs
 * get the BIC associated to an IBAN's bank-code
 * access all relevant components as attributes
 
