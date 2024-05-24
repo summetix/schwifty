@@ -79,7 +79,7 @@ def build_index(
         return tuple(entry[k] for k in key) if isinstance(key, tuple) else entry[key]
 
     def match(entry: dict[Key, Any]) -> bool:
-        return all(entry[key] == value for key, value in predicate.items())
+        return all(entry[k] == v for k, v in predicate.items())
 
     base = get(base_name)
     assert isinstance(base, list)
@@ -88,7 +88,9 @@ def build_index(
         for entry in base:
             if not match(entry):
                 continue
-            data[make_key(entry)].append(entry)
+            index_key = make_key(entry)
+            if index_key and all(index_key):
+                data[index_key].append(entry)
         save(index_name, dict(data))
     else:
         entries = {}

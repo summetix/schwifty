@@ -5,6 +5,12 @@ Changelog
 
 Versions follow `CalVer <http://www.calver.org/>`_ with the scheme ``YY.0M.Micro``.
 
+`2024.05.4`_ - tbd
+-------------------------
+Fixed
+~~~~~
+* Also allow the BIC lookup for non-primary banks.
+
 `2024.05.3`_ - 2024/05/10
 -------------------------
 Added
@@ -623,6 +629,7 @@ Added
 * Added :attr:`.BIC.country` and :attr:`.IBAN.country`.
 
 
+.. _2024.05.4: https://github.com/mdomke/schwifty/compare/2024.05.3...2024.05.4
 .. _2024.05.3: https://github.com/mdomke/schwifty/compare/2024.05.2...2024.05.3
 .. _2024.05.2: https://github.com/mdomke/schwifty/compare/2024.05.1...2024.05.2
 .. _2024.05.1: https://github.com/mdomke/schwifty/compare/2024.05.0...2024.05.1

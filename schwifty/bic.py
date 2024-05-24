@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import re
 import warnings
+from operator import itemgetter
 from typing import Any
 from typing import TYPE_CHECKING
 
@@ -167,9 +168,12 @@ class BIC(common.Base):
             * United Kingdom
         """
         try:
-            spec = registry.get("bank_code")
-            assert isinstance(spec, dict)
-            return [cls(entry["bic"]) for entry in spec[(country_code, bank_code)]]
+            index = registry.get("bank_code")
+            assert isinstance(index, dict)
+            banks = sorted(
+                index[(country_code, bank_code)], key=itemgetter("primary"), reverse=True
+            )
+            return [cls(entry["bic"]) for entry in banks]
         except KeyError as e:
             raise exceptions.InvalidBankCode(
                 f"Unknown bank code {bank_code!r} for country {country_code!r}"
@@ -493,11 +497,10 @@ class BIC(common.Base):
         return self._get_slice(start=8, end=11)
 
 
-registry.build_index("bank", "bic", key="bic", accumulate=True)
+registry.build_index("bank", index_name="bic", key="bic", accumulate=True)
 registry.build_index(
     "bank",
-    "bank_code",
+    index_name="bank_code",
     key=("country_code", "bank_code"),
-    primary=True,
     accumulate=True,
 )

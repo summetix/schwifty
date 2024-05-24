@@ -1,14 +1,6 @@
 [
   {
     "country_code": "IE",
-    "bic": "CITIIE2XXXX",
-    "bank_code": "CITI",
-    "name": "Citibank Bank Europe plc",
-    "short_name": "Citibank Bank Europe plc",
-    "primary": true
-  },
-  {
-    "country_code": "IE",
     "bic": "CHASIE4L",
     "bank_code": "CHAS",
     "name": "J.P. Morgan Bank Luxembourg S.A. Dublin Branch",
@@ -44,7 +36,7 @@
     "bic": "BOFIIE2D",
     "bank_code": "BOFI",
     "name": "Bank of Ireland Group plc",
-    "short_name": "Bank of Ireland Group plc",
+    "short_name": "Bank of Ireland",
     "primary": true
   },
   {
@@ -55,7 +47,7 @@
     "short_name": "Bank of Montreal",
     "primary": true
   },
-    {
+  {
     "country_code": "IE",
     "bic": "BUNQIE22XXX",
     "bank_code": "BUNQ",
@@ -76,7 +68,7 @@
     "bic": "CITIIE2XXXX",
     "bank_code": "CITI",
     "name": "Citibank Europe plc",
-    "short_name": "Citibank Europe plc",
+    "short_name": "Citibank",
     "primary": true
   },
   {
