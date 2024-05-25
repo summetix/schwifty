@@ -5,6 +5,7 @@ from pycountry import countries  # type: ignore
 
 from schwifty import IBAN
 from schwifty.exceptions import SchwiftyException
+from schwifty.iban import convert_bban_spec_to_regex
 
 
 valid = [
@@ -365,6 +366,17 @@ def test_random_iban() -> None:
         assert isinstance(iban, IBAN)
 
 
+def test_random_special_cases() -> None:
+    iban = IBAN.random(country_code="MU")
+    assert iban.endswith("000MUR")
+
+    iban = IBAN.random(country_code="SC")
+    assert iban.endswith("SCR")
+
+    iban = IBAN.random(country_code="KM")
+    assert iban.is_valid
+
+
 def test_pydantic_protocol() -> None:
     from pydantic import BaseModel
     from pydantic import ValidationError
@@ -392,3 +404,18 @@ def test_pydantic_protocol() -> None:
 
     loaded = Model.model_validate_json(dumped)
     assert loaded == model
+
+
+@pytest.mark.parametrize(
+    ("spec", "regex"),
+    [
+        ("5!n", r"^\d{5}$"),
+        ("4!a", r"^[A-Z]{4}$"),
+        ("10!c", r"^[A-Za-z0-9]{10}$"),
+        ("5!e", r"^ {5}$"),
+        ("3n", r"^\d{1,3}$"),
+        ("5!n3!a", r"^\d{5}[A-Z]{3}$"),
+    ],
+)
+def test_convert_bban_spec_to_regex(spec: str, regex: str) -> None:
+    assert convert_bban_spec_to_regex(spec) == regex

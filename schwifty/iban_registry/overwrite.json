@@ -498,6 +498,22 @@
       ]
     }
   },
+  "GT": {
+    "positions": {
+      "currency_code": [
+        4,
+        6
+      ],
+      "account_type": [
+        6,
+        8
+      ],
+      "account_code": [
+        8,
+        24
+      ]
+    }
+  },
   "GW": {
     "country": "GW",
     "bban_spec": "2!c19!n",
@@ -754,8 +770,13 @@
       "account_code": [
         8,
         20
+      ],
+      "currency_code": [
+        23,
+        26
       ]
-    }
+    },
+    "default_currency_code": "MUR"
   },
   "MZ": {
     "country": "MZ",
@@ -922,11 +943,12 @@
         8,
         24
       ],
-      "account_type": [
+      "currency_code": [
         24,
         27
       ]
-    }
+    },
+    "default_currency_code": "SCR"
   },
   "SE": {
     "positions": {

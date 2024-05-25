@@ -5,11 +5,22 @@ Changelog
 
 Versions follow `CalVer <http://www.calver.org/>`_ with the scheme ``YY.0M.Micro``.
 
-`2024.05.4`_ - tbd
+`2024.05.4`_ - 2024/05/25
 -------------------------
+Added
+~~~~~
+* The ``IBAN`` and ``BBAN`` classes now have an additional property ``currency_code`` for countries
+  like Seychelles, Guatemala or Mauritius.
+
 Fixed
 ~~~~~
-* Also allow the BIC lookup for non-primary banks.
+* Also allow the BIC lookup for non-primary banks. For countries like Switzerland the lookup did
+  fail for banks which did not have the primary-flag set, even though an appropriate mapping was
+  available.
+* ``IBAN.random()`` now also works for countries which have a currency code included in their BBAN
+  e.g. Mauritius or Seychelles.
+* ``IBAN.random()`` now also works for aspirational countries, where no information of the BBAN
+  structure is available, e.g. Comoros.
 
 `2024.05.3`_ - 2024/05/10
 -------------------------

@@ -193,6 +193,9 @@ class BBAN(common.Base):
         if (banks := banks_by_country.get(country_code)) is not None and use_registry:
             bank = random.choice(banks)
 
+        if "positions" not in spec:
+            return cls(country_code, rstr.xeger(spec["regex"]).upper())
+
         ranges = _get_position_ranges(spec)
         for _ in range(100):
             bban = rstr.xeger(spec["regex"]).upper()
@@ -201,7 +204,9 @@ class BBAN(common.Base):
                 if (value := values.get(key)) is not None:
                     components[key] = value
                 else:
-                    components[key] = bank.get(key) or range_.cut(bban)
+                    components[key] = bank.get(key) or spec.get(
+                        f"default_{key.value}", range_.cut(bban)
+                    )
 
             bank_code = components[Component.BANK_CODE]
             bank_code_length = ranges[Component.BANK_CODE].length
@@ -305,6 +310,14 @@ class BBAN(common.Base):
         This value is only available for Iceland.
         """
         return self._get_component(Component.ACCOUNT_HOLDER_ID)
+
+    @property
+    def currency_code(self) -> str:
+        """str: The account's currency code.
+
+        This value is only available for Mauretania, Seychelles and Guatemala.
+        """
+        return self._get_component(Component.CURRENCY_CODE)
 
     @property
     def bank(self) -> dict | None:

@@ -373,6 +373,14 @@ class IBAN(common.Base):
         return self.bban.account_holder_id
 
     @property
+    def currency_code(self) -> str:
+        """str: The account's currency code.
+
+        This value is only available for Mauretania, Seychelles and Guatemala.
+        """
+        return self.bban.currency_code
+
+    @property
     def bank(self) -> dict | None:
         """dict or None: The information of the bank related to the bank code as part of the BBAN"""
         return self.bban.bank
@@ -442,15 +450,19 @@ class IBAN(common.Base):
 
 
 def add_bban_regex(country: str, spec: dict) -> dict:
-    bban_spec = spec["bban_spec"]
+    if "regex" not in spec:
+        spec["regex"] = re.compile(convert_bban_spec_to_regex(spec["bban_spec"]))
+    return spec
+
+
+def convert_bban_spec_to_regex(spec: str) -> str:
     spec_re = rf"(\d+)(!)?([{''.join(_spec_to_re.keys())}])"
 
     def convert(match: re.Match) -> str:
         quantifier = ("{{{}}}" if match.group(2) else "{{1,{}}}").format(match.group(1))
         return _spec_to_re[match.group(3)] + quantifier
 
-    spec["regex"] = re.compile(rf"^{re.sub(spec_re, convert, bban_spec)}$")
-    return spec
+    return rf"^{re.sub(spec_re, convert, spec)}$"
 
 
 registry.manipulate("iban", add_bban_regex)
