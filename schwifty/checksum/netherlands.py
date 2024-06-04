@@ -6,8 +6,13 @@ from schwifty import checksum
 from schwifty.domain import Component
 
 
-@checksum.register("NL")
 class DefaultAlgorithm(checksum.Algorithm):
+    """This algorithm is not used anymore for Dutch IBANs and is therefore not registered anymore.
+
+    See https://www.betaalvereniging.nl/betaalproducten-en-diensten/iban/ibannext/ for more
+    information
+    """
+
     name = "default"
     accepts: ClassVar[list[Component]] = [Component.ACCOUNT_CODE]
 

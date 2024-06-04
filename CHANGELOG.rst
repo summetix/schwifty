@@ -5,6 +5,14 @@ Changelog
 
 Versions follow `CalVer <http://www.calver.org/>`_ with the scheme ``YY.0M.Micro``.
 
+`2024.06.0`_ - 2024/06/04
+-------------------------
+Changed
+~~~~~~~
+* Stop using the "elfprooef" algorithm when validating Dutch IBANs, since the administrative
+  authority says it should not be checked any more.
+
+
 `2024.05.4`_ - 2024/05/25
 -------------------------
 Added
@@ -640,6 +648,7 @@ Added
 * Added :attr:`.BIC.country` and :attr:`.IBAN.country`.
 
 
+.. _2024.06.0: https://github.com/mdomke/schwifty/compare/2024.05.4...2024.06.0
 .. _2024.05.4: https://github.com/mdomke/schwifty/compare/2024.05.3...2024.05.4
 .. _2024.05.3: https://github.com/mdomke/schwifty/compare/2024.05.2...2024.05.3
 .. _2024.05.2: https://github.com/mdomke/schwifty/compare/2024.05.1...2024.05.2
