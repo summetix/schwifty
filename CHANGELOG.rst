@@ -5,13 +5,23 @@ Changelog
 
 Versions follow `CalVer <http://www.calver.org/>`_ with the scheme ``YY.0M.Micro``.
 
+`2024.06.1`_ - 2024/06/10
+-------------------------
+Fixed
+~~~~~
+* The ``BIC.from_bank_code`` now handles banks correctly that have no value for the BIC field in the
+  registry.
+
+Changed
+~~~~~~~
+* Use ``hatch fmt`` and ``hatch test`` commands for internal development.
+
 `2024.06.0`_ - 2024/06/04
 -------------------------
 Changed
 ~~~~~~~
 * Stop using the "elfprooef" algorithm when validating Dutch IBANs, since the administrative
   authority says it should not be checked any more.
-
 
 `2024.05.4`_ - 2024/05/25
 -------------------------
@@ -648,6 +658,7 @@ Added
 * Added :attr:`.BIC.country` and :attr:`.IBAN.country`.
 
 
+.. _2024.06.1: https://github.com/mdomke/schwifty/compare/2024.06.0...2024.06.1
 .. _2024.06.0: https://github.com/mdomke/schwifty/compare/2024.05.4...2024.06.0
 .. _2024.05.4: https://github.com/mdomke/schwifty/compare/2024.05.3...2024.05.4
 .. _2024.05.3: https://github.com/mdomke/schwifty/compare/2024.05.2...2024.05.3
