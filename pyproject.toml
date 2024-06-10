@@ -66,9 +66,9 @@ target-version = "py38"
 line-length = 100
 
 [tool.ruff.lint]
-select = ["A", "B", "C", "C4", "E", "F", "I", "N", "PT", "Q", "RUF", "S", "SIM", "T10", "UP", "W", "YTT"]
-fixable = ["RUF100", "I001"]
-ignore = [
+extend-select = ["A", "B", "C", "C4", "E", "F", "I", "N", "PT", "Q", "RUF", "S", "SIM", "T10", "UP", "W", "YTT"]
+extend-fixable = ["RUF100", "I001"]
+extend-ignore = [
     "S101",   # Allow usage of asserts
     "A001",   # Allow shadowing bultins 
     "A003",   # Allow shadowing bultins on classes
@@ -90,7 +90,7 @@ order-by-type = false
 [tool.coverage.run]
 branch = true
 parallel = true
-source = ["ulid"]
+source = ["schwifty"]
 
 [tool.doc8]
 max-line-length = 100

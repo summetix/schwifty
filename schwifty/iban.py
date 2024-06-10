@@ -253,7 +253,7 @@ class IBAN(common.Base):
             to circumvent the implicit validation.
 
         Examples:
-            >>> IBAN('AB1234567890', allow_invalid=True).is_valid
+            >>> IBAN("AB1234567890", allow_invalid=True).is_valid
             False
 
         .. versionadded:: 2020.08.1
@@ -390,7 +390,7 @@ class IBAN(common.Base):
         """str or None: The name of the bank associated with the IBAN bank code.
 
         Examples:
-            >>> IBAN('DE89370400440532013000').bank_name
+            >>> IBAN("DE89370400440532013000").bank_name
             'Commerzbank'
 
         .. versionadded:: 2022.04.2
@@ -402,7 +402,7 @@ class IBAN(common.Base):
         """str or None: The name of the bank associated with the IBAN bank code.
 
         Examples:
-            >>> IBAN('DE89370400440532013000').bank_short_name
+            >>> IBAN("DE89370400440532013000").bank_short_name
             'Commerzbank Köln'
 
         .. versionadded:: 2022.04.2

@@ -184,7 +184,7 @@ class BIC(common.Base):
         """Create a new BIC object from country-code and domestic bank-code.
 
         Examples:
-            >>> bic = BIC.from_bank_code('DE', '20070000')
+            >>> bic = BIC.from_bank_code("DE", "20070000")
             >>> bic.country_code
             'DE'
             >>> bic.bank_code
@@ -192,7 +192,7 @@ class BIC(common.Base):
             >>> bic.location_code
             'HH'
 
-            >>> BIC.from_bank_code('DE', '01010101')
+            >>> BIC.from_bank_code("DE", "01010101")
             Traceback (most recent call last):
             ...
             InvalidBankCode: Unknown bank code '01010101' for country 'DE'
@@ -344,7 +344,7 @@ class BIC(common.Base):
             to circumvent the implicit validation.
 
         Examples:
-            >>> BIC('FOOBARBAZ', allow_invalid=True).is_valid
+            >>> BIC("FOOBARBAZ", allow_invalid=True).is_valid
             False
 
         .. versionadded:: 2020.08.1
@@ -359,7 +359,7 @@ class BIC(common.Base):
         """str: The BIC separated in the blocks bank-, country- and location-code.
 
         Examples:
-            >>> BIC('MARKDEF1100').formatted
+            >>> BIC("MARKDEF1100").formatted
             'MARK DE F1 100'
         """
         formatted = " ".join([self.bank_code, self.country_code, self.location_code])
@@ -378,7 +378,7 @@ class BIC(common.Base):
         """List[str]: The country specific bank-codes associated with the BIC.
 
         Examples:
-            >>> BIC('MARKDEF1100').domestic_bank_codes
+            >>> BIC("MARKDEF1100").domestic_bank_codes
             ['10000000']
 
         .. versionadded:: 2020.01.0
@@ -390,7 +390,7 @@ class BIC(common.Base):
         """List[str]: The name of the banks associated with the BIC.
 
         Examples:
-            >>> BIC('MARKDEF1100').bank_names
+            >>> BIC("MARKDEF1100").bank_names
             ['Bundesbank']
 
         .. versionadded:: 2020.01.0
@@ -402,7 +402,7 @@ class BIC(common.Base):
         """List[str]: The short name of the banks associated with the BIC.
 
         Examples:
-            >>> BIC('MARKDEF1100').bank_short_names
+            >>> BIC("MARKDEF1100").bank_short_names
             ['BBk Berlin']
 
         .. versionadded:: 2020.01.0
@@ -456,7 +456,7 @@ class BIC(common.Base):
         This can be one of 'testing', 'passive', 'reverse billing' or 'default'
 
         Examples:
-            >>> BIC('MARKDEF1100').type
+            >>> BIC("MARKDEF1100").type
             'passive'
 
         Returns:

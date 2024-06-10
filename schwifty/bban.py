@@ -338,7 +338,7 @@ class BBAN(common.Base):
         """str or None: The name of the bank associated with the IBAN bank code.
 
         Examples:
-            >>> IBAN('DE89370400440532013000').bank_name
+            >>> IBAN("DE89370400440532013000").bank_name
             'Commerzbank'
         """
         return None if self.bank is None else self.bank["name"]
@@ -348,7 +348,7 @@ class BBAN(common.Base):
         """str or None: The name of the bank associated with the IBAN bank code.
 
         Examples:
-            >>> IBAN('DE89370400440532013000').bank_short_name
+            >>> IBAN("DE89370400440532013000").bank_short_name
             'Commerzbank Köln'
         """
         return None if self.bank is None else self.bank["short_name"]
