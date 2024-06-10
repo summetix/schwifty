@@ -1,6 +1,6 @@
 [envs.hatch-test]
-dependencies = [
-  "freezegun==1.4.*",
+extra-dependencies = [
+  "freezegun==1.5.*",
 ]
 features = ["pydantic"]
 
