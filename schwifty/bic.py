@@ -173,7 +173,7 @@ class BIC(common.Base):
             banks = sorted(
                 index[(country_code, bank_code)], key=itemgetter("primary"), reverse=True
             )
-            return [cls(entry["bic"]) for entry in banks]
+            return [cls(entry["bic"]) for entry in banks if entry["bic"]]
         except KeyError as e:
             raise exceptions.InvalidBankCode(
                 f"Unknown bank code {bank_code!r} for country {country_code!r}"
@@ -249,7 +249,7 @@ class BIC(common.Base):
                 if generic_codes:
                     return sorted(generic_codes)[-1]
             return candidates[0]
-        except KeyError as e:
+        except (KeyError, IndexError) as e:
             raise exceptions.InvalidBankCode(
                 f"Unknown bank code {bank_code!r} for country {country_code!r}"
             ) from e
