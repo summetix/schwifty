@@ -2,9 +2,7 @@
 dependencies = [
   "freezegun==1.4.*",
 ]
-features = [
-  "pydantic",
-]
+features = ["pydantic"]
 
 [envs.hatch-static-analysis]
 config-path = ".ruff_defaults.toml"
@@ -12,7 +10,9 @@ config-path = ".ruff_defaults.toml"
 [envs.types]
 extra-dependencies = [
   "mypy==1.10.*",
+  "pytest==8.2.*",
 ]
+features = ["pydantic"]
 scripts = { check = "mypy --install-types --non-interactive {args:schwifty tests}" }
 
 [envs.docs]

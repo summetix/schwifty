@@ -15,10 +15,10 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Install dependencies
-        run: pip install hatch
+      - name: Install hatch
+        uses: pypa/hatch@install
       - name: Lint documentation
-        run: hatch run lint:docs
+        run: hatch run docs:check
 
   lint-style:
     runs-on: ubuntu-latest
