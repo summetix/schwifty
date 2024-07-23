@@ -186,6 +186,7 @@ def test_bic_from_unknown_bank_code() -> None:
             ],
         ),
         ("DE", "43060967", ["GENODEM1GLS"]),
+        ("DK", "0040", ["NDEADKKK"]),
         ("HU", "107", ["CIBHHUHB"]),
         ("HR", "2485003", ["CROAHR2X"]),
         ("LV", "RIKO", ["RIKOLV2XXXX"]),

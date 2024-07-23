@@ -50,8 +50,11 @@ def get(name: Key) -> Value:
     directory = files(__package__) / f"{name}_registry"
     assert isinstance(directory, Path)
     for entry in sorted(directory.glob("*.json")):
+        assert isinstance(entry, Path)
         with entry.open(encoding="utf-8") as fp:
             chunk = json.load(fp)
+            if entry.stem.endswith("v2"):
+                chunk = parse_v2(chunk)
             if data is None:
                 data = chunk
             elif isinstance(data, list):
@@ -61,6 +64,21 @@ def get(name: Key) -> Value:
     if data is None:
         raise ValueError(f"Failed to load registry {name}")
     return save(name, data)
+
+
+def parse_v2(data: dict[str, Any]) -> list[dict[str, Any]]:
+    entries = data["entries"]
+
+    def expand(entry: dict[str, Any], src: str, dst: str) -> list[dict[str, Any]]:
+        values = entry.pop(src)
+        entry.setdefault("primary", False)
+        return [entry | {dst: value} for value in values]
+
+    return list(
+        itertools.chain.from_iterable(
+            expand(entry, src=data["expand_from"], dst=data["expand_into"]) for entry in entries
+        )
+    )
 
 
 def save(name: Key, data: Value) -> Value:
