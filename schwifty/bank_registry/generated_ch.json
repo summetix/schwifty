@@ -1384,16 +1384,16 @@
     "primary": true
   },
   {
-    "name": "Credit Suisse (Schweiz) AG",
-    "short_name": "Credit Suisse (Schweiz) AG",
+    "name": "UBS Switzerland AG (formerly Credit Suisse)",
+    "short_name": "UBS Switzerland AG (formerly Credit Suisse)",
     "bank_code": "04835",
     "bic": "CRESCHZZ80A",
     "country_code": "CH",
     "primary": true
   },
   {
-    "name": "Credit Suisse AG",
-    "short_name": "Credit Suisse AG",
+    "name": "UBS AG (formerly Credit Suisse)",
+    "short_name": "UBS AG (formerly Credit Suisse)",
     "bank_code": "04866",
     "bic": "CRESCHZHXXX",
     "country_code": "CH",
@@ -1552,8 +1552,8 @@
     "primary": true
   },
   {
-    "name": "Clientis EB Entlebucher Bank AG",
-    "short_name": "Clientis EB Entlebucher Bank AG",
+    "name": "Clientis Entlebucher Bank AG",
+    "short_name": "Clientis Entlebucher Bank AG",
     "bank_code": "06670",
     "bic": "RBABCH22670",
     "country_code": "CH",
@@ -1760,8 +1760,8 @@
     "primary": true
   },
   {
-    "name": "One Swiss Bank SA",
-    "short_name": "One Swiss Bank SA",
+    "name": "ONE swiss bank SA",
+    "short_name": "ONE swiss bank SA",
     "bank_code": "08246",
     "bic": "BQBHCHGGXXX",
     "country_code": "CH",
@@ -3016,8 +3016,8 @@
     "primary": true
   },
   {
-    "name": "Tellco AG",
-    "short_name": "Tellco AG",
+    "name": "Tellco Bank AG",
+    "short_name": "Tellco Bank AG",
     "bank_code": "08820",
     "bic": "DOMICHZZXXX",
     "country_code": "CH",
@@ -3043,7 +3043,7 @@
     "name": "TradeXBank AG",
     "short_name": "TradeXBank AG",
     "bank_code": "08825",
-    "bic": "SLBZCHZZXXX",
+    "bic": "TXBZCHZZXXX",
     "country_code": "CH",
     "primary": true
   },
@@ -3208,8 +3208,8 @@
     "primary": true
   },
   {
-    "name": "CACEIS Investor Services Bank S.A.",
-    "short_name": "CACEIS Investor Services Bank S.A.",
+    "name": "CACEIS Bank, Montrouge, Zweigniederlassung Z\u00fcrich / Schweiz",
+    "short_name": "CACEIS Bank, Montrouge, Zweigniederlassung Z\u00fcrich / Schweiz",
     "bank_code": "08863",
     "bic": "FETACHZZXXX",
     "country_code": "CH",
@@ -3496,8 +3496,8 @@
     "primary": false
   },
   {
-    "name": "Clientis EB Entlebucher Bank AG",
-    "short_name": "Clientis EB Entlebucher Bank AG",
+    "name": "Clientis Entlebucher Bank AG",
+    "short_name": "Clientis Entlebucher Bank AG",
     "bank_code": "30040",
     "bic": "RBABCH22670",
     "country_code": "CH",
@@ -4072,8 +4072,8 @@
     "primary": false
   },
   {
-    "name": "One Swiss Bank SA",
-    "short_name": "One Swiss Bank SA",
+    "name": "ONE swiss bank SA",
+    "short_name": "ONE swiss bank SA",
     "bank_code": "30187",
     "bic": "BQBHCHGGXXX",
     "country_code": "CH",
@@ -4584,14 +4584,6 @@
     "primary": false
   },
   {
-    "name": "Banque Lombard Odier & Cie SA",
-    "short_name": "Banque Lombard Odier & Cie SA",
-    "bank_code": "30271",
-    "bic": "LOCYCHGGXXX",
-    "country_code": "CH",
-    "primary": false
-  },
-  {
     "name": "Reichmuth & Co.",
     "short_name": "Reichmuth & Co.",
     "bank_code": "30272",
@@ -4656,8 +4648,8 @@
     "primary": false
   },
   {
-    "name": "Tellco AG",
-    "short_name": "Tellco AG",
+    "name": "Tellco Bank AG",
+    "short_name": "Tellco Bank AG",
     "bank_code": "30295",
     "bic": "DOMICHZZXXX",
     "country_code": "CH",
@@ -4675,7 +4667,7 @@
     "name": "TradeXBank AG",
     "short_name": "TradeXBank AG",
     "bank_code": "30297",
-    "bic": "SLBZCHZZXXX",
+    "bic": "TXBZCHZZXXX",
     "country_code": "CH",
     "primary": false
   },
@@ -4768,8 +4760,8 @@
     "primary": false
   },
   {
-    "name": "CACEIS Investor Services Bank S.A.",
-    "short_name": "CACEIS Investor Services Bank S.A.",
+    "name": "CACEIS Bank, Montrouge, Zweigniederlassung Z\u00fcrich / Schweiz",
+    "short_name": "CACEIS Bank, Montrouge, Zweigniederlassung Z\u00fcrich / Schweiz",
     "bank_code": "30323",
     "bic": "FETACHZZXXX",
     "country_code": "CH",
@@ -5056,8 +5048,8 @@
     "primary": false
   },
   {
-    "name": "Credit Suisse (Schweiz) AG",
-    "short_name": "Credit Suisse (Schweiz) AG",
+    "name": "UBS Switzerland AG (formerly Credit Suisse)",
+    "short_name": "UBS Switzerland AG (formerly Credit Suisse)",
     "bank_code": "31000",
     "bic": "CRESCHZZ80A",
     "country_code": "CH",
@@ -5080,8 +5072,8 @@
     "primary": false
   },
   {
-    "name": "Credit Suisse AG",
-    "short_name": "Credit Suisse AG",
+    "name": "UBS AG (formerly Credit Suisse)",
+    "short_name": "UBS AG (formerly Credit Suisse)",
     "bank_code": "31866",
     "bic": "CRESCHZHXXX",
     "country_code": "CH",
@@ -5120,16 +5112,16 @@
     "primary": false
   },
   {
-    "name": "Clientis EB Entlebucher Bank AG",
-    "short_name": "Clientis EB Entlebucher Bank AG",
+    "name": "Clientis Entlebucher Bank AG",
+    "short_name": "Clientis Entlebucher Bank AG",
     "bank_code": "66701",
     "bic": "RBABCH22670",
     "country_code": "CH",
     "primary": false
   },
   {
-    "name": "Clientis EB Entlebucher Bank AG",
-    "short_name": "Clientis EB Entlebucher Bank AG",
+    "name": "Clientis Entlebucher Bank AG",
+    "short_name": "Clientis Entlebucher Bank AG",
     "bank_code": "66702",
     "bic": "RBABCH22670",
     "country_code": "CH",
@@ -6456,8 +6448,8 @@
     "primary": false
   },
   {
-    "name": "Banque Raiffeisen Pierre Pertuis",
-    "short_name": "Banque Raiffeisen Pierre Pertuis",
+    "name": "Banque Raiffeisen Grand Chasseral",
+    "short_name": "Banque Raiffeisen Grand Chasseral",
     "bank_code": "80051",
     "bic": "RAIFCH22051",
     "country_code": "CH",
@@ -6552,8 +6544,8 @@
     "primary": false
   },
   {
-    "name": "Banque Raiffeisen Gen\u00e8ve Rive Gauche",
-    "short_name": "Banque Raiffeisen Gen\u00e8ve Rive Gauche",
+    "name": "Banque Raiffeisen Gen\u00e8ve Lac",
+    "short_name": "Banque Raiffeisen Gen\u00e8ve Lac",
     "bank_code": "80187",
     "bic": "RAIFCH22187",
     "country_code": "CH",
@@ -6564,14 +6556,6 @@
     "short_name": "Banque Raiffeisen Villes et Vignobles genevois",
     "bank_code": "80210",
     "bic": "RAIFCH22210",
-    "country_code": "CH",
-    "primary": false
-  },
-  {
-    "name": "Banque Raiffeisen de la Versoix",
-    "short_name": "Banque Raiffeisen de la Versoix",
-    "bank_code": "80215",
-    "bic": "RAIFCH22215",
     "country_code": "CH",
     "primary": false
   },
@@ -6728,8 +6712,8 @@
     "primary": false
   },
   {
-    "name": "Banque Raiffeisen d'Assens-Talent",
-    "short_name": "Banque Raiffeisen d'Assens-Talent",
+    "name": "Banque Raiffeisen d'Assens",
+    "short_name": "Banque Raiffeisen d'Assens",
     "bank_code": "80414",
     "bic": "RAIFCH22414",
     "country_code": "CH",
@@ -8552,8 +8536,8 @@
     "primary": true
   },
   {
-    "name": "Flowbank SA",
-    "short_name": "Flowbank SA",
+    "name": "+FlowBank SA",
+    "short_name": "+FlowBank SA",
     "bank_code": "83029",
     "bic": "FLOKCHGGXXX",
     "country_code": "CH",

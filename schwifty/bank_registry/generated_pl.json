@@ -15298,22 +15298,6 @@
   {
     "country_code": "PL",
     "primary": true,
-    "bic": "PPABPLPKXXX",
-    "bank_code": "20700005",
-    "name": "FCE Bank Sp\u00f3\u0142ka Akcyjna Oddzia\u0142 w Polsce",
-    "short_name": "FCE Bank Sp\u00f3\u0142ka Akcyjna Oddzia\u0142 w Polsce"
-  },
-  {
-    "country_code": "PL",
-    "primary": true,
-    "bic": "PPABPLPKXXX",
-    "bank_code": "27100004",
-    "name": "FCE Bank Sp\u00f3\u0142ka Akcyjna Oddzia\u0142 w Polsce",
-    "short_name": "FCE Bank Sp\u00f3\u0142ka Akcyjna Oddzia\u0142 w Polsce"
-  },
-  {
-    "country_code": "PL",
-    "primary": true,
     "bic": "",
     "bank_code": "27200007",
     "name": "AS Inbank Sp\u00f3\u0142ka Akcyjna - Oddzia\u0142 w Polsce",
@@ -19202,7 +19186,7 @@
   {
     "country_code": "PL",
     "primary": true,
-    "bic": "SPZKPLP1XXX",
+    "bic": "SRZKPLPKXXX",
     "bank_code": "85890006",
     "name": "Bank Sp\u00f3\u0142dzielczy Rzemios\u0142a w Krakowie",
     "short_name": "Bank Sp\u00f3\u0142dzielczy Rzemios\u0142a w Krakowie"

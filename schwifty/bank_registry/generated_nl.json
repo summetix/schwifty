@@ -202,6 +202,14 @@
   {
     "country_code": "NL",
     "primary": true,
+    "bic": "CEPANL2A",
+    "bank_code": "CEPA",
+    "name": "CAISSE D'EPARGNE, Netherlands",
+    "short_name": "CAISSE D'EPARGNE, Netherlands"
+  },
+  {
+    "country_code": "NL",
+    "primary": true,
     "bic": "CHASNL2X",
     "bank_code": "CHAS",
     "name": "JPMORGAN CHASE",

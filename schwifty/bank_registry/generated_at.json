@@ -1010,14 +1010,6 @@
   {
     "country_code": "AT",
     "primary": true,
-    "bic": "RZSTAT2G001",
-    "bank_code": "38001",
-    "name": "Raiffeisenbank Admont eGen",
-    "short_name": "Raiffeisenbank Admont eGen"
-  },
-  {
-    "country_code": "AT",
-    "primary": true,
     "bic": "RZSTAT2G186",
     "bank_code": "38186",
     "name": "Raiffeisenbank M\u00fcrztal eGen",
@@ -1174,14 +1166,6 @@
     "bank_code": "38071",
     "name": "Raiffeisenbank Region Fehring eGen",
     "short_name": "Raiffeisenbank Region Fehring eGen"
-  },
-  {
-    "country_code": "AT",
-    "primary": true,
-    "bic": "RZSTAT2G128",
-    "bank_code": "38128",
-    "name": "Raiffeisenbank Halbenrain-Tieschen eGen",
-    "short_name": "Raiffeisenbank Halbenrain-Tieschen eGen"
   },
   {
     "country_code": "AT",
@@ -1634,14 +1618,6 @@
   {
     "country_code": "AT",
     "primary": true,
-    "bic": "MHCBATWWXXX",
-    "bank_code": "19490",
-    "name": "Mizuho Bank Europe N.V. Vienna Branch",
-    "short_name": "Mizuho Bank Europe N.V. Vienna Branch"
-  },
-  {
-    "country_code": "AT",
-    "primary": true,
     "bic": "RVSAAT2S007",
     "bank_code": "35014",
     "name": "Raiffeisenbank Anthering - Elixhausen eGen",
@@ -1948,8 +1924,8 @@
     "primary": true,
     "bic": "RZSTAT2G102",
     "bank_code": "38102",
-    "name": "Raiffeisenbank Gleinst\u00e4tten-Leutschach-Gro\u00df St. Florian eGen",
-    "short_name": "Raiffeisenbank Gleinst\u00e4tten-Leutschach-Gro\u00df St. Florian eGen"
+    "name": "Raiffeisenbank Gleinst\u00e4tten-Leutschach -Wildon eGen",
+    "short_name": "Raiffeisenbank Gleinst\u00e4tten-Leutschach -Wildon eGen"
   },
   {
     "country_code": "AT",
@@ -2092,16 +2068,16 @@
     "primary": true,
     "bic": "RZSTAT2G210",
     "bank_code": "38210",
-    "name": "Raiffeisenbank Lieboch-Stainz eGen",
-    "short_name": "Raiffeisenbank Lieboch-Stainz eGen"
+    "name": "Raiffeisenbank Kalsdorf-Lieboch-Stainz eGen",
+    "short_name": "Raiffeisenbank Kalsdorf-Lieboch-Stainz eGen"
   },
   {
     "country_code": "AT",
     "primary": true,
     "bic": "RZSTAT2G215",
     "bank_code": "38215",
-    "name": "Raiffeisenbank Liezen-Rottenmann-Trieben eGen",
-    "short_name": "Raiffeisenbank Liezen-Rottenmann-Trieben eGen"
+    "name": "Raiffeisenbank Region Liezen eGen",
+    "short_name": "Raiffeisenbank Region Liezen eGen"
   },
   {
     "country_code": "AT",
@@ -2350,14 +2326,6 @@
     "bank_code": "38433",
     "name": "Raiffeisenbank Stallhofen eGen",
     "short_name": "Raiffeisenbank Stallhofen eGen"
-  },
-  {
-    "country_code": "AT",
-    "primary": true,
-    "bic": "RZSTAT2G436",
-    "bank_code": "38436",
-    "name": "Raiffeisenbank Straden eGen",
-    "short_name": "Raiffeisenbank Straden eGen"
   },
   {
     "country_code": "AT",
@@ -2954,10 +2922,66 @@
   {
     "country_code": "AT",
     "primary": true,
+    "bic": "RZSTAT2G215",
+    "bank_code": "38001",
+    "name": "Raiffeisenbank Region Liezen eGen",
+    "short_name": "Raiffeisenbank Region Liezen eGen"
+  },
+  {
+    "country_code": "AT",
+    "primary": true,
+    "bic": "RZSTAT2G312",
+    "bank_code": "38128",
+    "name": "Raiffeisenbank Region Radkersburg eGen",
+    "short_name": "Raiffeisenbank Region Radkersburg eGen"
+  },
+  {
+    "country_code": "AT",
+    "primary": true,
+    "bic": "RZSTAT2G102",
+    "bank_code": "38499",
+    "name": "Raiffeisenbank Gleinst\u00e4tten-Leutschach -Wildon eGen",
+    "short_name": "Raiffeisenbank Gleinst\u00e4tten-Leutschach -Wildon eGen"
+  },
+  {
+    "country_code": "AT",
+    "primary": true,
     "bic": "RZSTAT2G368",
     "bank_code": "38261",
     "name": "Raiffeisenbank Zirbenland eGen",
     "short_name": "Raiffeisenbank Zirbenland eGen"
+  },
+  {
+    "country_code": "AT",
+    "primary": true,
+    "bic": "RZSTAT2G102",
+    "bank_code": "38292",
+    "name": "Raiffeisenbank Gleinst\u00e4tten-Leutschach -Wildon eGen",
+    "short_name": "Raiffeisenbank Gleinst\u00e4tten-Leutschach -Wildon eGen"
+  },
+  {
+    "country_code": "AT",
+    "primary": true,
+    "bic": "RZSTAT2G312",
+    "bank_code": "38436",
+    "name": "Raiffeisenbank Region Radkersburg eGen",
+    "short_name": "Raiffeisenbank Region Radkersburg eGen"
+  },
+  {
+    "country_code": "AT",
+    "primary": true,
+    "bic": "RZSTAT2G210",
+    "bank_code": "38072",
+    "name": "Raiffeisenbank Kalsdorf-Lieboch-Stainz eGen",
+    "short_name": "Raiffeisenbank Kalsdorf-Lieboch-Stainz eGen"
+  },
+  {
+    "country_code": "AT",
+    "primary": true,
+    "bic": "RZSTAT2G210",
+    "bank_code": "38477",
+    "name": "Raiffeisenbank Kalsdorf-Lieboch-Stainz eGen",
+    "short_name": "Raiffeisenbank Kalsdorf-Lieboch-Stainz eGen"
   },
   {
     "country_code": "AT",
@@ -3322,14 +3346,6 @@
   {
     "country_code": "AT",
     "primary": true,
-    "bic": "RZSTAT2G499",
-    "bank_code": "38499",
-    "name": "Raiffeisenbank Wildon-Preding eGen",
-    "short_name": "Raiffeisenbank Wildon-Preding eGen"
-  },
-  {
-    "country_code": "AT",
-    "primary": true,
     "bic": "VBOEATWWKLA",
     "bank_code": "42600",
     "name": "Volksbank K\u00e4rnten eG",
@@ -3356,8 +3372,8 @@
     "primary": true,
     "bic": "RZSTAT2G312",
     "bank_code": "38312",
-    "name": "Raiffeisenbank Bad Radkersburg-Kl\u00f6ch eGen",
-    "short_name": "Raiffeisenbank Bad Radkersburg-Kl\u00f6ch eGen"
+    "name": "Raiffeisenbank Region Radkersburg eGen",
+    "short_name": "Raiffeisenbank Region Radkersburg eGen"
   },
   {
     "country_code": "AT",
@@ -5244,8 +5260,8 @@
     "primary": true,
     "bic": "RZSTAT2G102",
     "bank_code": "38262",
-    "name": "Raiffeisenbank Gleinst\u00e4tten-Leutschach-Gro\u00df St. Florian eGen",
-    "short_name": "Raiffeisenbank Gleinst\u00e4tten-Leutschach-Gro\u00df St. Florian eGen"
+    "name": "Raiffeisenbank Gleinst\u00e4tten-Leutschach -Wildon eGen",
+    "short_name": "Raiffeisenbank Gleinst\u00e4tten-Leutschach -Wildon eGen"
   },
   {
     "country_code": "AT",
@@ -5668,8 +5684,8 @@
     "primary": true,
     "bic": "RZSTAT2G215",
     "bank_code": "38348",
-    "name": "Raiffeisenbank Liezen-Rottenmann-Trieben eGen",
-    "short_name": "Raiffeisenbank Liezen-Rottenmann-Trieben eGen"
+    "name": "Raiffeisenbank Region Liezen eGen",
+    "short_name": "Raiffeisenbank Region Liezen eGen"
   },
   {
     "country_code": "AT",
@@ -5710,22 +5726,6 @@
     "bank_code": "44400",
     "name": "DolomitenBank Osttirol-Westk\u00e4rnten eG",
     "short_name": "DolomitenBank Osttirol-Westk\u00e4rnten eG"
-  },
-  {
-    "country_code": "AT",
-    "primary": true,
-    "bic": "RZSTAT2G477",
-    "bank_code": "38477",
-    "name": "Raiffeisenbank Region Graz-Thalerhof eGen",
-    "short_name": "Raiffeisenbank Region Graz-Thalerhof eGen"
-  },
-  {
-    "country_code": "AT",
-    "primary": true,
-    "bic": "RZSTAT2G477",
-    "bank_code": "38072",
-    "name": "Raiffeisenbank Region Graz-Thalerhof eGen",
-    "short_name": "Raiffeisenbank Region Graz-Thalerhof eGen"
   },
   {
     "country_code": "AT",
@@ -5844,8 +5844,8 @@
     "primary": true,
     "bic": "RZSTAT2G102",
     "bank_code": "38118",
-    "name": "Raiffeisenbank Gleinst\u00e4tten-Leutschach-Gro\u00df St. Florian eGen",
-    "short_name": "Raiffeisenbank Gleinst\u00e4tten-Leutschach-Gro\u00df St. Florian eGen"
+    "name": "Raiffeisenbank Gleinst\u00e4tten-Leutschach -Wildon eGen",
+    "short_name": "Raiffeisenbank Gleinst\u00e4tten-Leutschach -Wildon eGen"
   },
   {
     "country_code": "AT",
@@ -5894,14 +5894,6 @@
     "bank_code": "35037",
     "name": "Raiffeisenbank Lungau eGen",
     "short_name": "Raiffeisenbank Lungau eGen"
-  },
-  {
-    "country_code": "AT",
-    "primary": true,
-    "bic": "RZSTAT2G499",
-    "bank_code": "38292",
-    "name": "Raiffeisenbank Wildon-Preding eGen",
-    "short_name": "Raiffeisenbank Wildon-Preding eGen"
   },
   {
     "country_code": "AT",

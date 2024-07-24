@@ -261,15 +261,6 @@
     "checksum_algo": "16"
   },
   {
-    "bank_code": "10031000",
-    "name": "EIS Einlagensicherungsbank",
-    "short_name": "EIS Bank Berlin",
-    "bic": "EIEGDEB1XXX",
-    "primary": true,
-    "country_code": "DE",
-    "checksum_algo": "09"
-  },
-  {
     "bank_code": "10033300",
     "name": "Santander Consumer Bank",
     "short_name": "Santander Bank Berlin",
@@ -2849,60 +2840,6 @@
     "short_name": "UniCredit Bank-HypoVereinbk",
     "bic": "HYVEDEMM300",
     "primary": true,
-    "country_code": "DE",
-    "checksum_algo": "68"
-  },
-  {
-    "bank_code": "20030000",
-    "name": "UniCredit Bank - HypoVereinsbank",
-    "short_name": "UniCredit Bank-HypoVereinbk",
-    "bic": "HYVEDEMM300",
-    "primary": false,
-    "country_code": "DE",
-    "checksum_algo": "68"
-  },
-  {
-    "bank_code": "20030000",
-    "name": "UniCredit Bank - HypoVereinsbank",
-    "short_name": "UniCredit Bank-HypoVereinbk",
-    "bic": "HYVEDEMM300",
-    "primary": false,
-    "country_code": "DE",
-    "checksum_algo": "68"
-  },
-  {
-    "bank_code": "20030000",
-    "name": "UniCredit Bank - HypoVereinsbank",
-    "short_name": "UniCredit Bank-HypoVereinbk",
-    "bic": "HYVEDEMM300",
-    "primary": false,
-    "country_code": "DE",
-    "checksum_algo": "68"
-  },
-  {
-    "bank_code": "20030000",
-    "name": "UniCredit Bank - HypoVereinsbank",
-    "short_name": "UniCredit Bank-HypoVereinbk",
-    "bic": "HYVEDEMM300",
-    "primary": false,
-    "country_code": "DE",
-    "checksum_algo": "68"
-  },
-  {
-    "bank_code": "20030000",
-    "name": "UniCredit Bank - HypoVereinsbank",
-    "short_name": "UniCredit Bank-HypoVereinbk",
-    "bic": "HYVEDEMM300",
-    "primary": false,
-    "country_code": "DE",
-    "checksum_algo": "68"
-  },
-  {
-    "bank_code": "20030000",
-    "name": "UniCredit Bank - HypoVereinsbank",
-    "short_name": "UniCredit Bank-HypoVereinbk",
-    "bic": "HYVEDEMM300",
-    "primary": false,
     "country_code": "DE",
     "checksum_algo": "68"
   },
@@ -12408,7 +12345,7 @@
     "bic": "NBAGDE3EXXX",
     "primary": true,
     "country_code": "DE",
-    "checksum_algo": "10"
+    "checksum_algo": "09"
   },
   {
     "bank_code": "36020186",
@@ -14779,8 +14716,8 @@
   },
   {
     "bank_code": "40055555",
-    "name": "LBS Westdeutsche Landesbausparkasse",
-    "short_name": "LBS West M\u00fcnster",
+    "name": "LBS Landesbausparkasse Nord West",
+    "short_name": "LBS Nord West",
     "bic": "LBSWDE31XXX",
     "primary": true,
     "country_code": "DE",
@@ -14800,15 +14737,6 @@
     "name": "DKM Darlehnskasse M\u00fcnster",
     "short_name": "DKM Darlehnskasse M\u00fcnster",
     "bic": "GENODEM1DKM",
-    "primary": true,
-    "country_code": "DE",
-    "checksum_algo": "34"
-  },
-  {
-    "bank_code": "40060300",
-    "name": "DZ HYP - M\u00fcnster",
-    "short_name": "DZ HYP - M\u00fcnster",
-    "bic": "GENODEM1WLM",
     "primary": true,
     "country_code": "DE",
     "checksum_algo": "34"
@@ -18541,8 +18469,8 @@
   },
   {
     "bank_code": "47853520",
-    "name": "Kreissparkasse Wiedenbr\u00fcck",
-    "short_name": "Kreissparkasse Wiedenbr\u00fcck",
+    "name": "Kreissparkasse Halle-Wiedenbr\u00fcck",
+    "short_name": "Kr Spk Halle-Wiedenbr\u00fcck",
     "bic": "WELADED1WDB",
     "primary": true,
     "country_code": "DE",
@@ -18703,8 +18631,8 @@
   },
   {
     "bank_code": "48051580",
-    "name": "Kreissparkasse Halle",
-    "short_name": "Kreissparkasse Halle",
+    "name": "Kreissparkasse Halle -alt-",
+    "short_name": "Kreissparkasse Halle -alt-",
     "bic": "WELADED1HAW",
     "primary": true,
     "country_code": "DE",
@@ -20916,15 +20844,6 @@
     "checksum_algo": "06"
   },
   {
-    "bank_code": "50123400",
-    "name": "VTB Bank (Europe) Zndl Frankfurt am Main (Direktbank)",
-    "short_name": "VTB Direktbank",
-    "bic": "DOBADEF1XXX",
-    "primary": true,
-    "country_code": "DE",
-    "checksum_algo": "28"
-  },
-  {
     "bank_code": "50127000",
     "name": "PKO Bank Polski Niederlassung Deutschland",
     "short_name": "PKO Bank Polski Frankfurt",
@@ -20937,7 +20856,7 @@
     "bank_code": "50127700",
     "name": "PAYONE",
     "short_name": "PAYONE Frankfurt",
-    "bic": "PAYODE22XXX",
+    "bic": "PAYODEF2XXX",
     "primary": true,
     "country_code": "DE",
     "checksum_algo": "09"
@@ -23769,15 +23688,6 @@
     "checksum_algo": "06"
   },
   {
-    "bank_code": "53361724",
-    "name": "Raiffeisenbank -alt-",
-    "short_name": "Raiffbk Ebsdorfergrund-alt-",
-    "bic": "GENODEF1EBG",
-    "primary": true,
-    "country_code": "DE",
-    "checksum_algo": "32"
-  },
-  {
     "bank_code": "53370008",
     "name": "Deutsche Bank",
     "short_name": "Deutsche Bank",
@@ -24098,15 +24008,6 @@
     "short_name": "UniCredit Bank-HypoVereinbk",
     "bic": "HYVEDEMM483",
     "primary": true,
-    "country_code": "DE",
-    "checksum_algo": "99"
-  },
-  {
-    "bank_code": "54520194",
-    "name": "UniCredit Bank - HypoVereinsbank",
-    "short_name": "UniCredit Bank-HypoVereinbk",
-    "bic": "HYVEDEMM483",
-    "primary": false,
     "country_code": "DE",
     "checksum_algo": "99"
   },
@@ -32994,15 +32895,6 @@
     "checksum_algo": "06"
   },
   {
-    "bank_code": "70011700",
-    "name": "Bankhaus von der Heydt",
-    "short_name": "Bankhaus von der Heydt",
-    "bic": "BVDHDEMMXXX",
-    "primary": true,
-    "country_code": "DE",
-    "checksum_algo": "01"
-  },
-  {
     "bank_code": "70011900",
     "name": "InterCard",
     "short_name": "InterCard Taufkirchen",
@@ -33152,42 +33044,6 @@
     "short_name": "UniCredit Bank-HypoVereinbk",
     "bic": "HYVEDEMMXXX",
     "primary": true,
-    "country_code": "DE",
-    "checksum_algo": "95"
-  },
-  {
-    "bank_code": "70020270",
-    "name": "UniCredit Bank - HypoVereinsbank",
-    "short_name": "UniCredit Bank-HypoVereinbk",
-    "bic": "HYVEDEMMXXX",
-    "primary": false,
-    "country_code": "DE",
-    "checksum_algo": "95"
-  },
-  {
-    "bank_code": "70020270",
-    "name": "UniCredit Bank - HypoVereinsbank",
-    "short_name": "UniCredit Bank-HypoVereinbk",
-    "bic": "HYVEDEMMXXX",
-    "primary": false,
-    "country_code": "DE",
-    "checksum_algo": "95"
-  },
-  {
-    "bank_code": "70020270",
-    "name": "UniCredit Bank - HypoVereinsbank",
-    "short_name": "UniCredit Bank-HypoVereinbk",
-    "bic": "HYVEDEMMXXX",
-    "primary": false,
-    "country_code": "DE",
-    "checksum_algo": "95"
-  },
-  {
-    "bank_code": "70020270",
-    "name": "UniCredit Bank - HypoVereinsbank",
-    "short_name": "UniCredit Bank-HypoVereinbk",
-    "bic": "HYVEDEMMXXX",
-    "primary": false,
     "country_code": "DE",
     "checksum_algo": "95"
   },
@@ -34141,6 +33997,15 @@
     "name": "M\u00fcnchener Hypothekenbank",
     "short_name": "M\u00fcnch Hypoth Bank M\u00fcnchen",
     "bic": "MHYPDEMMXXX",
+    "primary": true,
+    "country_code": "DE",
+    "checksum_algo": "09"
+  },
+  {
+    "bank_code": "70110570",
+    "name": "M\u00fcnchener Hypothekenbank",
+    "short_name": "M\u00fcnch Hypoth Bank M\u00fcnchen",
+    "bic": "MHYPDEMMSCA",
     "primary": true,
     "country_code": "DE",
     "checksum_algo": "09"
@@ -35289,15 +35154,6 @@
     "checksum_algo": "99"
   },
   {
-    "bank_code": "72020070",
-    "name": "UniCredit Bank - HypoVereinsbank",
-    "short_name": "UniCredit Bank-HypoVereinbk",
-    "bic": "HYVEDEMM408",
-    "primary": false,
-    "country_code": "DE",
-    "checksum_algo": "99"
-  },
-  {
     "bank_code": "72021271",
     "name": "UniCredit Bank - HypoVereinsbank",
     "short_name": "UniCredit Bank-HypoVereinbk",
@@ -35838,15 +35694,6 @@
     "checksum_algo": "99"
   },
   {
-    "bank_code": "72120078",
-    "name": "UniCredit Bank - HypoVereinsbank",
-    "short_name": "UniCredit Bank-HypoVereinbk",
-    "bic": "HYVEDEMM426",
-    "primary": false,
-    "country_code": "DE",
-    "checksum_algo": "99"
-  },
-  {
     "bank_code": "72122181",
     "name": "UniCredit Bank - HypoVereinsbank",
     "short_name": "UniCredit Bank-HypoVereinbk",
@@ -36221,15 +36068,6 @@
     "short_name": "UniCredit Bank-HypoVereinbk",
     "bic": "HYVEDEMM436",
     "primary": true,
-    "country_code": "DE",
-    "checksum_algo": "99"
-  },
-  {
-    "bank_code": "73120075",
-    "name": "UniCredit Bank - HypoVereinsbank",
-    "short_name": "UniCredit Bank-HypoVereinbk",
-    "bic": "HYVEDEMM436",
-    "primary": false,
     "country_code": "DE",
     "checksum_algo": "99"
   },
@@ -36646,15 +36484,6 @@
     "primary": true,
     "country_code": "DE",
     "checksum_algo": "00"
-  },
-  {
-    "bank_code": "73460046",
-    "name": "VR Bank Augsburg-Ostallg\u00e4u",
-    "short_name": "VR Bank Augsburg-Ostallg\u00e4u",
-    "bic": "GENODEF1KFB",
-    "primary": true,
-    "country_code": "DE",
-    "checksum_algo": "88"
   },
   {
     "bank_code": "73480013",
@@ -37486,7 +37315,7 @@
   },
   {
     "bank_code": "75069078",
-    "name": "Raiffeisenbank",
+    "name": "Raiffeisenbank Sinzing",
     "short_name": "Raiffeisenbank Sinzing",
     "bic": "GENODEF1SZV",
     "primary": true,
@@ -38646,15 +38475,6 @@
     "checksum_algo": "99"
   },
   {
-    "bank_code": "76230000",
-    "name": "BSQ Bauspar",
-    "short_name": "BSQ Bauspar N\u00fcrnberg",
-    "bic": "QUBADE71XXX",
-    "primary": true,
-    "country_code": "DE",
-    "checksum_algo": "11"
-  },
-  {
     "bank_code": "76240011",
     "name": "Commerzbank F\u00fcrth Bayern",
     "short_name": "Commerzbank F\u00fcrth Bayern",
@@ -38831,15 +38651,6 @@
     "short_name": "UniCredit Bank-HypoVereinbk",
     "bic": "HYVEDEMM406",
     "primary": true,
-    "country_code": "DE",
-    "checksum_algo": "99"
-  },
-  {
-    "bank_code": "76520071",
-    "name": "UniCredit Bank - HypoVereinsbank",
-    "short_name": "UniCredit Bank-HypoVereinbk",
-    "bic": "HYVEDEMM406",
-    "primary": false,
     "country_code": "DE",
     "checksum_algo": "99"
   },
@@ -39447,15 +39258,6 @@
     "checksum_algo": "99"
   },
   {
-    "bank_code": "79020076",
-    "name": "UniCredit Bank - HypoVereinsbank",
-    "short_name": "UniCredit Bank-HypoVereinbk",
-    "bic": "HYVEDEMM455",
-    "primary": false,
-    "country_code": "DE",
-    "checksum_algo": "99"
-  },
-  {
     "bank_code": "79030001",
     "name": "F\u00fcrstlich Castellsche Bank Credit-Casse",
     "short_name": "F\u00fcrstl. Castellsche Bank",
@@ -39870,15 +39672,6 @@
     "checksum_algo": "99"
   },
   {
-    "bank_code": "79520070",
-    "name": "UniCredit Bank - HypoVereinsbank",
-    "short_name": "UniCredit Bank-HypoVereinbk",
-    "bic": "HYVEDEMM407",
-    "primary": false,
-    "country_code": "DE",
-    "checksum_algo": "99"
-  },
-  {
     "bank_code": "79540049",
     "name": "Commerzbank",
     "short_name": "Commerzbank Aschaffenburg",
@@ -40024,8 +39817,8 @@
   },
   {
     "bank_code": "79650000",
-    "name": "Sparkasse Miltenberg-Obernburg",
-    "short_name": "Spk Miltenberg-Obernburg",
+    "name": "Sparkasse Miltenberg-Obernburg -alt-",
+    "short_name": "Spk Miltenberg-Obernb.-alt-",
     "bic": "BYLADEM1MIL",
     "primary": true,
     "country_code": "DE",
@@ -41459,15 +41252,6 @@
     "short_name": "UniCredit Bank-HypoVereinbk",
     "bic": "HYVEDEMM468",
     "primary": true,
-    "country_code": "DE",
-    "checksum_algo": "99"
-  },
-  {
-    "bank_code": "83020086",
-    "name": "UniCredit Bank - HypoVereinsbank",
-    "short_name": "UniCredit Bank-HypoVereinbk",
-    "bic": "HYVEDEMM468",
-    "primary": false,
     "country_code": "DE",
     "checksum_algo": "99"
   },

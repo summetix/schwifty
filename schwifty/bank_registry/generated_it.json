@@ -42,14 +42,6 @@
   {
     "country_code": "IT",
     "primary": true,
-    "bic": "UNCRITMM",
-    "bank_code": "02008",
-    "name": "UNICREDIT BANCA S.P.A.",
-    "short_name": "UNICREDIT BANCA S.P.A."
-  },
-  {
-    "country_code": "IT",
-    "primary": true,
     "bic": "ICRAITR1",
     "bank_code": "08851",
     "name": "TERRE ETRUSCHE DI VALDICHIANA E DI MAREMMA - CREDITO COOPERATIVO- S.C.",
@@ -62,6 +54,14 @@
     "bank_code": "08883",
     "name": "BANCA DI BOLOGNA CREDITO COOPERATIVO SOCIETA' COOPERATIVA",
     "short_name": "BANCA DI BOLOGNA CREDITO COOPERATIVO SOCIETA' COOPERATIVA"
+  },
+  {
+    "country_code": "IT",
+    "primary": true,
+    "bic": "UNCRITMM",
+    "bank_code": "02008",
+    "name": "UNICREDIT BANCA S.P.A.",
+    "short_name": "UNICREDIT BANCA S.P.A."
   },
   {
     "country_code": "IT",
@@ -204,16 +204,8 @@
     "primary": true,
     "bic": "ARTCITR1",
     "bank_code": "10681",
-    "name": "ARTIGIANCASSA - CASSA PER IL CREDITO ALLE IMPRESE ARTIGIANE S.P.A.",
-    "short_name": "ARTIGIANCASSA - CASSA PER IL CREDITO ALLE IMPRESE ARTIGIANE S.P.A."
-  },
-  {
-    "country_code": "IT",
-    "primary": true,
-    "bic": "BCMAITMM",
-    "bank_code": "03415",
-    "name": "ATTIJARIWAFA BANK EUROPE SEDE SECONDARIA ITALIANA",
-    "short_name": "ATTIJARIWAFA BANK EUROPE SEDE SECONDARIA ITALIANA"
+    "name": "ARTIGIANCASSA S.P.A.",
+    "short_name": "ARTIGIANCASSA S.P.A."
   },
   {
     "country_code": "IT",
@@ -291,9 +283,9 @@
     "country_code": "IT",
     "primary": true,
     "bic": "CCRTIT2T97A",
-    "bank_code": "08631",
-    "name": "BANCA 360 CREDITO COOPERATIVO FVG  - SOCIETA' COOPERATIVA",
-    "short_name": "BANCA 360 CREDITO COOPERATIVO FVG  - SOCIETA' COOPERATIVA"
+    "bank_code": "08982",
+    "name": "BANCA ADRIA COLLI EUGANEI - CREDITO COOPERATIVO SOCIETA' COOPERATIVA",
+    "short_name": "BANCA ADRIA COLLI EUGANEI - CREDITO COOPERATIVO SOCIETA' COOPERATIVA"
   },
   {
     "country_code": "IT",
@@ -323,9 +315,9 @@
     "country_code": "IT",
     "primary": true,
     "bic": "CCRTIT2TCRT",
-    "bank_code": "08327",
-    "name": "BANCA DI CREDITO COOPERATIVO DI ROMA SOCIETA' COOPERATIVA",
-    "short_name": "BANCA DI CREDITO COOPERATIVO DI ROMA SOCIETA' COOPERATIVA"
+    "bank_code": "03002",
+    "name": "BANCA DI ROMA, SOCIETA' PER AZIONI",
+    "short_name": "BANCA DI ROMA, SOCIETA' PER AZIONI"
   },
   {
     "country_code": "IT",
@@ -334,6 +326,14 @@
     "bank_code": "08735",
     "name": "BANCA DEL TERRITORIO LOMBARDO CREDITO COOPERATIVO - SOCIETA' COOPERATIVA",
     "short_name": "BANCA DEL TERRITORIO LOMBARDO CREDITO COOPERATIVO - SOCIETA' COOPERATIVA"
+  },
+  {
+    "country_code": "IT",
+    "primary": true,
+    "bic": "CCRTIT2TALB",
+    "bank_code": "08631",
+    "name": "BANCA 360 CREDITO COOPERATIVO FVG  - SOCIETA' COOPERATIVA",
+    "short_name": "BANCA 360 CREDITO COOPERATIVO FVG  - SOCIETA' COOPERATIVA"
   },
   {
     "country_code": "IT",
@@ -594,14 +594,6 @@
   {
     "country_code": "IT",
     "primary": true,
-    "bic": "CCRTIT2TATC",
-    "bank_code": "08365",
-    "name": "BANCA DI CREDITO COOPERATIVO DELL'ALTO TIRRENO DELLA CALABRIA VERBICARO",
-    "short_name": "BANCA DI CREDITO COOPERATIVO DELL'ALTO TIRRENO DELLA CALABRIA VERBICARO"
-  },
-  {
-    "country_code": "IT",
-    "primary": true,
     "bic": "ICRAITRRLF0",
     "bank_code": "08771",
     "name": "CREDITO COOPERATIVO DELL'ADDA E DEL CREMASCO",
@@ -746,14 +738,6 @@
   {
     "country_code": "IT",
     "primary": true,
-    "bic": "FICUITTT",
-    "bank_code": "03191",
-    "name": "SANTANDER CONSUMER BANK S.P.A.",
-    "short_name": "SANTANDER CONSUMER BANK S.P.A."
-  },
-  {
-    "country_code": "IT",
-    "primary": true,
     "bic": "ICRAITRR59Z",
     "bank_code": "08189",
     "name": "BCC DELLA VALLE DEL TRIGNO SOCIETA' COOPERATIVA",
@@ -810,10 +794,26 @@
   {
     "country_code": "IT",
     "primary": true,
+    "bic": "CCRTIT2T99A",
+    "bank_code": "07085",
+    "name": "CREDITO COOPERATIVO FRIULI SOCIETA' COOPERATIVA",
+    "short_name": "CREDITO COOPERATIVO FRIULI SOCIETA' COOPERATIVA"
+  },
+  {
+    "country_code": "IT",
+    "primary": true,
     "bic": "BPAAIT2B",
     "bank_code": "05856",
     "name": "BANCA POPOLARE DELL'ALTO ADIGE SOCIETA' PER AZIONI",
     "short_name": "BANCA POPOLARE DELL'ALTO ADIGE SOCIETA' PER AZIONI"
+  },
+  {
+    "country_code": "IT",
+    "primary": true,
+    "bic": "CCRTIT2TATC",
+    "bank_code": "08365",
+    "name": "BCC CALABRIA NORD - CREDITO COOPERATIVO",
+    "short_name": "BCC CALABRIA NORD - CREDITO COOPERATIVO"
   },
   {
     "country_code": "IT",
@@ -870,14 +870,6 @@
     "bank_code": "03566",
     "name": "CITIBANK N.A.",
     "short_name": "CITIBANK N.A."
-  },
-  {
-    "country_code": "IT",
-    "primary": true,
-    "bic": "CCRTIT2TALB",
-    "bank_code": "08338",
-    "name": "BANCA DI CREDITO COOPERATIVO DI ALBEROBELLO, SAMMICHELE E MONOPOLI  - SOCIETA' COOPERATIVA",
-    "short_name": "BANCA DI CREDITO COOPERATIVO DI ALBEROBELLO, SAMMICHELE E MONOPOLI  - SOCIETA' COOPERATIVA"
   },
   {
     "country_code": "IT",
@@ -958,6 +950,14 @@
     "bank_code": "08404",
     "name": "BCC DI BUSTO GAROLFO E BUGUGGIATE SOCIETA' COOPERATIVA",
     "short_name": "BCC DI BUSTO GAROLFO E BUGUGGIATE SOCIETA' COOPERATIVA"
+  },
+  {
+    "country_code": "IT",
+    "primary": true,
+    "bic": "FICUITTT",
+    "bank_code": "03191",
+    "name": "SANTANDER CONSUMER BANK S.P.A.",
+    "short_name": "SANTANDER CONSUMER BANK S.P.A."
   },
   {
     "country_code": "IT",
@@ -1122,14 +1122,6 @@
   {
     "country_code": "IT",
     "primary": true,
-    "bic": "CEEPIT21",
-    "bank_code": "03426",
-    "name": "BANCA DI CREDITO PELORITANO S.P.A.",
-    "short_name": "BANCA DI CREDITO PELORITANO S.P.A."
-  },
-  {
-    "country_code": "IT",
-    "primary": true,
     "bic": "CRRAIT2R",
     "bank_code": "06270",
     "name": "LA CASSA DI RAVENNA S.P.A.",
@@ -1146,18 +1138,18 @@
   {
     "country_code": "IT",
     "primary": true,
-    "bic": "SCCDIT31",
-    "bank_code": "03235",
-    "name": "BANCA DI SCONTO S.P.A.",
-    "short_name": "BANCA DI SCONTO S.P.A."
+    "bic": "BPPUIT31",
+    "bank_code": "05262",
+    "name": "BANCA POPOLARE PUGLIESE - SOCIETA' COOPERATIVA PER AZIONI",
+    "short_name": "BANCA POPOLARE PUGLIESE - SOCIETA' COOPERATIVA PER AZIONI"
   },
   {
     "country_code": "IT",
     "primary": true,
-    "bic": "CCRTIT2T99A",
-    "bank_code": "07085",
-    "name": "CREDITO COOPERATIVO FRIULI SOCIETA' COOPERATIVA",
-    "short_name": "CREDITO COOPERATIVO FRIULI SOCIETA' COOPERATIVA"
+    "bic": "SCCDIT31",
+    "bank_code": "03235",
+    "name": "BANCA DI SCONTO S.P.A.",
+    "short_name": "BANCA DI SCONTO S.P.A."
   },
   {
     "country_code": "IT",
@@ -1266,14 +1258,6 @@
   {
     "country_code": "IT",
     "primary": true,
-    "bic": "BPPUIT31",
-    "bank_code": "05262",
-    "name": "BANCA POPOLARE PUGLIESE - SOCIETA' COOPERATIVA PER AZIONI",
-    "short_name": "BANCA POPOLARE PUGLIESE - SOCIETA' COOPERATIVA PER AZIONI"
-  },
-  {
-    "country_code": "IT",
-    "primary": true,
     "bic": "POCAIT3C",
     "bank_code": "05372",
     "name": "BANCA POPOLARE DEL CASSINATE SOCIETA' COOPERATIVA PER AZIONI",
@@ -1332,8 +1316,8 @@
     "primary": true,
     "bic": "BPVMIT2R",
     "bank_code": "05792",
-    "name": "BANCA POPOLARE VALCONCA - SOCIETA' PER AZIONI IN AMMINISTRAZIONE STRAORDINARIA",
-    "short_name": "BANCA POPOLARE VALCONCA - SOCIETA' PER AZIONI IN AMMINISTRAZIONE STRAORDINARIA"
+    "name": "CHERRY BANK S.P.A.",
+    "short_name": "CHERRY BANK S.P.A."
   },
   {
     "country_code": "IT",
@@ -1754,14 +1738,6 @@
   {
     "country_code": "IT",
     "primary": true,
-    "bic": "CCRTIT2T38A",
-    "bank_code": "08279",
-    "name": "Cassa Rurale Val di Fassa e Agordino - BCC - Societ\u00e0 Cooperativa",
-    "short_name": "Cassa Rurale Val di Fassa e Agordino - BCC - Societ\u00e0 Cooperativa"
-  },
-  {
-    "country_code": "IT",
-    "primary": true,
     "bic": "CCRTIT2T73A",
     "bank_code": "08079",
     "name": "Cassa Rurale di Tuenno - Val di\nNon - Banca di Credito\nCooperativo - Societa",
@@ -1978,18 +1954,10 @@
   {
     "country_code": "IT",
     "primary": true,
-    "bic": "JPMGITMM",
+    "bic": "CHASITMX",
     "bank_code": "03633",
     "name": "J.P. MORGAN AG",
     "short_name": "J.P. MORGAN AG"
-  },
-  {
-    "country_code": "IT",
-    "primary": true,
-    "bic": "CHASITMX",
-    "bank_code": "03494",
-    "name": "JPMORGAN CHASE BANK, NATIONAL ASSOCIATION",
-    "short_name": "JPMORGAN CHASE BANK, NATIONAL ASSOCIATION"
   },
   {
     "country_code": "IT",

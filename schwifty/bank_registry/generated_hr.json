@@ -50,14 +50,6 @@
   {
     "country_code": "HR",
     "primary": true,
-    "bic": "HKBOHR2X",
-    "bank_code": "2493003",
-    "name": "HRVATSKA BANKA ZA OBNOVU I RAZVITAK Zagreb",
-    "short_name": "HRVATSKA BANKA ZA OBNOVU I RAZVITAK Zagreb"
-  },
-  {
-    "country_code": "HR",
-    "primary": true,
     "bic": "NBHRHR2X",
     "bank_code": "1001005",
     "name": "HRVATSKA NARODNA BANKA",

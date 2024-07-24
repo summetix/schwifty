@@ -138,14 +138,6 @@
   {
     "country_code": "CZ",
     "primary": true,
-    "bic": "BPPFCZP1",
-    "bank_code": "3050",
-    "name": "BNP Paribas Personal Finance SA, od\u0161t\u011bpn\u00fd z\u00e1vod",
-    "short_name": "BNP Paribas Personal Finance SA, od\u0161t\u011bpn\u00fd z\u00e1vod"
-  },
-  {
-    "country_code": "CZ",
-    "primary": true,
     "bic": "BPKOCZPP",
     "bank_code": "3060",
     "name": "PKO BP S.A., Czech Branch",
@@ -382,14 +374,6 @@
     "bank_code": "8280",
     "name": "B-Efekt a.s.",
     "short_name": "B-Efekt a.s."
-  },
-  {
-    "country_code": "CZ",
-    "primary": true,
-    "bic": "BEORCZP2",
-    "bank_code": "8299",
-    "name": "BESTPAY s.r.o.",
-    "short_name": "BESTPAY s.r.o."
   },
   {
     "country_code": "CZ",

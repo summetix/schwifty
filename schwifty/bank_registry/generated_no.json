@@ -2442,7 +2442,7 @@
   {
     "country_code": "NO",
     "primary": true,
-    "bic": "ANBUNO21",
+    "bic": "BLSPNO21",
     "bank_code": "2500",
     "name": "Skagerrak Sparebank",
     "short_name": "Skagerrak Sparebank"
@@ -2450,7 +2450,7 @@
   {
     "country_code": "NO",
     "primary": true,
-    "bic": "ANBUNO21",
+    "bic": "BLSPNO21",
     "bank_code": "2503",
     "name": "Skagerrak Sparebank",
     "short_name": "Skagerrak Sparebank"
@@ -2466,7 +2466,7 @@
   {
     "country_code": "NO",
     "primary": true,
-    "bic": "LABRNOB1",
+    "bic": "BLSPNO21",
     "bank_code": "2510",
     "name": "Skagerrak Sparebank",
     "short_name": "Skagerrak Sparebank"
@@ -3838,14 +3838,6 @@
     "bank_code": "3540",
     "name": "Sparebanken Vest",
     "short_name": "Sparebanken Vest"
-  },
-  {
-    "country_code": "NO",
-    "primary": true,
-    "bic": "ETNENO21",
-    "bank_code": "3543",
-    "name": "Sparebanken Vest Etne",
-    "short_name": "Sparebanken Vest Etne"
   },
   {
     "country_code": "NO",
