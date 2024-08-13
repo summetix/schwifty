@@ -5,6 +5,18 @@ Changelog
 
 Versions follow `CalVer <http://www.calver.org/>`_ with the scheme ``YY.0M.Micro``.
 
+`2024.08.0`_ - 2024/08/13
+-------------------------
+Added
+~~~~~
+* Added French Polynesian banks to the registry `@tut-tuuut <https://github.com/tut-tuuut>`_
+* Added bnext to the Spanish registry `@jose-reveni <https://github.com/jose-reveni>`_
+
+Changed
+~~~~~~~
+* Extended the Danish bank registry including many more banks now.
+* Updated the Belgian bank registry `@sennbos <https://github.com/sennebos>`_
+
 `2024.06.1`_ - 2024/06/10
 -------------------------
 Fixed
@@ -658,6 +670,7 @@ Added
 * Added :attr:`.BIC.country` and :attr:`.IBAN.country`.
 
 
+.. _2024.08.0: https://github.com/mdomke/schwifty/compare/2024.06.1...2024.08.0
 .. _2024.06.1: https://github.com/mdomke/schwifty/compare/2024.06.0...2024.06.1
 .. _2024.06.0: https://github.com/mdomke/schwifty/compare/2024.05.4...2024.06.0
 .. _2024.05.4: https://github.com/mdomke/schwifty/compare/2024.05.3...2024.05.4
