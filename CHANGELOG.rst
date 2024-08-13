@@ -5,8 +5,8 @@ Changelog
 
 Versions follow `CalVer <http://www.calver.org/>`_ with the scheme ``YY.0M.Micro``.
 
-Unreleased
-----------
+`2024.08.1`_ - 2024/08/13
+-------------------------
 Added
 ~~~~~
 * Allow ``BIC`` and ``IBAN`` objects to be deepcopied (thanks to `@binaryDiv <https://github.com/binaryDiv>`_
@@ -679,6 +679,7 @@ Added
 * Added :attr:`.BIC.country` and :attr:`.IBAN.country`.
 
 
+.. _2024.08.1: https://github.com/mdomke/schwifty/compare/2024.08.0...2024.08.1
 .. _2024.08.0: https://github.com/mdomke/schwifty/compare/2024.06.1...2024.08.0
 .. _2024.06.1: https://github.com/mdomke/schwifty/compare/2024.06.0...2024.06.1
 .. _2024.06.0: https://github.com/mdomke/schwifty/compare/2024.05.4...2024.06.0
