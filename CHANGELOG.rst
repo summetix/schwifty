@@ -16,6 +16,8 @@ Changed
 ~~~~~~~
 * Extended the Danish bank registry including many more banks now.
 * Updated the Belgian bank registry `@sennbos <https://github.com/sennebos>`_
+* Updated bank registries for Austria, Germany, Poland, Czech Republic, Switzerland, Italy, Norway
+  and Netherlands.
 
 `2024.06.1`_ - 2024/06/10
 -------------------------
