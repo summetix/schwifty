@@ -5,6 +5,12 @@ Changelog
 
 Versions follow `CalVer <http://www.calver.org/>`_ with the scheme ``YY.0M.Micro``.
 
+`2024.09.0`_ - 2024/09/31
+-------------------------
+Fixed
+~~~~~
+* Fix Python 3.8 support while it is still supported (EOL is 2024-10) (thanks to `@bwoodsend <https://github.com/bwoodsend>`_)
+
 `2024.08.1`_ - 2024/08/13
 -------------------------
 Added
@@ -679,6 +685,7 @@ Added
 * Added :attr:`.BIC.country` and :attr:`.IBAN.country`.
 
 
+.. _2024.09.0: https://github.com/mdomke/schwifty/compare/2024.08.1...2024.09.0
 .. _2024.08.1: https://github.com/mdomke/schwifty/compare/2024.08.0...2024.08.1
 .. _2024.08.0: https://github.com/mdomke/schwifty/compare/2024.06.1...2024.08.0
 .. _2024.06.1: https://github.com/mdomke/schwifty/compare/2024.06.0...2024.06.1
