@@ -12,7 +12,6 @@ from schwifty import common
 from schwifty import exceptions
 from schwifty import registry
 from schwifty.bban import BBAN
-from schwifty.bban import Component
 from schwifty.bic import BIC
 from schwifty.checksum import ISO7064_mod97_10
 from schwifty.checksum import numerify
@@ -294,13 +293,7 @@ class IBAN(common.Base):
         .. versionchanged:: 2020.08.1
             Returns ``None`` if no appropriate :class:`BIC` can be constructed.
         """
-        key = ""
-        for attr in self.spec.get("bic_lookup_components", [Component.BANK_CODE]):
-            key += getattr(self, attr, "")
-        try:
-            return BIC.from_bank_code(self.country_code, key)
-        except exceptions.SchwiftyException:
-            return None
+        return self.bban.bic
 
     @property
     def country(self) -> Data | None:

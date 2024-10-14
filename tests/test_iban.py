@@ -210,7 +210,11 @@ def test_iban_properties_de() -> None:
     assert iban.bank_code == "43060967"
     assert iban.branch_code == ""
     assert iban.account_code == "7000534100"
+    assert iban.account_id == ""
+    assert iban.account_type == ""
     assert iban.country_code == "DE"
+    assert iban.currency_code == ""
+    assert iban.account_holder_id == ""
     assert iban.national_checksum_digits == ""
     assert iban.bic == "GENODEM1GLS"
     assert iban.formatted == "DE42 4306 0967 7000 5341 00"
@@ -231,6 +235,15 @@ def test_iban_properties_it() -> None:
     assert iban.bic == "BLOPIT22"
     assert iban.bank_name == "BANCA POPOLARE DI BERGAMO S.P.A."
     assert iban.in_sepa_zone is True
+
+
+def test_iban_properties_is() -> None:
+    iban = IBAN("IS14 0159 2600 7654 5510 7303 39")
+    assert iban.account_holder_id == "5510730339"
+    assert iban.account_code == "007654"
+    assert iban.account_type == "26"
+    assert iban.branch_code == "59"
+    assert iban.bank_code == "01"
 
 
 @pytest.mark.parametrize(

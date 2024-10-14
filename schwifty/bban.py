@@ -105,7 +105,7 @@ class BBAN(common.Base):
             InvalidAccountCode: If the account code does not meet the national requirements.
         """
         spec: dict[str, Any] = _get_bban_spec(country_code)
-        if "positions" not in spec:
+        if "positions" not in spec:  # pragma: no cover
             raise exceptions.SchwiftyException(f"BBAN generation for {country_code} not supported")
 
         ranges = _get_position_ranges(spec)
