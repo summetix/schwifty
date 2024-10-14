@@ -91,6 +91,9 @@ order-by-type = false
 branch = true
 parallel = true
 source = ["schwifty"]
+omit = [
+    "schwifty/checksum/netherlands.py"
+]
 
 [tool.doc8]
 max-line-length = 100
