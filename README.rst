@@ -8,6 +8,8 @@
     :target: https://schwifty.readthedocs.io
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg?style=flat-square
     :target: https://black.readthedocs.io/en/stable/index.html
+.. image:: https://img.shields.io/codecov/c/gh/mdomke/schwifty?token=aJj1Yg0NUq&style=flat-square
+    :target: https://codecov.io/gh/mdomke/schwifty
 
 
 Gotta get schwifty with your IBANs
