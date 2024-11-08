@@ -5,8 +5,8 @@ from random import Random
 from typing import Any
 from typing import TYPE_CHECKING
 
-from pycountry import countries  # type: ignore
-from pycountry.db import Data  # type: ignore
+from iso3166 import countries  # type: ignore
+from iso3166 import Country
 
 from schwifty import common
 from schwifty import exceptions
@@ -296,9 +296,9 @@ class IBAN(common.Base):
         return self.bban.bic
 
     @property
-    def country(self) -> Data | None:
+    def country(self) -> Country | None:
         """Country: The country this IBAN is registered in."""
-        return countries.get(alpha_2=self.country_code)
+        return countries.get(self.country_code)
 
     @property
     def in_sepa_zone(self) -> bool:
