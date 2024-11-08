@@ -6,8 +6,8 @@ from operator import itemgetter
 from typing import Any
 from typing import TYPE_CHECKING
 
-from pycountry import countries  # type: ignore
-from pycountry.db import Data  # type: ignore
+from iso3166 import countries  # type: ignore
+from iso3166 import Country
 
 from schwifty import common
 from schwifty import exceptions
@@ -472,9 +472,9 @@ class BIC(common.Base):
             return "default"
 
     @property
-    def country(self) -> Data | None:
+    def country(self) -> Country | None:
         """Country: The country this BIC is registered in."""
-        return countries.get(alpha_2=self.country_code)
+        return countries.get(self.country_code)
 
     @property
     def bank_code(self) -> str:

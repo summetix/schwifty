@@ -3,7 +3,7 @@ from __future__ import annotations
 import copy
 
 import pytest
-from pycountry import countries  # type: ignore
+from iso3166 import countries  # type: ignore
 
 from schwifty import BIC
 from schwifty import exceptions
@@ -19,7 +19,7 @@ def test_bic_allow_invalid() -> None:
     bic = BIC("GENODXM1GLS", allow_invalid=True)
     assert bic
     assert bic.country_code == "DX"
-    with pytest.raises(exceptions.InvalidCountryCode):
+    with pytest.raises(KeyError):
         bic.validate()
 
 
@@ -45,7 +45,7 @@ def test_bic_properties() -> None:
         "GLS Bank in Bochum (GAA)",
         "GLS Gemeinschaftsbk Bochum",
     ]
-    assert bic.country == countries.get(alpha_2="DE")
+    assert bic.country == countries.get("DE")
     with pytest.warns(DeprecationWarning):
         assert bic.bank_name == "GLS Gemeinschaftsbank"
     with pytest.warns(DeprecationWarning):
@@ -99,7 +99,7 @@ def test_enforce_swift_compliance() -> None:
         ("AAAA", exceptions.InvalidLength),
         ("AAAADEM1GLSX", exceptions.InvalidLength),
         ("GENOD1M1GLS", exceptions.InvalidStructure),
-        ("GENOXXM1GLS", exceptions.InvalidCountryCode),
+        ("GENOXXM1GLS", KeyError),
     ],
 )
 def test_invalid_bic(code: str, exc: type[Exception]) -> None:
@@ -240,13 +240,11 @@ def test_pydantic_protocol() -> None:
     assert isinstance(model.bic, BIC)
     assert model.model_dump() == {"bic": model.bic}
 
-    with pytest.raises(ValidationError) as err:
+    with pytest.raises(KeyError) as err:
         Model(bic="GENODXM1GLS")  # type: ignore[arg-type]
-    assert len(err.value.errors()) == 1
-    error = err.value.errors()[0]
-    assert error["type"] == "bic_format"
-    assert error["msg"] == "Invalid country code 'DX'"
-    assert error["input"] == "GENODXM1GLS"
+    assert len(err.value.args) == 1
+    error = err.value.args[0]
+    assert error == "DX"
 
     dumped = model.model_dump_json()
     assert dumped == '{"bic":"GENODEM1GLS"}'

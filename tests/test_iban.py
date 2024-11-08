@@ -3,7 +3,7 @@ from __future__ import annotations
 import copy
 
 import pytest
-from pycountry import countries  # type: ignore
+from iso3166 import countries  # type: ignore
 
 from schwifty import IBAN
 from schwifty.exceptions import SchwiftyException
@@ -181,7 +181,7 @@ sepa_countries = {
 def test_parse_iban(value: str) -> None:
     iban = IBAN(value, validate_bban=True)
     assert iban.formatted == value
-    assert iban.country == countries.get(alpha_2=iban.country_code)
+    assert iban.country == countries.get(iban.country_code)
     assert iban.in_sepa_zone is (iban.country_code in sepa_countries)
 
 
@@ -219,7 +219,7 @@ def test_iban_properties_de() -> None:
     assert iban.bic == "GENODEM1GLS"
     assert iban.formatted == "DE42 4306 0967 7000 5341 00"
     assert iban.length == len(iban) == 22
-    assert iban.country == countries.get(alpha_2="DE")
+    assert iban.country == countries.get("DE")
     assert iban.bank_name == "GLS Gemeinschaftsbank"
     assert iban.bank_short_name == "GLS Gemeinschaftsbk Bochum"
     assert iban.in_sepa_zone is True
@@ -231,7 +231,7 @@ def test_iban_properties_it() -> None:
     assert iban.branch_code == "11101"
     assert iban.account_code == "000000123456"
     assert iban.national_checksum_digits == "X"
-    assert iban.country == countries.get(alpha_2="IT")
+    assert iban.country == countries.get("IT")
     assert iban.bic == "BLOPIT22"
     assert iban.bank_name == "BANCA POPOLARE DI BERGAMO S.P.A."
     assert iban.in_sepa_zone is True
